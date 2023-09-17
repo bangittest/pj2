@@ -1,0 +1,23 @@
+:where(.css-dev-only-do-not-override-18iikkb).ant-btn-primary {
+    background-color: #1677ff !important;
+}
+
+:where(.css-dev-only-do-not-override-18iikkb).ant-btn-primary:hover {
+    background-color: #4096ff !important;
+}
+
+.ant-btn-primary {
+    background-color: #1677ff !important;
+}
+
+.ant-btn-primary:hover {
+    background-color: #4096ff;
+}
+
+/* .show {
+    display: block;
+}
+
+.hide {
+    display: none;
+} */

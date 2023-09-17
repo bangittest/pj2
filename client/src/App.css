@@ -1,0 +1,7 @@
+.offcanvas-menu-wrapper {
+  display: none !important;
+}
+
+.offcanvas-menu-wrapper.show {
+  display: block !important;
+}
