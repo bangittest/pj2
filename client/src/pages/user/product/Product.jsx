@@ -27,7 +27,7 @@ export default function Product() {
 
   //gọi API lấy tất cả thông tin sản phẩm
 
-  const loadDataProduct =  async() => {
+  const loadDataProduct = async () => {
     await instance
       .get("/products")
       .then((response) => {
@@ -49,8 +49,8 @@ export default function Product() {
   }, [categoryId]);
 
 
-   // Lấy ngẫu nhiên 8 sản phẩm từ mảng
-   const randomProducts = products.slice().sort(() => 0.5 - Math.random()).slice(0, 8);
+  // Lấy ngẫu nhiên 8 sản phẩm từ mảng
+  const randomProducts = products.slice().sort(() => 0.5 - Math.random()).slice(0, 8);
 
   return (
     <div>
@@ -66,15 +66,15 @@ export default function Product() {
               </div>
               <div className="col-lg-8 col-md-8">
                 <ul className="filter__controls">
-                  <li onClick={() => setCategoryId(0)}  className={
-                                  categoryId === 0
-                                    ? "active"
-                                    : {}
-                                }>
+                  <li onClick={() => setCategoryId(0)} className={
+                    categoryId === 0
+                      ? "active"
+                      : {}
+                  }>
                     All
                   </li>
                   {catagories.map((cat, index) => (
-                    <li onClick={()=>getCategoryId(cat.category_id)}  key={index} className={
+                    <li onClick={() => getCategoryId(cat.category_id)} key={index} className={
                       categoryId === cat.category_id
                         ? "active"
                         : {}
@@ -93,7 +93,7 @@ export default function Product() {
                     <div className="product__item__pic set-bg" data-setbg>
                       <img
                         className="product__item__pic set-bg image-container"
-                        src={product.image} 
+                        src={product.image}
                         alt=""
                       />
                       <div className="label new">New</div>
@@ -132,6 +132,8 @@ export default function Product() {
                 </div>
               ))}
             </div>
+          </div>
+          <div>
           </div>
         </section>
         {/* Product Section End */}

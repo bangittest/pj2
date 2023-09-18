@@ -6,11 +6,14 @@ import Footer from "../../../layout/user/footer/Footer";
 import { Link } from "react-router-dom";
 import { formatMoney } from "../../../utils/fomatVND";
 import { instance } from "../../../api/axios";
+import { Pagination } from "antd";
 
 export default function ListProduct() {
   const [catagories, setCatagories] = useState([]);
   const [products, setProducts] = useState([]);
   const [categoryId, setCategoryId] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(9);
 
   useEffect(() => {
     instance
@@ -30,7 +33,7 @@ export default function ListProduct() {
 
   //gọi API lấy tất cả thông tin sản phẩm
 
-  const loadDataProduct = async() => {
+  const loadDataProduct = async () => {
     await instance
       .get("/products")
       .then((response) => {
@@ -50,6 +53,16 @@ export default function ListProduct() {
   useEffect(() => {
     loadDataProduct();
   }, [categoryId]);
+
+  //tính toán chỉ mục sản phẩmbắt đầu vafchir mục san phẩm kết thúc
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = currentPage * pageSize;
+  const displayedProduct = products.slice(startIndex, endIndex);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div>
       <>
@@ -133,14 +146,17 @@ export default function ListProduct() {
                 </div>
               </div>
               <div className="col-lg-9 col-md-9">
+                <div className="section-title">
+                  <h4>ALL TYPES OF PRODUCTS</h4>
+                </div>
                 <div className="row">
-                  {products.map((product, index) => (
+                  {displayedProduct.map((product, index) => (
                     <div key={index} className="col-lg-4 col-md-6">
                       <div className="product__item">
                         <div className="product__item__pic set-bg" data-setbg>
                           <img
-                            className="product__item__pic set-bg image-container"          
-                            src={product.image} 
+                            className="product__item__pic set-bg image-container"
+                            src={product.image}
                             alt=""
                           />
                           <div className="label new">New</div>
@@ -180,6 +196,14 @@ export default function ListProduct() {
                       </div>
                     </div>
                   ))}
+                </div>
+                <div className="text-center mt-4 ">
+                  <Pagination
+                    current={currentPage}
+                    pageSize={pageSize}
+                    total={products.length}
+                    onChange={handlePageChange}
+                  />
                 </div>
               </div>
             </div>

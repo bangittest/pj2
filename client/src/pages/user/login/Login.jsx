@@ -4,6 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../../firebase/firebaseConfig";
 import { instance } from "../../../api/axios";
+import{LoginSocialFacebook} from "reactjs-social-login";
+import {FacebookLoginButton} from "react-social-login-buttons";
+
 
 export default function Login() {
   const navigate = useNavigate();
@@ -129,21 +132,81 @@ export default function Login() {
         });
       });
   };
+  // const [profile,setProfile]=useState(null)
+  const [profile, setProfile] = useState(null);
+
+  const handleLoginResolve = (response) => {
+    console.log(response);
+    setProfile(response.data);
+  };
+
+  const handleLoginReject = (error) => {
+    console.log(error);
+  };
+
+
+  
   return (
     <>
+    {/* <>
+      {!profile ? (
+        <LoginSocialFacebook
+          appId="677238851131951"
+          onResolve={(response) => {
+            console.log(response);
+            setProfile(response.data);
+          }}
+          onReject={(error) => {
+            console.log(error);
+          }}
+        >
+          <FacebookLoginButton />
+        </LoginSocialFacebook>
+      ) : (
+        <></>
+      )}
+      {profile ? (
+        <div>
+          <h1>{profile.name}</h1>
+          <img src={profile.picture} alt="" />
+        </div>
+      ) : (
+        ""
+      )}
+    </> */}
+
+<>
+      {!profile ? (
+        <LoginSocialFacebook
+          appId="677238851131951"
+          onResolve={handleLoginResolve}
+          onReject={handleLoginReject}
+        >
+          <FacebookLoginButton />
+        </LoginSocialFacebook>
+      ) : (
+        <>
+          <div>
+            <h1>{profile.name}</h1>
+            <img src={profile.picture} alt="" />
+          </div>
+        </>
+      )}
+    </>
       <div className="bg-gray-400 font-sans">
         <div className="min-h-screen flex items-center justify-center">
           <div className="bg-white p-8 shadow-lg flex flex-col items-center rounded w-2/6">
             <h2 className="text-2xl font-sans text-center mb-4">
-              Đăng Nhập
+            SIGN IN
             </h2>
             <form className="w-full" onSubmit={handleOnSumit}>
               <div className="mb-4">
                 <label htmlFor="username" className="block text-gray-600">
-                  Tên đăng nhập:
+                  Email address:
                 </label>
                 <input
                   type="text"
+                  placeholder="Enter email address . . ."
                   id="email"
                   name="email"
                   required=""
@@ -159,12 +222,13 @@ export default function Login() {
               </div>
               <div className="mb-6">
                 <label htmlFor="password" className="block text-gray-600">
-                  Mật khẩu:
+                Password:
                 </label>
                 <input
                   type="password"
                   id="password"
                   name="password"
+                  placeholder="Enter password . . ."
                   required=""
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
                   onChange={handleInputChange}
@@ -177,7 +241,7 @@ export default function Login() {
                 type="submit"
                 className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 mb-2"
               >
-                Đăng Nhập
+                SIGN IN
               </button>
               <div className="flex justify-between w-full">
                 <div>
@@ -185,7 +249,7 @@ export default function Login() {
                     to="/"
                     className="text-gray-500 hover:text-gray-700 transition duration-200"
                   >
-                    Quay lại
+                    Back
                   </Link>
                 </div>
                 <div>
@@ -193,31 +257,46 @@ export default function Login() {
                     href="/change_password"
                     className="text-blue-500 hover:text-blue-700 transition duration-200"
                   >
-                    Quên mật khẩu?
+                    Reset Password?
                   </Link>
                 </div>
               </div>
-              <div className="text-center mt-4">Hoặc</div>
+              <div className="text-center mt-4">Sign In With</div>
+              <div className="flex text-center justify-center gap-5">
               <a
                 onClick={signInWithGoogle}
                 href="#"
                 onclick="loginWithGoogle()"
-                className="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 flex items-center justify-center mt-2"
+                className=" w-32 bg-primary text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 flex items-center justify-center mt-2"
               >
                 <img
                   src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
                   alt="Google Logo"
                   className="w-6 h-6 mr-2"
                 />
-                Đăng Nhập với Google
+                Google
               </a>
+              <a 
+              onClick={signInWithGoogle}
+                href="#"
+                onclick="loginWithGoogle()"
+                className="w-32 bg-primary text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 flex items-center justify-center mt-2"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png"
+                  alt="Google Logo"
+                  className="w-6 h-6 mr-2"
+                />
+                Facebook
+              </a>
+              </div>
               <div className="text-center mt-4">
-                Bạn đã có tài khoản?{" "}
+              Do you already have an account?{" "}
                 <Link
                   className="text-blue-500 hover:text-blue-700 transition duration-200"
                   to="/register"
                 >
-                  Đăng ký
+                  Sign Up here
                 </Link>
               </div>
             </form>
