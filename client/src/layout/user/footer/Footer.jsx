@@ -57,16 +57,16 @@ export default function Footer() {
                 </div>
                 <div className="col-lg-2 col-md-3 col-sm-5">
                   <div className="footer10__widget text-center">
-                    <h6>Quick links</h6>
+                    <h6>Đường dẫn nhanh</h6>
                     <ul>
                       <li>
-                        <Link to="/about">About</Link>
+                        <Link to="/about">Giới thiệu</Link>
                       </li>
                       <li>
-                        <Link to="/blog">Blogs</Link>
+                        <Link to="/blog">Tin tức</Link>
                       </li>
                       <li>
-                        <Link to="/contact">Contact</Link>
+                        <Link to="/contact">Liên hệ</Link>
                       </li>
                       <li>
                         <Link to="#">FAQ</Link>
@@ -76,26 +76,26 @@ export default function Footer() {
                 </div>
                 <div className="col-lg-2 col-md-3 col-sm-4">
                   <div className="footer10__widget text-center">
-                    <h6>Account</h6>
+                    <h6>LIÊN KẾT NHANH</h6>
                     <ul className="">
                       <li>
-                        <Link to="#">My Account</Link>
+                        <Link to="/profile">Tài khoản của tôi</Link>
                       </li>
                       <li>
-                        <Link to="#">Orders Tracking</Link>
+                        <Link to="/history">Theo dõi đơn hàng</Link>
                       </li>
                       <li>
-                        <Link to="#">Checkout</Link>
+                        <Link to="/cart">Thủ tục thanh toán</Link>
                       </li>
                       <li>
-                        <Link to="#">Wishlist</Link>
+                        <Link to="#">Danh sách yêu thích</Link>
                       </li>
                     </ul>
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-8 col-sm-8">
                   <div className="footer10__newslatter">
-                    <h6>NEWSLETTER</h6>
+                    <h6>BẢN TIN</h6>
                     <form action="#">
                       <input type="text" placeholder="Email" />
                       <button type="button" className="site-btn">
@@ -126,7 +126,7 @@ export default function Footer() {
                 <div className="col-lg-12">
                   <div className="footer10__copyright__text">
                     <p>
-                      Copyright © All rights made with{" "}
+                      Copyright © All rights{" "}
                       <i className="fa fa-heart" aria-hidden="true" />{" "}
                       <Link to="#" target="_blank"></Link>
                     </p>

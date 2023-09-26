@@ -138,13 +138,13 @@ export default function Navbar({ setIsLoad, cartLength }) {
             <li>
               <Link to="#">
                 <span className="icon_heart_alt" />
-                <div className="tip">2</div>
+                <div className="tip"></div>
               </Link>
             </li>
             <li>
               <Link to="#">
                 <span className="icon_bag_alt" />
-                <div className="tip">2</div>
+                <div className="tip"></div>
               </Link>
             </li>
           </ul>
@@ -188,7 +188,7 @@ export default function Navbar({ setIsLoad, cartLength }) {
                       className={activeItem === "home" ? "active" : ""}
                       onClick={() => handleItemClick("home")}
                     >
-                      <Link to="/">Home</Link>
+                      <Link to="/">Trang chủ</Link>
                     </li>
                     {/* <li
                      className={activeItem === "women" ? "active" : ""}
@@ -200,7 +200,7 @@ export default function Navbar({ setIsLoad, cartLength }) {
                       className={activeItem === "shop" ? "active" : ""}
                       onClick={() => handleItemClick("shop")}
                     >
-                      <Link to="/list-product">Shop</Link>
+                      <Link to="/list-product">Sản phẩm</Link>
                     </li>
                     {/* <li>
                       <Link to="#">Pages</Link>
@@ -219,19 +219,19 @@ export default function Navbar({ setIsLoad, cartLength }) {
                       className={activeItem === "blog" ? "active" : ""}
                       onClick={() => handleItemClick("blog")}
                     >
-                      <Link to="/blog">Blog</Link>
+                      <Link to="/blog">Tin Tức</Link>
                     </li>
                     <li
                       className={activeItem === "about" ? "active" : ""}
                       onClick={() => handleItemClick("about")}
                     >
-                      <Link to="/about">About</Link>
+                      <Link to="/about">Giới Thiệu</Link>
                     </li>
                     <li
                       className={activeItem === "contact" ? "active" : ""}
                       onClick={() => handleItemClick("contact")}
                     >
-                      <Link to="/contact">Contact</Link>
+                      <Link to="/contact">Liên Hệ</Link>
                     </li>
                   </ul>
                 </nav>
@@ -260,8 +260,8 @@ export default function Navbar({ setIsLoad, cartLength }) {
                               <img
                                 className="rounded-full"
                                 src={userLogin.image}
-                                height={26}
-                                width={26}
+                                height={20}
+                                width={20}
                                 style={{ objectFit: "cover" }}
                                 // alt="avatar"
                               />
@@ -272,8 +272,22 @@ export default function Navbar({ setIsLoad, cartLength }) {
                       </>
                     ) : (
                       <>
-                        <Link to="/login">Login</Link>
-                        <Link to="/register">Register</Link>
+                        <Link to="/login">
+                          <div className="flex">
+                            <div>
+                              <svg
+                                fontSize={24}
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="0.875em"
+                                viewBox="0 0 448 512"
+                              >
+                                <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+                              </svg>
+                            </div>
+                            <div className="">+Đăng nhập</div>
+                          </div>
+                        </Link>
+                        {/* <Link to="/register">Register</Link> */}
                       </>
                     )}
                   </div>

@@ -111,7 +111,7 @@ export default function Profile() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       {load && <Loading />}
       <div className="container mt-16">
         <div className="container-fluid mt--7">
@@ -240,7 +240,8 @@ export default function Profile() {
 
                     <div className="flex justify-between text-right">
                       <div className="px-5 py-2 underline">
-                        <Link to="/">Quay lại</Link>
+                        <Link to="/">q</Link>
+                        <Link to="/admin">Quay lại</Link>
                       </div>
                       <div>
                         <button
@@ -259,7 +260,7 @@ export default function Profile() {
         </div>
       </div>
       <hr className="mt-14" />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

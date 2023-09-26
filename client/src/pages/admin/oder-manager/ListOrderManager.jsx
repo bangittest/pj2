@@ -98,7 +98,9 @@ export default function ListOrderManager() {
             <table className="w-full whitespace-no-wrap">
               <thead>
                 <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                  <th className="border p-2 text-center">Id</th>
+                  <th className="border p-2 text-center" title="Số thứ tự">
+                    STT
+                  </th>
 
                   <th className="border p-2 text-center">Họ và tên</th>
                   <th className="border p-2 text-center">Địa chỉ</th>
@@ -121,8 +123,7 @@ export default function ListOrderManager() {
 
                     <td className="border p-2 text-center">
                       {order.products.map(
-                        (pr) =>
-                          `so luong sp ${pr.product_name} la: ${pr.quantity}; `
+                        (pr) => `${pr.product_name}: ${pr.quantity}; `
                       )}
                     </td>
                     <td className="border p-2 text-center">
@@ -140,10 +141,16 @@ export default function ListOrderManager() {
                       <div className="flex justify-center  space-x-4 text-sm">
                         {order.status == 0 && (
                           <>
-                            <Button onClick={() => handleAccept(order.id)}>
+                            <Button
+                              onClick={() => handleAccept(order.id)}
+                              className="bg-green-500 hover:bg-green-600 text-white font-semibold  rounded focus:outline-none focus:shadow-outline-green active:bg-green-700"
+                            >
                               Xác nhận
                             </Button>
-                            <Button onClick={() => handleCancel(order.id)}>
+                            <Button
+                              onClick={() => handleCancel(order.id)}
+                              className="bg-red-500 hover:bg-red-600 text-white font-semibold  rounded focus:outline-none focus:shadow-outline-red active:bg-red-700"
+                            >
                               Hủy
                             </Button>
                           </>

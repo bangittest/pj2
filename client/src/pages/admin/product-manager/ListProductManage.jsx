@@ -129,7 +129,9 @@ export default function ListProductManager() {
             <table className="border w-full whitespace-no-wrap">
               <thead>
                 <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                  <th className="border p-2 text-center">ID</th>
+                  <th className="border p-2 text-center" title="Số thứ tự">
+                    STT
+                  </th>
                   <th className="border p-2 text-center">Ảnh</th>
                   <th className="border p-2 text-center">Tên giảm phẩm</th>
                   <th className="border p-2 text-center">Giá tiền</th>

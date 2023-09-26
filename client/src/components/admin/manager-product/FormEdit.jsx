@@ -120,7 +120,7 @@ export default function FormEdit({ handleCloseEdit, idEdit }) {
           <div className="">
             <div className="mb-3 text-start">
               <label htmlFor="product_name" className="form-label">
-                Tên sản phẩm:
+                Tên sản phẩm
               </label>
               <Input
                 value={product.product_name}
@@ -134,7 +134,7 @@ export default function FormEdit({ handleCloseEdit, idEdit }) {
           <div className="flex gap-5">
             <div className="mb-3 text-start">
               <label htmlFor="price" className="form-label">
-                Giá tiền:
+                Giá tiền
               </label>
               <Input
                 value={product.price}
@@ -180,7 +180,7 @@ export default function FormEdit({ handleCloseEdit, idEdit }) {
             </div>
             <div className="mb-3 text-start">
               <label htmlFor="from" className="form-label">
-                Xuất xứ:
+                Xuất xứ
               </label>
               <Input
                 onChange={handleChange}
@@ -194,7 +194,7 @@ export default function FormEdit({ handleCloseEdit, idEdit }) {
 
           <div className="mb-3 text-start">
             <label htmlFor="image" className="form-label">
-              Ảnh:
+              Hình ảnh
             </label>
             <div
               style={{
@@ -203,15 +203,18 @@ export default function FormEdit({ handleCloseEdit, idEdit }) {
                 margin: "10px 0",
               }}
             >
-              <img
-                width={90}
-                height={90}
-                style={{ objectFit: "cover" }}
-                src={linkImage}
-                alt="img"
-              />
+              <label htmlFor="image">
+                <img
+                  width={90}
+                  height={90}
+                  style={{ objectFit: "cover" }}
+                  src={linkImage}
+                  alt="img"
+                />
+              </label>
             </div>
-            <Input
+            <input
+              hidden
               onChange={handleChoosePhoto}
               type="file"
               id="image"
@@ -223,7 +226,7 @@ export default function FormEdit({ handleCloseEdit, idEdit }) {
           </div>
           <div className="mb-3 text-start">
             <label htmlFor="description" className="form-label">
-              Mô tả:
+              Mô tả
             </label>
             <TextArea
               value={product.description}

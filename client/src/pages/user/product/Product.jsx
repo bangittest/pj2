@@ -5,6 +5,8 @@ import { formattedAmount } from "../../../utils/fomatMoney";
 import Loading from "../../../components/base/loading/Loading";
 import { Image, Pagination, notification } from "antd";
 import { formatMoney } from "./../../../utils/validateData";
+import { ArrowRightOutlined } from "@ant-design/icons";
+import { Button } from "antd/es/radio";
 
 export default function Product({ setIsLoad }) {
   const [catagories, setCatagories] = useState([]);
@@ -12,8 +14,8 @@ export default function Product({ setIsLoad }) {
   const [categoryId, setCategoryId] = useState(0);
   const [load, setLoading] = useState(false);
   const [carts, setCarts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(8);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [pageSize, setPageSize] = useState(8);
 
   useEffect(() => {
     instance
@@ -113,13 +115,13 @@ export default function Product({ setIsLoad }) {
   }, [categoryId]);
 
   // Tính toán chỉ mục sản phẩm bắt đầu và kết thúc
-  const startIndex = (currentPage - 1) * pageSize;
-  const endIndex = currentPage * pageSize;
-  const displayedProduct = products.slice(startIndex, endIndex);
+  // const startIndex = (currentPage - 1) * pageSize;
+  // const endIndex = currentPage * pageSize;
+  // const displayedProduct = products.slice(startIndex, endIndex);
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+  // const handlePageChange = (page) => {
+  //   setCurrentPage(page);
+  // };
 
   return (
     <div>
@@ -155,7 +157,7 @@ export default function Product({ setIsLoad }) {
               </div>
             </div>
             <div className="row property__gallery">
-              {displayedProduct.map((product, index) => (
+              {products.splice(0, 8).map((product, index) => (
                 <div
                   key={index}
                   className="col-lg-3 col-md-4 col-sm-6 mix women"
@@ -167,7 +169,7 @@ export default function Product({ setIsLoad }) {
                         src={product.image}
                         alt=""
                       />
-                      <div className="label new">Sale</div>
+                      <div className="label new">New</div>
                       <ul className="product__hover">
                         <li>
                           <Link to="#" className="image-popup">
@@ -212,12 +214,18 @@ export default function Product({ setIsLoad }) {
             </div>
           </div>
           <div className="text-center">
-            <Pagination
+            {/* <Pagination
               current={currentPage}
               pageSize={pageSize}
               total={products.length}
               onChange={handlePageChange}
-            />
+            /> */}
+            <Link to="/list-product">
+              <Button className="bg-slate-200">
+                {" "}
+                Xem tất cả <ArrowRightOutlined />
+              </Button>
+            </Link>
           </div>
         </section>
       </>

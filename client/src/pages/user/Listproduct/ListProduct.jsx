@@ -17,7 +17,7 @@ export default function ListProduct({ cartLength, setIsLoad }) {
   const [products, setProducts] = useState([]);
   const [categoryId, setCategoryId] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(9);
+  const [pageSize, setPageSize] = useState(12);
   const [load, setLoading] = useState(false);
   const [carts, setCarts] = useState({ cart: [] }); // Sử dụng object cart để thêm một layer
   const [search, setSearch] = useState("");
@@ -274,7 +274,7 @@ export default function ListProduct({ cartLength, setIsLoad }) {
                             src={product.image}
                             alt=""
                           />
-                          <div className="label new">New</div>
+                          <div className="label new">Sale</div>
                           <ul className="product__hover">
                             <li>
                               <Link to="#" className="image-popup">

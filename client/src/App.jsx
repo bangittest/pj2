@@ -39,7 +39,7 @@ function App() {
     setCartLength(res.data.cart.length);
   };
 
-  const userLocal = JSON.parse(localStorage.getItem("userLocal"));
+  // const userLocal = JSON.parse(localStorage.getItem("userLocal"));
   // khi chuyen trang, thi mac dinh day len tren
 
   useEffect(() => {
@@ -48,11 +48,11 @@ function App() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    if (userLocal) {
-      if (userLocal.role === 0 && !location.pathname.startsWith("/admin")) {
-        window.location.href = "/admin";
-      }
-    }
+    // if (userLocal) {
+    //   if (userLocal.role === 0 && !location.pathname.startsWith("/admin")) {
+    //     window.location.href = "/admin";
+    //   }
+    // }
   }, [location.pathname]);
 
   return (
@@ -117,6 +117,7 @@ function App() {
           <Route path="order" element={<ListOrderManager />} />
           <Route path="users" element={<ListUserManager />} />
         </Route>
+
         <Route />
       </Routes>
     </>

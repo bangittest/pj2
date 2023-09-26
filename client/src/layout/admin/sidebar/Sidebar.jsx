@@ -94,7 +94,7 @@ export default function Sidebar() {
                   <path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
                   <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                 </svg>
-                <span className="ml-4">Quản lý order</span>
+                <span className="ml-4">Quản lý đơn hàng</span>
               </NavLink>
             </li>
             <li className="relative px-6 py-3">
@@ -117,68 +117,6 @@ export default function Sidebar() {
                 <span className="ml-4">Quản lý danh mục</span>
               </NavLink>
             </li>
-            {/* <li className="relative px-6 py-3">
-              <NavLink
-                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                to="#"
-              >
-                <svg
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                </svg>
-                <span className="ml-4">Histoty</span>
-              </NavLink>
-            </li> */}
-            {/* <li className="relative px-6 py-3">
-              <NavLink
-                className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                to="#"
-              >
-                <svg
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
-                </svg>
-                <span className="ml-4">Tables</span>
-              </NavLink>
-            </li>
-            <li className="relative px-6 py-3">
-              <button
-                className="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                aria-haspopup="true"
-              >
-                <span className="inline-flex items-center">
-                  <svg
-                    className="w-5 h-5"
-                    aria-hidden="true"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
-                  </svg>
-                  <span className="ml-4">Pages</span>
-                </span>
-              </button>
-            </li> */}
           </ul>
         </div>
       </aside>

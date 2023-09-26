@@ -4,10 +4,8 @@ import { Link } from "react-router-dom";
 import { instance } from "../../../api/axios";
 
 export default function Slider() {
-
-
   const [sliderHeight, setSliderHeight] = useState("32rem");
-  const [slider,setSlider]=useState([])
+  const [slider, setSlider] = useState([]);
 
   useEffect(() => {
     function handleResize() {
@@ -35,7 +33,6 @@ export default function Slider() {
     };
   }, []);
 
-
   const contentStyle = {
     height: sliderHeight, // Sử dụng chiều cao được tính toán
     textAlign: "center",
@@ -59,40 +56,45 @@ export default function Slider() {
     textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
   };
 
-  const buttonStyle = {
-    position: "absolute",
-    bottom: "10rem", // Điều chỉnh vị trí của nút bấm
-    // left: "50%",
-    transform: "translateX(-50%)",
-    textAlign:"center",
-    padding: "1rem 3rem 1rem 3rem",
+  // const buttonStyle = {
+  //   position: "absolute",
+  //   bottom: "10rem", // Điều chỉnh vị trí của nút bấm
+  //   // left: "50%",
+  //   transform: "translateX(-50%)",
+  //   textAlign:"center",
+  //   padding: "1rem 3rem 1rem 3rem",
 
-  };
+  // };
 
-
-  useEffect(()=>{
-  instance
-  .get("/slider")
-  .then((response)=>setSlider(response.data))
-  .catch((error)=>console.log(error))
-},[])
+  useEffect(() => {
+    instance
+      .get("/slider")
+      .then((response) => setSlider(response.data))
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <Carousel autoplay>
-      {slider.map(sli => <div  key={sli.id}>
-        <div style={contentStyle}>
-          <img src={sli.image} alt="" className="block w-full"/>
-          <div style={{...textStyles,...whiteTextStyles}}>
-            <h3 style={{color:"white"}}>{sli.title}</h3>
-            <p style={{color:"white",fontSize:"25px" ,marginTop:"10px"}}>{sli.description}</p>
-          </div>
-            <Link to="/list-product">
+      {slider.map((sli) => (
+        <div key={sli.id}>
+          <div style={contentStyle}>
+            <img src={sli.image} alt="" className="block w-full" />
+            <div style={{ ...textStyles, ...whiteTextStyles }}>
+              <h3 style={{ color: "white" }}>{sli.title}</h3>
+              <p
+                style={{ color: "white", fontSize: "25px", marginTop: "10px" }}
+              >
+                {sli.description}
+              </p>
+            </div>
+            {/* <Link to="/list-product">
           <button className="bg-blue-500 rounded-md hover:bg-blue-50" style={buttonStyle} type="primary">
-          SHOPNOW
+          SHOP NOW
           </button>
-          </Link>
+          </Link> */}
+          </div>
         </div>
-      </div>)}
+      ))}
     </Carousel>
-  )
+  );
 }

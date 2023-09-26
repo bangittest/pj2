@@ -1,0 +1,17 @@
+ /* Estilos para el señalador de posición (border-left) */
+ .sidebar li:hover a::before {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 4px;
+     background: linear-gradient(to bottom, #00FFFF, #008080);
+     /* Gradiente cyan */
+ }
+
+ /* Estilos para cambiar el color del ícono y el texto a blanco al pasar el cursor */
+ .sidebar li:hover a i,
+ .sidebar li:hover a span {
+     color: white;
+ }

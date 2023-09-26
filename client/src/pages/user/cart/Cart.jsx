@@ -25,10 +25,6 @@ export default function Cart({ cartLength, setIsLoad }) {
   //check dang nhap moi dc vao gio hang
   const userLocal = JSON.parse(localStorage.getItem("userLocal"));
   if (userLocal === null) {
-    notification.error({
-      message: "Thất bại",
-      description: "Vui lòng hãy đăng nhập",
-    });
     navigate("/login");
   }
 
@@ -110,11 +106,12 @@ export default function Cart({ cartLength, setIsLoad }) {
       setLoad(true);
       instance
         .put(`/carts/${CartId}`, cartUser)
-        .then((response) =>
-          notification.success({
-            message: "Thành công",
-            description: "Số lượng đã được thay đổi",
-          })
+        .then(
+          (response) => console.log(response)
+          // notification.success({
+          //   message: "Thành công",
+          //   description: "Số lượng đã được thay đổi",
+          // })
         )
         .finally(() => setLoad(false));
     } else {
@@ -138,11 +135,12 @@ export default function Cart({ cartLength, setIsLoad }) {
     setLoad(true);
     instance
       .put(`/carts/${CartId}`, cartUser)
-      .then((response) =>
-        notification.success({
-          message: "Thành công",
-          description: "Số lượng đã được thay đổi",
-        })
+      .then(
+        (response) => console.log(response)
+        // notification.success({
+        //   message: "Thành công",
+        //   description: "Số lượng đã được thay đổi",
+        // })
       )
       .finally(() => setLoad(false));
     setIsLoad((pre) => !pre);

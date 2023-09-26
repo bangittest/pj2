@@ -277,9 +277,6 @@ export default function History({ cartLength, setIsLoad }) {
               </tbody>
             </table>
           </div>
-          <div className="px-5 py-2 underline">
-            <Link to="/">Quay lại</Link>
-          </div>
         </div>
       </div>
 

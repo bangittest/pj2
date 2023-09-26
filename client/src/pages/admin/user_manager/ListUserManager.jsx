@@ -57,7 +57,9 @@ export default function ListUserManager() {
             <table className="border w-full whitespace-no-wrap">
               <thead>
                 <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                  <th className="border p-2 text-center">Id</th>
+                  <th className="border p-2 text-center" title="Số thứ tự">
+                    STT
+                  </th>
                   <th className="border p-2 text-center">email</th>
                   <th className="border p-2 text-center">Giới tính</th>
                   <th className="border p-2 text-center">Ngày sinh</th>

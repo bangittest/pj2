@@ -24,10 +24,10 @@ export default function Adminhome() {
               </div>
               <div>
                 <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  Total clients
+                  Tổng số khách hàng
                 </p>
                 <p className="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                  6389
+                  3
                 </p>
               </div>
             </div>
@@ -48,10 +48,10 @@ export default function Adminhome() {
               </div>
               <div>
                 <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  Account balance
+                  Số dư tài khoản
                 </p>
                 <p className="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                  46,760.89
+                  46.760.899đ
                 </p>
               </div>
             </div>
@@ -68,10 +68,10 @@ export default function Adminhome() {
               </div>
               <div>
                 <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  New sales
+                  Bán hàng mới
                 </p>
                 <p className="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                  376
+                  22
                 </p>
               </div>
             </div>
@@ -92,10 +92,10 @@ export default function Adminhome() {
               </div>
               <div>
                 <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  Pending contacts
+                  Đang chờ xử lý
                 </p>
                 <p className="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                  35
+                  3
                 </p>
               </div>
             </div>

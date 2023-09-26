@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Footer from "../../../layout/user/footer/Footer";
 import { instance } from "../../../api/axios";
 import { formattedAmount } from "../../../utils/fomatMoney";
-import { notification } from "antd";
+import { Image, notification } from "antd";
 import { formatMoney } from "../../../utils/validateData";
 
 export default function Description({ cartLength, setIsLoad }) {
@@ -93,11 +93,11 @@ export default function Description({ cartLength, setIsLoad }) {
       {/* Product Details Section Begin */}
       <section className="product-details spad">
         <div className="container">
-          <div className="row p-8 bg-gray-100 rounded-lg">
-            <div className="col-lg-6">
+          <div className="justify-center row p-8 bg-gray-100 rounded-lg gap-20">
+            <div className="">
               <div className="product__details__pic">
                 <Link to="#">
-                  <img
+                  <Image
                     width={300}
                     height={350}
                     style={{ objectFit: "cover" }}
@@ -116,19 +116,28 @@ export default function Description({ cartLength, setIsLoad }) {
                   <i className="fa fa-star" /> <i className="fa fa-star" />{" "}
                   <i className="fa fa-star" /> <i className="fa fa-star" />{" "}
                   <i className="fa fa-star" />
-                  <span className="text-gray-500">(138 reviews)</span>
+                  <span className="text-gray-500"></span>
                 </div>
-                <div className="product__details__price mt-4 text-3xl font-semibold">
+                <div className="product__details__price text-3xl font-semibold">
                   {formatMoney(product.price)}
                 </div>
-                <div className="product__details__text mt-6">
+
+                <div className="product__details__text ">
                   <h3 className="text-lg font-semibold">Xuất xứ</h3>
                 </div>
                 <p className="text-gray-600">{product.from}</p>
-                <div className="product__details__text mt-6">
+                {/* <ul>
+                  <li>
+                    <span className="font-semibold">Khuyến mãi:</span>
+                    <p>Miễn phí ship</p>
+                  </li>
+                </ul> */}
+                {/* <div className="product__details__widget"></div> */}
+                <div className="product__details__text ">
                   <h3 className="text-lg font-semibold">Mô tả</h3>
                 </div>
-                <p className="text-gray-600">{product.description}</p>
+
+                <p className="text-gray-600"> {product.description}...</p>
                 <div className="product__details__button mt-6">
                   <Link
                     onClick={() => handleAddtoCart(product.id)}
@@ -138,23 +147,15 @@ export default function Description({ cartLength, setIsLoad }) {
                     <span className="icon_bag_alt mr-2" /> Add to cart
                   </Link>
                 </div>
-                <div className="product__details__widget mt-6">
-                  <ul>
-                    <li>
-                      <span className="font-semibold">Promotions:</span>
-                      <p>Free shipping</p>
-                    </li>
-                  </ul>
-                </div>
               </div>
             </div>
 
-            <div className="col-lg-12">
-              <div className="product__details__tab mt-8">
+            {/* <div className="col-lg-12">
+              <div className="product__details__tab ">
                 <ul className="nav nav-tabs" role="tablist">
                   <li className="nav-item">
                     <Link
-                      className="nav-link active"
+                      className="nav-link"
                       data-toggle="tab"
                       to="#tabs-1"
                       role="tab"
@@ -172,7 +173,7 @@ export default function Description({ cartLength, setIsLoad }) {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

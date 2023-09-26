@@ -122,7 +122,7 @@ export default function FormAdd({ handleCloseForm }) {
           <h3 className="text-center font-bold mb-4">THÊM MỚI SẢN PHẨM</h3>
           <div className="">
             <div className="mb-3 text-start">
-              <label className="form-label">Tên sản phẩm:</label>
+              <label className="form-label">Tên sản phẩm</label>
               <Input
                 onChange={handleChange}
                 type="text"
@@ -134,7 +134,7 @@ export default function FormAdd({ handleCloseForm }) {
           <div className="flex gap-5">
             <div className="mb-3 text-start">
               <label htmlFor="price" className="form-label">
-                Giá tiền:
+                Giá tiền
               </label>
               <Input
                 onChange={handleChange}
@@ -145,7 +145,7 @@ export default function FormAdd({ handleCloseForm }) {
               />
             </div>
             <div className="mb-3 text-start">
-              <label htmlFor="quantity">Số lượng:</label>
+              <label htmlFor="quantity">Số lượng</label>
               <Input
                 onChange={handleChange}
                 type="number"
@@ -159,14 +159,14 @@ export default function FormAdd({ handleCloseForm }) {
           <div className="flex gap-5">
             <div className="mb-3 text-start">
               <label className="form-label" htmlFor="">
-                Phân loại:
+                Phân loại
               </label>
               <select
                 className="w-full bg-white border border-red-500 rounded px-3 py-1.5 focus:outline-none focus:border-green-500"
                 style={{ border: "2" }}
                 placeholder="phân loại"
                 name="category_id"
-                value={1}
+                // value={1}
                 id="category_id"
                 onChange={handleChange}
               >
@@ -180,7 +180,7 @@ export default function FormAdd({ handleCloseForm }) {
 
             <div className="mb-3 text-start">
               <label htmlFor="from" className="form-label">
-                Xuất xứ:
+                Xuất xứ
               </label>
               <Input
                 onChange={handleChange}
@@ -204,7 +204,7 @@ export default function FormAdd({ handleCloseForm }) {
           </div>
           <div className="mb-3 text-start">
             <label htmlFor="description" className="form-label">
-              Mô tả:
+              Mô tả
             </label>
             <TextArea
               onChange={handleChange}

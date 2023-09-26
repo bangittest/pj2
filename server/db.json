@@ -5,10 +5,11 @@
       "password": "$2a$10$B7cEU6AcFeKlO8DOGBVfqewT5.2HfsvrHtuVwxLnxOm2quuPOiRzm",
       "image": "https://static.thenounproject.com/png/5034901-200.png",
       "user_name": "admin",
-      "dateOfBirthday": "2023-09-17",
+      "dateOfBirthday": "2001-05-10",
       "gender": 2,
       "role": 0,
       "id": 1,
+      "address": "Hà Nội",
       "cart": [],
       "bill": [],
       "active": false
@@ -80,24 +81,16 @@
   ],
   "categories": [
     {
-      "category_name": "quần áo",
+      "category_name": "Nữ",
       "id": 1
     },
     {
-      "id": 2,
-      "category_name": "Men’s"
+      "category_name": "Nam",
+      "id": 2
     },
     {
-      "id": 3,
-      "category_name": "Kid’s"
-    },
-    {
-      "id": 4,
-      "category_name": "Accessories"
-    },
-    {
-      "id": 5,
-      "category_name": "Cosmetics"
+      "category_name": "Trẻ em",
+      "id": 3
     }
   ],
   "carts": [
@@ -106,477 +99,394 @@
       "id": 1
     },
     {
-      "userId": 1,
-      "cart": [],
+      "userId": 9,
+      "cart": [
+        {
+          "idProduct": 5,
+          "quantity": 1
+        }
+      ],
       "id": 2
     },
     {
-      "userId": 9,
+      "userId": 1,
       "cart": [],
-      "id": 6
-    },
-    {
-      "cart": [],
-      "id": 7
-    },
-    {
-      "userId": 11,
-      "cart": [],
-      "id": 10
-    },
-    {
-      "userId": 12,
-      "cart": [],
-      "id": 11
+      "id": 3
     }
   ],
   "orders": [
     {
       "products": [
         {
-          "id": 11,
-          "product_name": "Loa không dây",
-          "price": 900000,
-          "description": "Loa không dây với âm thanh chất lượng cao",
-          "from": "Siêu thị điện tử XYZ",
-          "category_id": "2",
-          "image": "https://aothudong.com/upload/product/atd-344/bo-quan-ao-the-thao-gio-den-nam.jpg",
-          "discount": 5,
-          "quantity": 2
+          "product_name": "DAISY DRESS - ĐẦM KẾT HOA NHẸ NHÀNG",
+          "price": "1890000",
+          "description": "Đón hè nhẹ nhàng với thiết kế đầm hoa mang vẻ đẹp ngọt ngào và lãng mạn. Đầm phối ren hai lớp, độ dài qua gối, tạo điểm nhấn cắt tỉa tại điểm cuối giúp Daisy như đóa hoa đang tỏa ngát hương. Lựa chọn cầu vai xếp li bồng nhẹ với độ dài tay vừa phải, thành công che khuyết điểm bắp tay chưa được thon thả lắm. \n\nThiết kế đầm trẻ trung, nâng đỡ nhẹ nhàng cơ thể, luôn giữ được độ gọn gàng. Cùng với đó, đầm sở hữu chất liệu tằm ren cao cấp, nàng thoải mái diện ngày hè mà không lo bí bách, khó chịu.\n\nThông tin mẫu:\n\nChiều cao: 167 cm\n\nCân nặng: 50 kg\n\nSố đo 3 vòng: 83-65-93 cm\n\nMẫu mặc size M Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fc8c026a7142cc648f24a6843c9401b14.jpg?alt=media&token=597c1daf-7598-42c2-a4b5-a1a8462f1623",
+          "quantity": 1,
+          "category_id": 1,
+          "id": 10
         },
         {
-          "id": 10,
-          "product_name": "Túi xách nữ",
-          "price": 500000,
-          "description": "Túi xách nữ thời trang",
-          "from": "Cửa hàng thời trang ABC",
-          "category_id": "2",
-          "image": "https://lavenderstudio.com.vn/wp-content/uploads/2021/06/cach-chup-hinh-san-pham-quan-ao-dep-1.jpg",
-          "discount": 0,
-          "quantity": 3
+          "product_name": "ÁO 3 LỖ (KÈM QUẦN) WE RUN THIS",
+          "price": "390000",
+          "description": "Áo thun 3 lỗ, cổ tròn. Dáng xuông. Mặt trước in chữ và hình nhiều màu sắc. Quần cạp chun co giãn, có 2 túi chéo đi kèm. Quần có 3 màu ( Xanh coban - Kẻ Xanh và Đỏ sẽ được gửi ngẫu nhiên)",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fea88937db9f32e95cfa497e2fdda5d7c.jpg?alt=media&token=d12f049a-a8cf-4a8e-9a6e-8daceef2e705",
+          "quantity": 1,
+          "category_id": 3,
+          "id": 25
         },
         {
-          "id": 12,
-          "product_name": "Máy ảnh kỹ thuật số",
-          "price": 1800000,
-          "description": "Máy ảnh kỹ thuật số cho nhiếp ảnh gia",
-          "from": "Cửa hàng điện tử EFG",
-          "category_id": "3",
-          "image": "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/07/set-nu-hi-lam-in-cantho-696x1001.jpg?fit=700%2C20000&quality=95&ssl=1",
-          "discount": 5,
-          "quantity": 1
+          "product_name": "Áo sơ mi vỏ hàu",
+          "price": "1290000",
+          "description": "- Áo sơ mi vỏ hàu với thiết kế cổ đức, tay dài, kiểu dáng Regular hiện đại. Nền vải là họa tiết kẻ mờ nhỏ. Cổ tay có 2 khuy. Phía trước có túi và thêu logo Metagent thời thượng. \n\n- Chất liệu thoáng mát, form dáng này phù hợp cho những quý anh muốn thoải mái khi mặc áo sơ mi. Ngoài ra, phần eo rộng hơn cùng giúp dáng người trở nên vuông vắn và thu hút hơn.\n\nThông tin mẫu:\n\nChiều cao: 185 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 92-78-98 cm\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F76a40082a976382ae754ed7dd60f801c.jpg?alt=media&token=d915538d-9488-4645-8680-eb0ebd4f237a",
+          "quantity": 1,
+          "category_id": 2,
+          "id": 11
         },
         {
-          "id": 13,
-          "product_name": "Thảm trải sàn",
-          "price": 300000,
-          "description": "Thảm trải sàn cho phòng khách",
-          "from": "Cửa hàng nội thất XYZ",
-          "category_id": "4",
-          "image": "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/07/dam-vay-nang-tho-696x696.jpg?fit=700%2C20000&quality=95&ssl=1",
-          "discount": 20,
-          "quantity": 1
-        },
-        {
-          "id": 14,
-          "product_name": "Bình đun nước",
-          "price": 150000,
-          "description": "Bình đun nước nhanh chóng",
-          "from": "Trung tâm điện máy PQR",
-          "category_id": "3",
-          "image": "https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg",
-          "discount": 0,
-          "quantity": 1
-        },
-        {
-          "id": 15,
-          "product_name": "Vòng cổ vàng",
-          "price": 7500000,
-          "description": "Vòng cổ vàng sang trọng",
-          "from": "Cửa hàng trang sức XYZ",
-          "category_id": "2",
-          "image": "https://salt.tikicdn.com/cache/w1200/ts/product/3e/ef/ed/7ab241d3b24e5e726575a375feeb504c.jpg",
-          "discount": 15,
-          "quantity": 1
+          "product_name": "ĐẦM LỤA PHỐI CÀNH HOA",
+          "price": "1190000",
+          "description": "Thiết kế váy xòe, được làm từ chất liệu lụa. Tay áo xếp lớp, chất liệu voan xuyên thấu nhẹ. Đuôi váy được nhấn bèo và có độ xòe tự nhiên. Dọc thân váy là phụ kiện cành hoa được đính kết tỉ mỉ.\n\nMàu sắc: Trắng - Nude\n\nMẫu mặc size 8-9:\n\nChiều cao 1m29\nCân nặng 29,5kg",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fb097fe69578bd57578a84e619a312fdd.jpg?alt=media&token=1a84b4d9-76df-4ef4-972f-b638207f9881",
+          "quantity": 1,
+          "category_id": 3,
+          "id": 28
         }
       ],
       "userId": 9,
-      "date": "08:14:37 26/9/2023",
-      "total": 13050000,
-      "status": 2,
-      "username": "m gngfbfvrthfd",
+      "date": "22:31:38 26/9/2023",
+      "total": 4760000,
+      "status": 0,
+      "username": "m gngfbfv",
       "address": "bangaaa@gmail.com",
-      "id": 1
-    },
-    {
-      "products": [
-        {
-          "id": 11,
-          "product_name": "Loa không dây",
-          "price": 900000,
-          "description": "Loa không dây với âm thanh chất lượng cao",
-          "from": "Siêu thị điện tử XYZ",
-          "category_id": "2",
-          "image": "https://aothudong.com/upload/product/atd-344/bo-quan-ao-the-thao-gio-den-nam.jpg",
-          "discount": 5,
-          "quantity": 1
-        },
-        {
-          "id": 12,
-          "product_name": "Máy ảnh kỹ thuật số",
-          "price": 1800000,
-          "description": "Máy ảnh kỹ thuật số cho nhiếp ảnh gia",
-          "from": "Cửa hàng điện tử EFG",
-          "category_id": "3",
-          "image": "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/07/set-nu-hi-lam-in-cantho-696x1001.jpg?fit=700%2C20000&quality=95&ssl=1",
-          "discount": 5,
-          "quantity": 1
-        },
-        {
-          "id": 17,
-          "product_name": "Máy sấy tóc",
-          "price": 250000,
-          "description": "Máy sấy tóc tiện lợi",
-          "from": "Cửa hàng điện tử XYZ",
-          "category_id": "4",
-          "image": "https://giadinh.mediacdn.vn/296230595582509056/2023/5/17/-thu-hut-moi-anh-nhin-soi-style-3-chi-dep-thirty-nine-son-ye-jin-co-doi-1671335262-797-width600height600-16842262761111030084562-1684314963113-16843149634352062099717.jpg",
-          "discount": 10,
-          "quantity": 1
-        }
-      ],
-      "date": "13:59:56 26/9/2023",
-      "total": 2950000,
-      "status": 2,
-      "username": "nguyễn bang",
-      "address": "hà nội",
-      "id": 2
-    },
-    {
-      "products": [
-        {
-          "id": 11,
-          "product_name": "Loa không dây",
-          "price": 900000,
-          "description": "Loa không dây với âm thanh chất lượng cao",
-          "from": "Siêu thị điện tử XYZ",
-          "category_id": "2",
-          "image": "https://aothudong.com/upload/product/atd-344/bo-quan-ao-the-thao-gio-den-nam.jpg",
-          "discount": 5,
-          "quantity": 1
-        }
-      ],
-      "date": "14:21:31 26/9/2023",
-      "total": 900000,
-      "status": 2,
-      "username": "jhgjh",
-      "address": "hjghf",
-      "id": 3
-    },
-    {
-      "products": [
-        {
-          "id": 10,
-          "product_name": "Túi xách nữ",
-          "price": 500000,
-          "description": "Túi xách nữ thời trang",
-          "from": "Cửa hàng thời trang ABC",
-          "category_id": "1",
-          "image": "https://lavenderstudio.com.vn/wp-content/uploads/2021/06/cach-chup-hinh-san-pham-quan-ao-dep-1.jpg",
-          "discount": 0,
-          "quantity": 3
-        },
-        {
-          "id": 11,
-          "product_name": "Loa không dây",
-          "price": 900000,
-          "description": "Loa không dây với âm thanh chất lượng cao",
-          "from": "Siêu thị điện tử XYZ",
-          "category_id": "2",
-          "image": "https://aothudong.com/upload/product/atd-344/bo-quan-ao-the-thao-gio-den-nam.jpg",
-          "discount": 5,
-          "quantity": 2
-        },
-        {
-          "id": 13,
-          "product_name": "Thảm trải sàn",
-          "price": 300000,
-          "description": "Thảm trải sàn cho phòng khách",
-          "from": "Cửa hàng nội thất XYZ",
-          "category_id": "4",
-          "image": "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/07/dam-vay-nang-tho-696x696.jpg?fit=700%2C20000&quality=95&ssl=1",
-          "discount": 20,
-          "quantity": 5
-        },
-        {
-          "id": 14,
-          "product_name": "Bình đun nước",
-          "price": 150000,
-          "description": "Bình đun nước nhanh chóng",
-          "from": "Trung tâm điện máy PQR",
-          "category_id": "3",
-          "image": "https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg",
-          "discount": 0,
-          "quantity": 6
-        },
-        {
-          "id": 17,
-          "product_name": "Máy sấy tóc",
-          "price": 250000,
-          "description": "Máy sấy tóc tiện lợi",
-          "from": "Cửa hàng điện tử XYZ",
-          "category_id": "4",
-          "image": "https://giadinh.mediacdn.vn/296230595582509056/2023/5/17/-thu-hut-moi-anh-nhin-soi-style-3-chi-dep-thirty-nine-son-ye-jin-co-doi-1671335262-797-width600height600-16842262761111030084562-1684314963113-16843149634352062099717.jpg",
-          "discount": 10,
-          "quantity": 6
-        },
-        {
-          "id": 16,
-          "product_name": "Áo sơ mi nam",
-          "price": 450000,
-          "description": "Áo sơ mi nam công sở",
-          "from": "Cửa hàng thời trang ABC",
-          "category_id": "4",
-          "image": "https://media.istockphoto.com/id/1473646712/vi/anh/ng%C6%B0%E1%BB%9Di-ph%E1%BB%A5-n%E1%BB%AF-tr%E1%BA%BB-ch%C3%A2u-%C3%A1-m%E1%BA%B7c-v%C3%A1y-tr%C3%AAn-n%E1%BB%81n.jpg?s=612x612&w=0&k=20&c=5kBh-kHmGxcpz7LdYU2SlJtvw6zibtw_P7hd7aeo4Pc=",
-          "discount": 0,
-          "quantity": 3
-        }
-      ],
-      "userId": 10,
-      "date": "14:29:31 26/9/2023",
-      "total": 8550000,
-      "status": 2,
-      "username": "1234567890",
-      "address": "123123123",
-      "id": 4
-    },
-    {
-      "products": [
-        {
-          "id": 11,
-          "product_name": "Loa không dây",
-          "price": 900000,
-          "description": "Loa không dây với âm thanh chất lượng cao",
-          "from": "Siêu thị điện tử XYZ",
-          "category_id": "2",
-          "image": "https://aothudong.com/upload/product/atd-344/bo-quan-ao-the-thao-gio-den-nam.jpg",
-          "discount": 5,
-          "quantity": 1
-        },
-        {
-          "id": 10,
-          "product_name": "Túi xách nữ",
-          "price": 500000,
-          "description": "Túi xách nữ thời trang",
-          "from": "Cửa hàng thời trang ABC",
-          "category_id": "1",
-          "image": "https://lavenderstudio.com.vn/wp-content/uploads/2021/06/cach-chup-hinh-san-pham-quan-ao-dep-1.jpg",
-          "discount": 0,
-          "quantity": 1
-        }
-      ],
-      "userId": 12,
-      "date": "16:18:15 26/9/2023",
-      "total": 1400000,
-      "status": 1,
-      "username": "tuan anh",
-      "address": "tay bac",
-      "id": 5
+      "id": 6
     }
   ],
   "products": [
     {
-      "id": 10,
-      "product_name": "Túi xách nữ",
-      "price": 500000,
-      "description": "Túi xách nữ thời trang",
-      "from": "Cửa hàng thời trang ABC",
-      "category_id": "1",
-      "image": "https://lavenderstudio.com.vn/wp-content/uploads/2021/06/cach-chup-hinh-san-pham-quan-ao-dep-1.jpg",
-      "discount": 0,
-      "quantity": 3
+      "product_name": "ÁO SƠ MI LỤA THẮT NƠ",
+      "price": "1150000",
+      "description": "Thiết kế áo dáng xuông, tạo điểm nhấn cổ thắt nơ, tay dài. Hai bên ống tay được tạo kiểu xếp li nhẹ nhàng với khuy ngọc thời thượng. Áo sơ mi là một thiết kế sang trọng dành cho các quý cô công sở.\n\nDáng áo suông đứng đem lại cảm giác thoải mái, dễ dàng mix cùng nhiều kiểu chân váy và quần khác nhau. Dù nàng có chọn thả dáng hay sơ vin thì trông vẫn sẽ rất gọn gàng.\n\nThông tin mẫu:\n\nChiều cao: 163 cm\n\nCân nặng: 47 kg\n\nSố đo 3 vòng: 83-61-90 cm\n\nMẫu mặc size S Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F5cd6a8a13f7fdc43414faaaafd4485e5.jpg?alt=media&token=e1c54953-3ec4-4206-a0c6-4580cb3ae59f",
+      "quantity": 20,
+      "category_id": 1,
+      "id": 1
     },
     {
-      "id": 11,
-      "product_name": "Loa không dây",
-      "price": 900000,
-      "description": "Loa không dây với âm thanh chất lượng cao",
-      "from": "Siêu thị điện tử XYZ",
+      "product_name": "ĐẦM LỤA NHẤN BÈO",
+      "price": "495000",
+      "description": "Đầm gồm 2 lớp bằng lụa, tay cánh dơi ngắn 1 lớp. Cổ áo dáng tròn có dây buộc. Dọc thân đầm được nhấn bèo và xếp layer chồng nhau. Thiết kế đầm từ lụa đem đến độ bay tự nhiên, chất vải tôn lên trọn vẹn màu sắc rực rỡ của họa tiết hoa.\n\nMàu sắc: Họa tiết Hồng - Họa tiết Xanh lơ\n\nMẫu mặc size 8-9:\n\nChiều cao 1m29\nCân nặng 29,5kg",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F9e80d28c86f6b843084fde4ab922a767.jpg?alt=media&token=f7e77a52-bc8c-48ec-a88b-4d48dbfe203a",
+      "quantity": 20,
+      "category_id": 3,
+      "id": 2
+    },
+    {
+      "product_name": "QUẦN SUÔNG ĐÍNH KHUY SƯỜN",
+      "price": "1190000",
+      "description": "- Quần suông, tạo ly giữa, độ dài qua mắt cá chân. Thiết kế cạp cao, hách dáng  và che khuyết điểm tốt. \n\n- Phần cạp hai bên được tạo điểm nhấn khuy nổi giúp quần biến mất sự cứng nhắc, tăng vẻ nữ tính, điệu đà. \n\n- Thiết kệ lựa chọn chất liệu tuysi mềm mại, giữ form tốt.\n\nThông tin mẫu:\n\nChiều cao: 167 cm\n\nCân nặng: 50 kg\n\nSố đo 3 vòng: 83-65-93 cm\n\nMẫu mặc size M Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F83b604fb7fb37d0acd3f214adf8024d9.jpg?alt=media&token=c67caac6-95dc-40b3-9c14-ed77eb5a5d05",
+      "quantity": 20,
+      "category_id": 1,
+      "id": 3
+    },
+    {
+      "product_name": "ÁO SƠ MI KHUY CÁCH ĐIỆU",
+      "price": "1190000",
+      "description": "Áo sơ mi cổ cách điệu, tay dài bo gấu có khuy cài. Vạt lệch 1 bên có hàng khuy cách điệu kiểu tạo bèo. Dáng áo xuông.\n\nThiết kế thanh lịch, bắt mắt và mới lạ. Sử dụng chất liệu lụa mềm mại, có độ bóng nhẹ. Mix cùng chân váy bút chì, xếp ly hay quần dài đều phù hợp nàng nhé!\n\nMàu sắc: Trắng - Nude\n\nMẫu mặc size S:\n\nChiều cao: 1m66\nCân nặng: 48kg\nSố đo 3 vòng: 78-61-88 cm",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fd1e8b4239e3b0923b0a2878bd98c4303.jpg?alt=media&token=367f6e67-821c-4d58-b262-d527d4651f3d",
+      "quantity": 20,
+      "category_id": 1,
+      "id": 4
+    },
+    {
+      "product_name": "ĐẦM PHỐI ĐAI PHỤ KIỆN",
+      "price": "1690000",
+      "description": "ĐẦM KÈM DÂY ĐAI XÍCH NGẪU NHIÊN\n\n- Đầm 2 lớp chữ A dáng ngắn, eo chiết cao ôm nhẹ\n\n- Cổ tròn xếp ly to, vai chờm\n\n- Phù hợp diện đi làm, dự sự kiện\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua mản hình máy tính/ điện thoại.\n\nThông tin mẫu:\n\nChiều cao: 168 cm\n\nCân nặng: 50 kg\n\nSố đo 3 vòng:80-62-95 cm",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fe45ff0dc761f7198a377e35273852a46.jpg?alt=media&token=4bc828bd-27f8-43f1-90c7-549a51a02191",
+      "quantity": 20,
+      "category_id": 1,
+      "id": 5
+    },
+    {
+      "product_name": "ĐẦM XẾP CỔ CHỮ V",
+      "price": "1890000",
+      "description": "Đầm lụa dáng ôm, cổ V kiểu chéo, dáng tay phồng vải xếp. Eo chiết. Tùng dài ngang gối với thiết kế nhún vải dọc chân và xẻ tà 1 bên tạo điểm nhấn. Cài khóa kéo ẩn sau lưng.\n\nThiết kế thực sự ấn tượng và đem lại cảm giác sang trọng và khoe trọn 3 vòng hiệu quả. Diện mẫu đầm này nàng sẽ trở thành quý cô sành điệu trong mọi buổi tiệc, cũng như nổi bật hơn trong mọi cuộc gặp gỡ đấy.\n\nThông tin mẫu:\n\nChiều cao: 169 cm\n\nCân nặng: 48 kg\n\nSố đo 3 vòng:80-60-90 cm\n\nMẫu mặc size S",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F34ec9d857b361cd4ecb23391e970754c.jpg?alt=media&token=17965fdb-545b-4b2b-8113-5b10a9e1795e",
+      "quantity": 20,
+      "category_id": 1,
+      "id": 6
+    },
+    {
+      "product_name": "Set bộ nỉ kéo khóa (kèm quần)",
+      "price": "2540000",
+      "description": "- Bộ nỉ kèm quần cho nam: áo dáng ôm nhẹ, bo gấu, có khóa kéo mix màu hiện đại. Thân trước áo được thêu Logo Metagent nhỏ.  \n\n- Đi kèm với áo là quần dài thể thao thiết kế cạp chun co giãn, dáng jogger kèm dây rút điều chỉnh. Quần có 2 túi 2 bên và 1 túi sau. Gấu quần bó.\n\n- Áo lựa chọn chất nỉ thun cao cấp, giữ ấm tốt, mang đến cảm giác mặc thoải mái. \n\nThông tin mẫu:\n\nChiều cao: 185 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 92-78-98 cm\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fe2a64a0a18f85c792bd23163a016796a.jpg?alt=media&token=20387229-3a25-4c1e-bba4-9d9ef1de1fb4",
+      "quantity": 20,
       "category_id": "2",
-      "image": "https://aothudong.com/upload/product/atd-344/bo-quan-ao-the-thao-gio-den-nam.jpg",
-      "discount": 5,
-      "quantity": 2
+      "id": 7
     },
     {
-      "id": 12,
-      "product_name": "Máy ảnh kỹ thuật số",
-      "price": 1800000,
-      "description": "Máy ảnh kỹ thuật số cho nhiếp ảnh gia",
-      "from": "Cửa hàng điện tử EFG",
-      "category_id": "3",
-      "image": "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/07/set-nu-hi-lam-in-cantho-696x1001.jpg?fit=700%2C20000&quality=95&ssl=1",
-      "discount": 5,
-      "quantity": 2
+      "product_name": "ÁO 3 LỖ (KÈM QUẦN) WE RUN THIS",
+      "price": "390000",
+      "description": "Áo thun 3 lỗ, cổ tròn. Dáng xuông. Mặt trước in chữ và hình nhiều màu sắc. Quần cạp chun co giãn, có 2 túi chéo đi kèm. Quần có 3 màu ( Xanh coban - Kẻ Xanh và Đỏ sẽ được gửi ngẫu nhiên)",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fea88937db9f32e95cfa497e2fdda5d7c.jpg?alt=media&token=d12f049a-a8cf-4a8e-9a6e-8daceef2e705",
+      "quantity": 20,
+      "category_id": 3,
+      "id": 8
     },
     {
-      "id": 13,
-      "product_name": "Thảm trải sàn",
-      "price": 300000,
-      "description": "Thảm trải sàn cho phòng khách",
-      "from": "Cửa hàng nội thất XYZ",
-      "category_id": "4",
-      "image": "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/07/dam-vay-nang-tho-696x696.jpg?fit=700%2C20000&quality=95&ssl=1",
-      "discount": 20,
-      "quantity": 5
+      "product_name": "ĐẦM LỤA ĐUÔI CÁ",
+      "price": "1890000",
+      "description": "Mang đến vẻ đẹp hiện đại nhưng vẫn thật thời thượng và quý phái trong thiết kế đầm lụa kiểu dáng đuôi cá được nhiều quý cô yêu thích. Thân trên tạo kiểu sơ mi thanh lịch với điểm nhấn hàng cúc kiêu sa, thân dưới dáng váy đuôi cá mềm mại, tôn dáng, che khuyết điểm tốt. Đây chính là hai mảnh ghép hoàn hảo kết hợp với nhau để tạo nên một phiên bản hoàn chỉnh của chiếc đầm sang trọng. \n\nĐể thêm nổi bật cho bộ trang phục, nàng chỉ cần mix thêm các phụ kiện đi kèm phù hợp như trang sức, túi, dép cao gót. \n\nThông tin mẫu:\n\nChiều cao: 167 cm\n\nCân nặng: 50 kg\n\nSố đo 3 vòng: 83-65-93 cm\n\nMẫu mặc size M Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fcf884572920a363ae8f9a0658f1606cc.jpg?alt=media&token=847df535-387e-4aba-942a-bceeffbad25a",
+      "quantity": 20,
+      "category_id": 1,
+      "id": 9
     },
     {
-      "id": 14,
-      "product_name": "Bình đun nước",
-      "price": 150000,
-      "description": "Bình đun nước nhanh chóng",
-      "from": "Trung tâm điện máy PQR",
-      "category_id": "3",
-      "image": "https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg",
-      "discount": 0,
-      "quantity": 6
+      "product_name": "Áo thun trơn tay dài",
+      "price": "990000",
+      "description": "- Áo thun nam cổ bo, tay áo dài, có bo ở gấu áo và cổ tay. Thiết kế dáng áo Regular, trẻ trung, thời thượng, thích hợp mix&mactch với nhiều phong cách khác nhau. \n\n- Với kiểu dáng cơ bản dễ phối đồ với quần jeans, quần sooc..cùng chất liệu vải thun cao cấp rất thích hợp cho những quý anh ưa vận động hay chơi thể thao, áo chắc chắn sẽ là một sự lựa chọn hoàn hảo trong BST Thu - Đông tới đây.  \n\nThông tin mẫu:\n\nChiều cao: 185 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 92-78-98 cm\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F1160f81fc58b2ff8e7b00cf83ba0b71b.jpg?alt=media&token=cd51b28b-6ff8-49a3-afd1-0e1f976db0a1",
+      "quantity": 20,
+      "category_id": 2,
+      "id": 10
     },
     {
-      "id": 15,
-      "product_name": "Vòng cổ vàng",
-      "price": 7500000,
-      "description": "Vòng cổ vàng sang trọng",
-      "from": "Cửa hàng trang sức XYZ",
+      "product_name": "SET BỘ TWEED CAILY",
+      "price": "3490000",
+      "description": "Mở đầu BST FW2023 với dòng sản phẩm dạ Tweed cao cấp mang đến sự sang trọng và thanh lịch cho phái đẹp. Set bộ Caily được kết hợp hoàn hảo giữa thiết kế áo khoác ngoài cổ tròn bên cạnh chân váy dáng A thời thượng. \n\nÁo khoác dáng suông, độ dài  ngang  hông, thân trước có khuy cài, thích hợp cả diện theo set bộ hay mix với nhiều item khác. Chân váy A, độ dài trên gối, cạp cao, ôm nhẹ, che khuyết điểm tốt. \n\nSet bộ chính là sự lựa chọn hoàn hảo để nàng phô diễn vẻ đẹp kiêu sa mùa Thu - Đông này. \n\nThông tin mẫu:\n\nChiều cao: 167 cm\n\nCân nặng: 50 kg\n\nSố đo 3 vòng: 83-65-93 cm\n\nMẫu mặc size M Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fbb0a2afbca1d0f6685082b25ed148242.jpg?alt=media&token=317dcf3c-2420-453f-8a5a-6ac851cdf120",
+      "quantity": 20,
+      "category_id": 1,
+      "id": 11
+    },
+    {
+      "product_name": "SET BỘ TUYSI PHỐI BLAZER",
+      "price": "1880000",
+      "description": "Thiết kế set bộ công sở đáp ứng đủ tình thần thanh lịch, hiện đại nhưng vẫn thật trẻ trung và năng động. \n\nBản phối là sự kết hợp của mẫu áo blazer cách điệu với phần cầu vai bồng nhẹ, thiết kế 4 khuy kiểu cách bên cạnh dáng chân A nhẹ, hack dáng cũng như che khuyết điểm cực tốt. Nàng vừa có thể diện set bộ đi làm, đi họp hay đến những nơi vui chơi, gặp mặt bạn bè. \n\nThông tin mẫu:\n\nChiều cao: 163 cm\n\nCân nặng: 47 kg\n\nSố đo 3 vòng: 83-61-90 cm\n\nMẫu mặc size S Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F9cd11ebbc7e06342af59ff1acaa0184c.jpg?alt=media&token=095c9b07-0383-41d7-ac15-cffcdc3191b2",
+      "quantity": 20,
+      "category_id": 1,
+      "id": 12
+    },
+    {
+      "product_name": "ÁO SƠ MI LỤA KHUY KIỂU",
+      "price": "1190000",
+      "description": "Cuối tuần xuống phố nhẹ nhàng với thiết kế sơ mi hồng cách điệu trẻ trung, năng động, đầy cá tính. Áo cổ đức cổ điển, được làm mới thân trước hiện đại kết hợp các điểm nhấn xếp li độc đáo. \n\nÁo sử dụng chất liệu lụa cao cấp, mềm mại, nhẹ nhàng mang đến cảm giác mặc thoải mái phù hợp mọi thời tiết. Nếu nàng còn chưa biết lựa chọn mẫu áo nào để đi chơi, đi hẹn hò hãy cân nhắc thiết kế mới này nhé. \n\nThông tin mẫu:\n\nChiều cao: 163 cm\n\nCân nặng: 47 kg\n\nSố đo 3 vòng: 83-61-90 cm\n\nMẫu mặc size S Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F86b4dbb320868438d0e30049fb6260af.jpg?alt=media&token=3e6a3bfb-c09e-4fb8-901f-932b63cd91c9",
+      "quantity": 20,
+      "category_id": 1,
+      "id": 13
+    },
+    {
+      "product_name": "DAISY DRESS - ĐẦM KẾT HOA NHẸ NHÀNG",
+      "price": "1890000",
+      "description": "Đón hè nhẹ nhàng với thiết kế đầm hoa mang vẻ đẹp ngọt ngào và lãng mạn. Đầm phối ren hai lớp, độ dài qua gối, tạo điểm nhấn cắt tỉa tại điểm cuối giúp Daisy như đóa hoa đang tỏa ngát hương. Lựa chọn cầu vai xếp li bồng nhẹ với độ dài tay vừa phải, thành công che khuyết điểm bắp tay chưa được thon thả lắm. \n\nThiết kế đầm trẻ trung, nâng đỡ nhẹ nhàng cơ thể, luôn giữ được độ gọn gàng. Cùng với đó, đầm sở hữu chất liệu tằm ren cao cấp, nàng thoải mái diện ngày hè mà không lo bí bách, khó chịu.\n\nThông tin mẫu:\n\nChiều cao: 167 cm\n\nCân nặng: 50 kg\n\nSố đo 3 vòng: 83-65-93 cm\n\nMẫu mặc size M Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fc8c026a7142cc648f24a6843c9401b14.jpg?alt=media&token=597c1daf-7598-42c2-a4b5-a1a8462f1623",
+      "quantity": 20,
+      "category_id": 1,
+      "id": 14
+    },
+    {
+      "product_name": "ZUÝP PHAO BÉ GÁI",
+      "price": "100000",
+      "description": "Zuýp phao dáng chữ A. Cạp cao. Chần phao cách đều. Cài bằng khuy bấm và dây khóa kéo. 2 túi chéo 2 bên. Thiết kế năng động, giữ ấm hiệu quả cho bé trong hoạt động hàng ngày.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fcec60aa3b7f3d8a0f0718b38b4f2ec75.jpg?alt=media&token=33658610-6acf-4208-98fb-e6f3b5ed9cd8",
+      "quantity": 20,
+      "category_id": 3,
+      "id": 15
+    },
+    {
+      "product_name": "Áo sơ mi vỏ hàu",
+      "price": "1290000",
+      "description": "- Áo sơ mi vỏ hàu với thiết kế cổ đức, tay dài, kiểu dáng Regular hiện đại. Nền vải là họa tiết kẻ mờ nhỏ. Cổ tay có 2 khuy. Phía trước có túi và thêu logo Metagent thời thượng. \n\n- Chất liệu thoáng mát, form dáng này phù hợp cho những quý anh muốn thoải mái khi mặc áo sơ mi. Ngoài ra, phần eo rộng hơn cùng giúp dáng người trở nên vuông vắn và thu hút hơn.\n\nThông tin mẫu:\n\nChiều cao: 185 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 92-78-98 cm\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F76a40082a976382ae754ed7dd60f801c.jpg?alt=media&token=d915538d-9488-4645-8680-eb0ebd4f237a",
+      "quantity": 20,
+      "category_id": 2,
+      "id": 16
+    },
+    {
+      "product_name": "Set bộ nỉ kéo khóa (kèm quần)",
+      "price": "2540000",
+      "description": "- Bộ nỉ kèm quần cho nam: áo dáng ôm nhẹ, bo gấu, có khóa kéo mix màu hiện đại. Thân trước áo được thêu Logo Metagent nhỏ.  \n\n- Đi kèm với áo là quần dài thể thao thiết kế cạp chun co giãn, dáng jogger kèm dây rút điều chỉnh. Quần có 2 túi 2 bên và 1 túi sau. Gấu quần bó.\n\n- Áo lựa chọn chất nỉ thun cao cấp, giữ ấm tốt, mang đến cảm giác mặc thoải mái. \n\nThông tin mẫu:\n\nChiều cao: 185 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 92-78-98 cm\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F400c6bb3fc611c72442b7df76dc0be73.jpg?alt=media&token=6da73a3d-0e68-4383-8a3b-c45729644150",
+      "quantity": 20,
       "category_id": "2",
-      "image": "https://salt.tikicdn.com/cache/w1200/ts/product/3e/ef/ed/7ab241d3b24e5e726575a375feeb504c.jpg",
-      "discount": 15,
-      "quantity": 5
+      "id": 17
     },
     {
-      "id": 16,
-      "product_name": "Áo sơ mi nam",
-      "price": 450000,
-      "description": "Áo sơ mi nam công sở",
-      "from": "Cửa hàng thời trang ABC",
-      "category_id": "4",
-      "image": "https://media.istockphoto.com/id/1473646712/vi/anh/ng%C6%B0%E1%BB%9Di-ph%E1%BB%A5-n%E1%BB%AF-tr%E1%BA%BB-ch%C3%A2u-%C3%A1-m%E1%BA%B7c-v%C3%A1y-tr%C3%AAn-n%E1%BB%81n.jpg?s=612x612&w=0&k=20&c=5kBh-kHmGxcpz7LdYU2SlJtvw6zibtw_P7hd7aeo4Pc=",
-      "discount": 0,
-      "quantity": 3
+      "product_name": "Dalio Trouser - Quần Tây cúc lệch fit",
+      "price": "1290000",
+      "description": "- Quần âu dáng Regular dài ngang mắt cá chân lịch lãm, sang trọng giúp cơ thể trở lên cân đối hơn.\n\n- Form quần đơn giản dễ diện, dễ phối đồ và phù hợp cho nhiều sự kiện từ đi làm, đi họp, đi học đến đi chơi.\n\n- Chất liệu Tuysi co dãn tốt giúp người mặc thoải mái vận động.\n\nThông tin mẫu:\n\nChiều cao: 175 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 98-75-97 cm\n\nMẫu mặc size M\n\n",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fc604c1cbe041fde06f61d21aa3192d42.jpg?alt=media&token=1f571622-4247-4ce3-aa80-9252884dafce",
+      "quantity": 20,
+      "category_id": "2",
+      "id": 18
     },
     {
-      "id": 17,
-      "product_name": "Máy sấy tóc",
-      "price": 250000,
-      "description": "Máy sấy tóc tiện lợi",
-      "from": "Cửa hàng điện tử XYZ",
-      "category_id": "4",
-      "image": "https://giadinh.mediacdn.vn/296230595582509056/2023/5/17/-thu-hut-moi-anh-nhin-soi-style-3-chi-dep-thirty-nine-son-ye-jin-co-doi-1671335262-797-width600height600-16842262761111030084562-1684314963113-16843149634352062099717.jpg",
-      "discount": 10,
-      "quantity": 6
+      "product_name": "Áo khoác gió có mũ",
+      "price": "1690000",
+      "description": "Thiết kế áo khoác gió năng động, trẻ trung, phù hợp với team đam mê thể thao, dã ngoại, du lịch thám hiểm, những bạn nam hay đi chơi thể thao ngoài trời,...\n\nÁo có mũ, tay dài, dáng suông, kéo khóa phía trước. \n\nĐược làm từ chất liệu Vinilon cao cấp giúp cho những sản phẩm này có được sự chống nước rất tốt. Không bai, xù, nhão,...khi mặc theo thời gian. Khả năng chống bám bụi và giữ ấm hiệu quả.\n\nThông tin mẫu:\n\nChiều cao: 185 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 92-78-98 cm\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fd520b3bcd528c7c0efa8f63d95766e9b.jpg?alt=media&token=172e213c-f67d-41f8-9fc6-d24f250182e5",
+      "quantity": 20,
+      "category_id": 2,
+      "id": 19
     },
     {
-      "id": 18,
-      "product_name": "Laptop Gaming",
-      "price": 22000000,
-      "description": "Laptop chơi game mạnh mẽ",
-      "from": "Trung tâm điện máy Pico",
-      "category_id": "4",
-      "image": "https://afamilycdn.com/Eek4qH2UqhK318ahKRzbBOnleXilkn/Image/2012/02/201202011afamilydep4kieuvaynenco01_cb315.jpg",
-      "discount": 5,
-      "quantity": 5
-    },
-    {
-      "product_name": "grhdghg",
-      "price": "29990",
-      "description": "gfhgdsdsj",
-      "from": "gdf",
-      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fhinh-anh-qua-dau-tay-583_4.jpg?alt=media&token=96d7f971-36fd-472d-b89f-f1040164975c",
-      "discount": "13",
-      "quantity": 3,
-      "category_id": 4,
+      "product_name": "SET THUN COOL DUDE",
+      "price": "629000",
+      "description": "Set thun bao gồm áo và quần ngắn tay. Chất liệu thun mềm mại thấm hút mồ hôi tốt. Phía trước áo có in chữ Cool Dude bằng nhiều màu sắc sặc sỡ. Bộ thun ngắn này phù hợp cho các bé trai diện hằng ngày.\n\nMàu sắc: Cam - Ghi khói - Xanh lá đậm - Xanh dương đậm\n\nMẫu nhí mặc size 8-9\n\nChiều cao: 1m37 - Cân nặng: 39kg",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Ff691b4d21b46e0a7dbac181fc89a952d.jpg?alt=media&token=0e459830-be36-4f3c-b62a-0990f8b560cb",
+      "quantity": 20,
+      "category_id": 3,
       "id": 20
     },
     {
-      "product_name": "đào",
-      "price": "2000000",
-      "description": "đào thơm",
-      "from": "hà nội",
-      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F8f2aaac3286d6016ea5105685c2997a2.jpg?alt=media&token=66dfec31-b8c7-42d3-9e3d-688671f6d5b8",
-      "discount": 0,
-      "quantity": 2,
-      "category_id": 3,
+      "product_name": "Áo sơ mi Regular tay dài",
+      "price": "1250000",
+      "description": "- Áo sơ mi dáng Regular mang vẻ đẹp cổ điển, thời thượng giúp tôn lên vẻ đẹp nam tính của quý anh.\n\n- Thiết kế áo tay dài, độ dài thường, cổ đức, cổ tay áo có nấc khuy để người mặc điều chỉnh.\n\n- Dáng áo có độ rộng nhẹ nên khi sơ vin không khiến người mặc cảm thấy bí bách. Form áo vuông vắn khi mix cùng quần Tây sẽ giúp quý ông trông phong độ hơn rất nhiều. \n\nThông tin mẫu:\n\nChiều cao: 185 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 92-78-98 cm\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Ffc6f2cf60b4311358605a75fda34951c.jpg?alt=media&token=dc9d517e-fb58-4f1d-922e-a5df3ab6bd14",
+      "quantity": 20,
+      "category_id": 2,
       "id": 21
     },
     {
-      "product_name": "ma",
-      "price": "1111111",
-      "description": "sssss",
-      "from": "hà nội",
-      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F55148948-lamsachthungrac.jpg?alt=media&token=468a1266-b41b-4cbf-9ff5-80c63745a709",
-      "discount": 0,
-      "quantity": 4,
-      "category_id": 4,
+      "product_name": "Basil Polo Supima -",
+      "price": "990000",
+      "description": "- Áo polo Slim fit cổ đức với độ dài vừa phải kết hợp cùng tay ngắn sẽ là lựa chọn hoàn hảo cho những buổi đi chơi, cũng có thể cả đi làm.\n\n- Lựa chọn Slim fit ôm body, trẻ trung và hiện đại. \n\n- Thiết kế màu trơn trẻ trung năng động, ngực có thêu Logo nhỏ, tạo cảm giác mới lạ cho người mặc.\n\n- Áo sử dụng chất liệu Supima Cotton (Superior Pima Cotton), loại vải Cotton cao cấp được làm từ sợi của cây bông Pima. So với Cotton thông thường, sợi vải Supima Cotton dài gấp nhiều lần, cho phép các nhà thiết kế dệt nên những sản phẩm có chất lượng vượt trội hơn. Với quy trình sản xuất tiên tiến được quản lý nghiêm ngặt theo tiêu chuẩn Mỹ, Supima Cotton là một biểu tượng của thời trang cao cấp. Loại vải này không chỉ giữ màu lâu hơn, mềm mịn hơn, bền bỉ hơn, mà còn có khả năng chống co rút gấp 5 lần so với Cotton thông thường.\n\n- Quần áo sản xuất từ sợ Supima Cotton là lựa chọn tuyệt vời nâng cao sức khoẻ và chất lượng cuộc sống của bạn. Trải nghiệm ngay các sản phẩm Supima Cotton trên hệ thống cửa hàng và website chính thức của Metagent ngay hôm nay!\n\nThông tin mẫu:\n\nChiều cao: 185 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 92-78-98 cm\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fc03b073c046ca3ecc4f7d69893709ee1.jpg?alt=media&token=aeffae59-feb1-4704-a705-98369f485218",
+      "quantity": 20,
+      "category_id": 2,
       "id": 22
     },
     {
-      "product_name": "grhdghg",
-      "price": "11111",
-      "description": "1111",
-      "from": "hà nội",
-      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fao-so-mi-khoac-ngoai-nam-7.jpg?alt=media&token=14587598-56c3-43f9-86a5-d87de1331570",
-      "discount": "1",
-      "quantity": 2,
-      "category_id": "1",
+      "product_name": "Hoodie chữ M",
+      "price": "950000",
+      "description": "- Áo hoodie nam tay dài, cổ mũ có dây kéo rút. Thiết kế áo dáng Regular trẻ trung, hiện đại với gấu áo và cổ tay bo, co giãn nhẹ.\n\n- Áo có túi trước bụng, tạo điểm nhấn khác biệt qua hình thêu chữ M. \n\n- Chất liệu vải dày dặn không nhăn, không xù, không co rút khi giặt, thấm hút mồ hôi tốt giúp bạn thoải mái vận động. Mix cùng quần jean, short...giày thể thao để có set đồ năng động.\n\nThông tin mẫu:\n\nChiều cao: 185 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 92-78-98 cm\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F0a33ecdcbe88c96973c92be0ca67980b.jpg?alt=media&token=35346126-5101-4d41-8837-91befb59cab1",
+      "quantity": 20,
+      "category_id": 2,
       "id": 23
     },
     {
-      "product_name": "445324wer",
-      "price": "111111",
-      "description": "vdcsdvf",
-      "from": "ha noi",
-      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2FAo-khoac-du-ao-khoac-gio-bomber-ao-thun-nam-dai-tay-co-tim-co-tron-1-mau-ve-rat-nhieu-mau-gia-ca-re-nhat-ao-khoac-gio-bomber.jpg?alt=media&token=c5d3496f-a69f-4132-b93e-92b71b6801a4",
-      "discount": 0,
-      "quantity": 3,
-      "category_id": "5",
+      "product_name": "Áo khoác gió có mũ",
+      "price": "1690000",
+      "description": "Thiết kế áo khoác gió năng động, trẻ trung, phù hợp với team đam mê thể thao, dã ngoại, du lịch thám hiểm, những bạn nam hay đi chơi thể thao ngoài trời,...\n\nÁo có mũ, tay dài, dáng suông, kéo khóa phía trước. \n\nĐược làm từ chất liệu Vinilon cao cấp giúp cho những sản phẩm này có được sự chống nước rất tốt. Không bai, xù, nhão,...khi mặc theo thời gian. Khả năng chống bám bụi và giữ ấm hiệu quả.\n\nThông tin mẫu:\n\nChiều cao: 185 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 92-78-98 cm\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F5e3635c33717500021cf4442a3af7754.jpg?alt=media&token=715bcb93-bd15-47f5-bc8b-effc048d8fbe",
+      "quantity": 20,
+      "category_id": 2,
       "id": 24
     },
     {
-      "product_name": "quần đẹp",
-      "price": "20000",
-      "description": "quần cao cấp",
-      "from": "hà nội",
-      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fcav-empt-tee-bk116.jpg?alt=media&token=dc6a3a1a-22f0-4d08-8cb7-5053c5c47578",
-      "quantity": 4,
-      "category_id": 5,
+      "product_name": "ÁO POLO BÉ TRAI",
+      "price": "549000",
+      "description": "Áo thun kiểu dáng polo tay ngắn là một sản phẩm lý tưởng cho các bé trai. Thiết kế áo polo giúp tạo sự phong cách, năng động cho các bé và dễ dàng phối đồ với nhiều kiểu quần khác nhau.\n\nChất liệu sản phẩm được tuyển chọn kỹ lưỡng, với tính năng thông thoáng, thấm hút tốt sẽ giúp bé cảm thấy thoải mái và dễ chịu trong suốt ngày dài. Đặc biệt, chất liệu an toàn cho làn da, đảm bảo không gây kích ứng hay bất kỳ tác hại nào cho sức khỏe của bé.\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Ff1a1e07591b274e8cac3444932c8555e.jpg?alt=media&token=71c1d796-21bf-45b1-8846-ae8ed56d88c7",
+      "quantity": 20,
+      "category_id": 3,
       "id": 25
     },
     {
-      "product_name": "grhdghg",
-      "price": "65432",
-      "description": "kghjfhdghnhjghf",
-      "from": "hà nội",
-      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2FAo-khoac-du-ao-khoac-gio-bomber-ao-thun-nam-dai-tay-co-tim-co-tron-1-mau-ve-rat-nhieu-mau-gia-ca-re-nhat-ao-khoac-gio-bomber.jpg?alt=media&token=7198f994-8c4e-4ed2-a0a1-39521015741b",
-      "quantity": 11,
-      "category_id": "1",
+      "product_name": "SET THUN TRƠN KHÔNG TAY",
+      "price": "619000",
+      "description": "Bộ thun trơn với dáng áo không tay phù hợp với những bé hiếu động, ra mồ hôi nhiều. Thiết kế mát mẻ giúp bé hoạt động, vui chơi thoải mái ngay cả trong những ngày nắng nóng.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Ff4c634a3fc58fa08c001f2aa307a48ad.jpg?alt=media&token=3192e58f-a6e8-49ce-a49e-62f747f3f700",
+      "quantity": 20,
+      "category_id": 3,
       "id": 26
+    },
+    {
+      "product_name": "SET THUN IN HÌNH TÚI CHÉO",
+      "price": "698000",
+      "description": "Bộ thun cho bé trai rộng rãi, thoáng mát. Hình in túi đeo chéo độc đáo khiến set đồ bắt mắt hơn. Bộ thun này phù hợp để bé diện đến lớp hoặc đi chơi cùng gia đình.\n\nMàu sắc: Cam - Xanh tím than\n\nMẫu nhí mặc size 8-9\n\nChiều cao: 1m15 - Cân nặng: 20kg",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F6a68325fad3533a498d8cd338094c704.jpg?alt=media&token=a33145cc-f851-41b4-b67b-3ccfbe2a96c2",
+      "quantity": 20,
+      "category_id": 3,
+      "id": 27
+    },
+    {
+      "product_name": "SET ÁO 2 DÂY PHỐI BÈO XẾP TẦNG",
+      "price": "588000",
+      "description": "Áo 2 dây vải thô, thiết kế phối bèo xếp tầng xòe rộng.\n\nQuần dài dáng lửng, eo chun co giãn.\n\nSet đồ màu sắc tươi tắn, chất liệu vải thô mềm nhẹ thấm hút mồ hôi tốt giúp bé có một mùa hè vui chơi thoải mái mà vẫn dễ chịu ngay cả khi thời tiết nóng bức nhất.",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F53b7fe9e43016ebf94764fb4b1529862.jpg?alt=media&token=836417ef-9841-4794-8549-7ad674dcebcd",
+      "quantity": 20,
+      "category_id": 3,
+      "id": 28
+    },
+    {
+      "product_name": "ĐẦM LỤA PHỐI CÀNH HOA",
+      "price": "1190000",
+      "description": "Thiết kế váy xòe, được làm từ chất liệu lụa. Tay áo xếp lớp, chất liệu voan xuyên thấu nhẹ. Đuôi váy được nhấn bèo và có độ xòe tự nhiên. Dọc thân váy là phụ kiện cành hoa được đính kết tỉ mỉ.\n\nMàu sắc: Trắng - Nude\n\nMẫu mặc size 8-9:\n\nChiều cao 1m29\nCân nặng 29,5kg",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fb097fe69578bd57578a84e619a312fdd.jpg?alt=media&token=1a84b4d9-76df-4ef4-972f-b638207f9881",
+      "quantity": 20,
+      "category_id": 3,
+      "id": 29
+    },
+    {
+      "product_name": "ĐẦM VOAN HOA 2 LỚP",
+      "price": "860000",
+      "description": "Đầm voan hoa 2 lớp. Cổ tròn. Diềm bèo quanh cổ, thân và gấu đầm. Dáng đầm xòe. Cài bằng khóa kéo ẩn sau lưng. Vải họa tiết hoa.\n\nMàu sắc: Họa tiết Vàng Nghệ",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fee5849962930b8009aace4bdc26ac3e7.jpg?alt=media&token=34657e3a-e792-41c5-9394-db4ed8e77992",
+      "quantity": 20,
+      "category_id": 3,
+      "id": 30
     }
   ],
   "slider": [
     {
       "id": 1,
-      "image": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
-      "title": "Chào mừng đến với ASHION.COM",
-      "description": "Mua sắm trực tuyến các phụ kiện mới nhất "
+      "image": "https://pubcdn.ivymoda.com/files/news/2023/09/08/4fc7664285a1fa2ba47f9671afe955d9.jpg",
+      "title": "",
+      "description": ""
     },
     {
       "id": 2,
-      "image": "https://fashionterest.com/wp-content/uploads/2022/09/high-low-fashion-wardrobe-5.jpg",
-      "title": "Chào mừng đến với ASHION.COM",
-      "description": "Mua sắm trực tuyến các phụ kiện mới nhất và trải nghiệm ngay"
+      "image": "https://pubcdn.ivymoda.com/files/news/2023/09/18/763adf6054c6f80388f529ab509315d4.jpg",
+      "title": "",
+      "description": ""
     },
     {
       "id": 3,
-      "image": "https://lavenderstudio.com.vn/wp-content/uploads/2019/09/chup-quang-cao-quan-ao-1.jpg",
-      "title": "Chào mừng đến với ASHION.COM",
-      "description": "Mua sắm trực tuyến săn bán phụ kiện với mức giảm giá lên tới 50%"
+      "image": "https://pubcdn.ivymoda.com/files/news/2023/09/20/3064434dc300a7f002ee5d1dd3004361.jpg",
+      "title": "",
+      "description": ""
     }
   ]
 }
