@@ -5,11 +5,10 @@ import Navbar from "../../../layout/user/navbar/Navbar";
 import { Link } from "react-router-dom";
 import Back_To_Top from "../../../components/base/backtop/Back_to_top";
 
-
-export default function Contact() {
+export default function Contact({ cartLength, setIsLoad }) {
   return (
     <div>
-      <Navbar />
+      <Navbar cartLength={cartLength} />
       {/* Breadcrumb Begin */}
       <div className="breadcrumb-option">
         <div className="container">

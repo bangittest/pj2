@@ -7,21 +7,21 @@ export default function Footer() {
       <div>
         <>
           {/* Footer Section Begin */}
-          <footer className="footer">
+          <footer className="footer10">
             <div className="container">
               <div className="row">
                 <div className="col-lg-4 col-md-6 col-sm-7">
-                  <div className="footer__about">
-                    <div className="footer__logo">
+                  <div className="footer10__about">
+                    <div className="footer10__logo">
                       <Link to="./index.html">
                         <img src="./src/assets/img/logo.png" alt="" />
                       </Link>
                     </div>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt cilisis.
+                      ASHION.COM mang tất cả những gì được các nhà tạo mẫu của
+                      chúng tôi lựa chọn cẩn thận.
                     </p>
-                    <div className="footer__payment">
+                    <div className="footer10__payment">
                       <Link to="#">
                         <img
                           src="./src/assets/img/payment/payment-1.png"
@@ -56,7 +56,7 @@ export default function Footer() {
                   </div>
                 </div>
                 <div className="col-lg-2 col-md-3 col-sm-5">
-                  <div className="footer__widget">
+                  <div className="footer10__widget text-center">
                     <h6>Quick links</h6>
                     <ul>
                       <li>
@@ -75,9 +75,9 @@ export default function Footer() {
                   </div>
                 </div>
                 <div className="col-lg-2 col-md-3 col-sm-4">
-                  <div className="footer__widget">
+                  <div className="footer10__widget text-center">
                     <h6>Account</h6>
-                    <ul>
+                    <ul className="">
                       <li>
                         <Link to="#">My Account</Link>
                       </li>
@@ -94,7 +94,7 @@ export default function Footer() {
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-8 col-sm-8">
-                  <div className="footer__newslatter">
+                  <div className="footer10__newslatter">
                     <h6>NEWSLETTER</h6>
                     <form action="#">
                       <input type="text" placeholder="Email" />
@@ -102,7 +102,7 @@ export default function Footer() {
                         Subscribe
                       </button>
                     </form>
-                    <div className="footer__social">
+                    <div className="footer10__social">
                       <Link to="#">
                         <i className="fa fa-facebook" />
                       </Link>
@@ -124,17 +124,13 @@ export default function Footer() {
               </div>
               <div className="row">
                 <div className="col-lg-12">
-                  {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
-                  <div className="footer__copyright__text">
+                  <div className="footer10__copyright__text">
                     <p>
-                      Copyright © All rights reserved | This template is made
-                      with <i className="fa fa-heart" aria-hidden="true" /> by{" "}
-                      <Link to="#" target="_blank">
-                        Colorlib
-                      </Link>
+                      Copyright © All rights made with{" "}
+                      <i className="fa fa-heart" aria-hidden="true" />{" "}
+                      <Link to="#" target="_blank"></Link>
                     </p>
                   </div>
-                  {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
                 </div>
               </div>
             </div>

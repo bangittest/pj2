@@ -1,8 +1,6 @@
-
 import React from "react";
 
 export default function Services() {
-
   return (
     <div>
       <>
@@ -14,28 +12,28 @@ export default function Services() {
                 <div className="services__item">
                   <i className="fa fa-car" />
                   <h6>Free Shipping</h6>
-                  <p>For all oder over $99</p>
+                  <p>Cho tất cả các đơn hàng trên 99k</p>
                 </div>
               </div>
               <div className="col-lg-3 col-md-4 col-sm-6">
                 <div className="services__item">
                   <i className="fa fa-money" />
-                  <h6>Money Back Guarantee</h6>
-                  <p>If good have Problems</p>
+                  <h6>Nếu Có Vấn Đề</h6>
+                  <p>Đảm bảo hoàn lại tiền</p>
                 </div>
               </div>
               <div className="col-lg-3 col-md-4 col-sm-6">
                 <div className="services__item">
                   <i className="fa fa-support" />
-                  <h6>Online Support 24/7</h6>
-                  <p>Dedicated support</p>
+                  <h6>Hỗ trợ trực tuyến 24/7</h6>
+                  <p>Hỗ trợ chuyên dụng</p>
                 </div>
               </div>
               <div className="col-lg-3 col-md-4 col-sm-6">
                 <div className="services__item">
                   <i className="fa fa-headphones" />
-                  <h6>Payment Secure</h6>
-                  <p>100% secure payment</p>
+                  <h6>Thanh toán an toàn</h6>
+                  <p>Thanh toán an toàn 100%</p>
                 </div>
               </div>
             </div>

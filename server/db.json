@@ -1,191 +1,399 @@
 {
   "users": [
     {
-      "email": "banghanam02@gmail.com",
-      "password": "$2a$10$A0/1Y9.4Jnkh5m3.ymg7/OoeTOqHnbaVRRx0XKraj7eRWZU9mZpPS",
-      "user_name": "Nguyen van bang",
-      "gender": 0,
-      "address": "thanh xuan ha noi",
-      "dateOfBrith": "22/2/2022",
-      "id": 5
-    },
-    {
-      "email": "bangha1nam01@gmail.com",
-      "password": "$2a$10$fYisKNWhoTdUNbm7PS04euq2FRJQLs6gdMPZePWFTS7p0k7HasgVu",
-      "avatar": null,
-      "user_name": "m gngfbfv",
-      "dateOfBirthday": "2023-09-17",
-      "gender": 1,
-      "role": 1,
-      "id": 20
-    },
-    {
-      "email": "banghassssssssssssssnam01@gmail.com",
-      "password": "$2a$10$hXaXzkVnGBpT8ZUPx3xtLON4u5MnNNccnY2/yyjrul2ywFWfyBrkm",
-      "avatar": null,
-      "user_name": "m gngfbfv",
+      "email": "admin@gmail.com",
+      "password": "$2a$10$B7cEU6AcFeKlO8DOGBVfqewT5.2HfsvrHtuVwxLnxOm2quuPOiRzm",
+      "image": "https://static.thenounproject.com/png/5034901-200.png",
+      "user_name": "admin",
       "dateOfBirthday": "2023-09-17",
       "gender": 2,
-      "role": 1,
-      "id": 21
+      "role": 0,
+      "id": 1,
+      "cart": [],
+      "bill": [],
+      "active": false
     },
     {
-      "email": "banghanam011@gmail.com",
-      "password": "$2a$10$tXFzYt2MO8Y0C5sEAi4lduPEYIIB.zZ0v4Ylb9/lxxk6/8VTX0DG6",
-      "avatar": null,
-      "user_name": "m gngfbfvrthfd",
-      "dateOfBirthday": "2023-09-17",
-      "gender": 2,
-      "role": 1,
-      "id": 22
-    },
-    {
-      "email": "banghanam012@gmail.com",
-      "password": "$2a$10$mcyBt9/zWSa.YNXWh7gEt.otwoZvpnS1r4WgmrKPaue9wo545KcZ.",
-      "avatar": null,
-      "user_name": "sdfdsfdsf",
-      "dateOfBirthday": "2023-09-17",
-      "gender": 2,
-      "role": 1,
-      "id": 23
-    },
-    {
-      "email": "banghanam0111@gmail.com",
-      "password": "$2a$10$BtHaKC62C4Znv/DgauSc8uFIgKmW5v/Fcl.v8pOuUTLwk68lGpzqi",
+      "email": "long@gmail.com",
+      "password": "$2a$10$hbxrtM7uNs/HDPSkPpL8fej/40iGQeYVPkvgY/mWkmLBkT0fYxPcq",
       "image": null,
+      "user_name": "long",
+      "dateOfBirthday": "",
+      "gender": 0,
+      "role": 1,
+      "cart": [],
+      "active": false,
+      "id": 8
+    },
+    {
+      "email": "banghanam01@gmail.com",
+      "password": "$2a$10$tOdPBEg.KnPraCNDrI2kr.1zETit5D967IXHTDsDoNOwxiIWvZjbm",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fao-khoac-so-mi-da-flanel-do_x450.jpg?alt=media&token=b3fa044f-048b-4e31-b005-6ec4461b3d2e",
+      "user_name": "bằng",
+      "dateOfBirthday": "2023-07-18",
+      "gender": 1,
+      "address": "",
+      "role": 1,
+      "cart": [],
+      "active": false,
+      "id": 9
+    },
+    {
+      "email": "ads@gmail.com",
+      "password": "$2a$10$vST/OPvSK59V60mI7o7JIOUL6ZYtV0tXC.DEcYzSgLmaQc8GvhlEe",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F8f2aaac3286d6016ea5105685c2997a2.jpg?alt=media&token=55248d85-8d78-41a4-b460-9fbe3dc1a9d1",
       "user_name": "thrgef",
       "dateOfBirthday": "",
-      "gender": 2,
+      "gender": 0,
+      "address": "",
       "role": 1,
-      "id": 24
+      "cart": [],
+      "active": false,
+      "id": 10
+    },
+    {
+      "email": "banghanam02@gmail.com",
+      "password": "$2a$10$FCUrc64ibqC23iQeoeIYFOroPU16Eav8zSd.bkt7fxCM48SNU0que",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F161783564_684221669641154_5166680812741393476_n.jpg?alt=media&token=7b13e847-e2b6-44b4-adba-5a6ac60431ff",
+      "user_name": "bangaaa@gmail.com",
+      "dateOfBirthday": "",
+      "gender": 0,
+      "address": "",
+      "role": 1,
+      "cart": [],
+      "active": false,
+      "id": 11
+    },
+    {
+      "email": "tuananh@gmail.com",
+      "password": "$2a$10$UCT10vxlow.YhOTLeT.b4e0RbRcTpdBSw0DvnqLlQ/ydh5vAZPloC",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F8f2aaac3286d6016ea5105685c2997a2.jpg?alt=media&token=2b16252c-8ccf-486e-969c-12d07d1b6abd",
+      "user_name": "tuan anh",
+      "dateOfBirthday": "2023-09-26",
+      "gender": 1,
+      "address": "",
+      "role": 1,
+      "cart": [],
+      "active": false,
+      "id": 12
     }
   ],
   "categories": [
     {
-      "id": 1,
-      "category_id": 1,
-      "category_name": "Women’s"
+      "category_name": "quần áo",
+      "id": 1
     },
     {
       "id": 2,
-      "category_id": 2,
       "category_name": "Men’s"
     },
     {
       "id": 3,
-      "category_id": 3,
       "category_name": "Kid’s"
     },
     {
       "id": 4,
-      "category_id": 4,
       "category_name": "Accessories"
     },
     {
       "id": 5,
-      "category_id": 5,
       "category_name": "Cosmetics"
     }
   ],
+  "carts": [
+    {
+      "cart": [],
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "cart": [],
+      "id": 2
+    },
+    {
+      "userId": 9,
+      "cart": [],
+      "id": 6
+    },
+    {
+      "cart": [],
+      "id": 7
+    },
+    {
+      "userId": 11,
+      "cart": [],
+      "id": 10
+    },
+    {
+      "userId": 12,
+      "cart": [],
+      "id": 11
+    }
+  ],
+  "orders": [
+    {
+      "products": [
+        {
+          "id": 11,
+          "product_name": "Loa không dây",
+          "price": 900000,
+          "description": "Loa không dây với âm thanh chất lượng cao",
+          "from": "Siêu thị điện tử XYZ",
+          "category_id": "2",
+          "image": "https://aothudong.com/upload/product/atd-344/bo-quan-ao-the-thao-gio-den-nam.jpg",
+          "discount": 5,
+          "quantity": 2
+        },
+        {
+          "id": 10,
+          "product_name": "Túi xách nữ",
+          "price": 500000,
+          "description": "Túi xách nữ thời trang",
+          "from": "Cửa hàng thời trang ABC",
+          "category_id": "2",
+          "image": "https://lavenderstudio.com.vn/wp-content/uploads/2021/06/cach-chup-hinh-san-pham-quan-ao-dep-1.jpg",
+          "discount": 0,
+          "quantity": 3
+        },
+        {
+          "id": 12,
+          "product_name": "Máy ảnh kỹ thuật số",
+          "price": 1800000,
+          "description": "Máy ảnh kỹ thuật số cho nhiếp ảnh gia",
+          "from": "Cửa hàng điện tử EFG",
+          "category_id": "3",
+          "image": "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/07/set-nu-hi-lam-in-cantho-696x1001.jpg?fit=700%2C20000&quality=95&ssl=1",
+          "discount": 5,
+          "quantity": 1
+        },
+        {
+          "id": 13,
+          "product_name": "Thảm trải sàn",
+          "price": 300000,
+          "description": "Thảm trải sàn cho phòng khách",
+          "from": "Cửa hàng nội thất XYZ",
+          "category_id": "4",
+          "image": "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/07/dam-vay-nang-tho-696x696.jpg?fit=700%2C20000&quality=95&ssl=1",
+          "discount": 20,
+          "quantity": 1
+        },
+        {
+          "id": 14,
+          "product_name": "Bình đun nước",
+          "price": 150000,
+          "description": "Bình đun nước nhanh chóng",
+          "from": "Trung tâm điện máy PQR",
+          "category_id": "3",
+          "image": "https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg",
+          "discount": 0,
+          "quantity": 1
+        },
+        {
+          "id": 15,
+          "product_name": "Vòng cổ vàng",
+          "price": 7500000,
+          "description": "Vòng cổ vàng sang trọng",
+          "from": "Cửa hàng trang sức XYZ",
+          "category_id": "2",
+          "image": "https://salt.tikicdn.com/cache/w1200/ts/product/3e/ef/ed/7ab241d3b24e5e726575a375feeb504c.jpg",
+          "discount": 15,
+          "quantity": 1
+        }
+      ],
+      "userId": 9,
+      "date": "08:14:37 26/9/2023",
+      "total": 13050000,
+      "status": 2,
+      "username": "m gngfbfvrthfd",
+      "address": "bangaaa@gmail.com",
+      "id": 1
+    },
+    {
+      "products": [
+        {
+          "id": 11,
+          "product_name": "Loa không dây",
+          "price": 900000,
+          "description": "Loa không dây với âm thanh chất lượng cao",
+          "from": "Siêu thị điện tử XYZ",
+          "category_id": "2",
+          "image": "https://aothudong.com/upload/product/atd-344/bo-quan-ao-the-thao-gio-den-nam.jpg",
+          "discount": 5,
+          "quantity": 1
+        },
+        {
+          "id": 12,
+          "product_name": "Máy ảnh kỹ thuật số",
+          "price": 1800000,
+          "description": "Máy ảnh kỹ thuật số cho nhiếp ảnh gia",
+          "from": "Cửa hàng điện tử EFG",
+          "category_id": "3",
+          "image": "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/07/set-nu-hi-lam-in-cantho-696x1001.jpg?fit=700%2C20000&quality=95&ssl=1",
+          "discount": 5,
+          "quantity": 1
+        },
+        {
+          "id": 17,
+          "product_name": "Máy sấy tóc",
+          "price": 250000,
+          "description": "Máy sấy tóc tiện lợi",
+          "from": "Cửa hàng điện tử XYZ",
+          "category_id": "4",
+          "image": "https://giadinh.mediacdn.vn/296230595582509056/2023/5/17/-thu-hut-moi-anh-nhin-soi-style-3-chi-dep-thirty-nine-son-ye-jin-co-doi-1671335262-797-width600height600-16842262761111030084562-1684314963113-16843149634352062099717.jpg",
+          "discount": 10,
+          "quantity": 1
+        }
+      ],
+      "date": "13:59:56 26/9/2023",
+      "total": 2950000,
+      "status": 2,
+      "username": "nguyễn bang",
+      "address": "hà nội",
+      "id": 2
+    },
+    {
+      "products": [
+        {
+          "id": 11,
+          "product_name": "Loa không dây",
+          "price": 900000,
+          "description": "Loa không dây với âm thanh chất lượng cao",
+          "from": "Siêu thị điện tử XYZ",
+          "category_id": "2",
+          "image": "https://aothudong.com/upload/product/atd-344/bo-quan-ao-the-thao-gio-den-nam.jpg",
+          "discount": 5,
+          "quantity": 1
+        }
+      ],
+      "date": "14:21:31 26/9/2023",
+      "total": 900000,
+      "status": 2,
+      "username": "jhgjh",
+      "address": "hjghf",
+      "id": 3
+    },
+    {
+      "products": [
+        {
+          "id": 10,
+          "product_name": "Túi xách nữ",
+          "price": 500000,
+          "description": "Túi xách nữ thời trang",
+          "from": "Cửa hàng thời trang ABC",
+          "category_id": "1",
+          "image": "https://lavenderstudio.com.vn/wp-content/uploads/2021/06/cach-chup-hinh-san-pham-quan-ao-dep-1.jpg",
+          "discount": 0,
+          "quantity": 3
+        },
+        {
+          "id": 11,
+          "product_name": "Loa không dây",
+          "price": 900000,
+          "description": "Loa không dây với âm thanh chất lượng cao",
+          "from": "Siêu thị điện tử XYZ",
+          "category_id": "2",
+          "image": "https://aothudong.com/upload/product/atd-344/bo-quan-ao-the-thao-gio-den-nam.jpg",
+          "discount": 5,
+          "quantity": 2
+        },
+        {
+          "id": 13,
+          "product_name": "Thảm trải sàn",
+          "price": 300000,
+          "description": "Thảm trải sàn cho phòng khách",
+          "from": "Cửa hàng nội thất XYZ",
+          "category_id": "4",
+          "image": "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/07/dam-vay-nang-tho-696x696.jpg?fit=700%2C20000&quality=95&ssl=1",
+          "discount": 20,
+          "quantity": 5
+        },
+        {
+          "id": 14,
+          "product_name": "Bình đun nước",
+          "price": 150000,
+          "description": "Bình đun nước nhanh chóng",
+          "from": "Trung tâm điện máy PQR",
+          "category_id": "3",
+          "image": "https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg",
+          "discount": 0,
+          "quantity": 6
+        },
+        {
+          "id": 17,
+          "product_name": "Máy sấy tóc",
+          "price": 250000,
+          "description": "Máy sấy tóc tiện lợi",
+          "from": "Cửa hàng điện tử XYZ",
+          "category_id": "4",
+          "image": "https://giadinh.mediacdn.vn/296230595582509056/2023/5/17/-thu-hut-moi-anh-nhin-soi-style-3-chi-dep-thirty-nine-son-ye-jin-co-doi-1671335262-797-width600height600-16842262761111030084562-1684314963113-16843149634352062099717.jpg",
+          "discount": 10,
+          "quantity": 6
+        },
+        {
+          "id": 16,
+          "product_name": "Áo sơ mi nam",
+          "price": 450000,
+          "description": "Áo sơ mi nam công sở",
+          "from": "Cửa hàng thời trang ABC",
+          "category_id": "4",
+          "image": "https://media.istockphoto.com/id/1473646712/vi/anh/ng%C6%B0%E1%BB%9Di-ph%E1%BB%A5-n%E1%BB%AF-tr%E1%BA%BB-ch%C3%A2u-%C3%A1-m%E1%BA%B7c-v%C3%A1y-tr%C3%AAn-n%E1%BB%81n.jpg?s=612x612&w=0&k=20&c=5kBh-kHmGxcpz7LdYU2SlJtvw6zibtw_P7hd7aeo4Pc=",
+          "discount": 0,
+          "quantity": 3
+        }
+      ],
+      "userId": 10,
+      "date": "14:29:31 26/9/2023",
+      "total": 8550000,
+      "status": 2,
+      "username": "1234567890",
+      "address": "123123123",
+      "id": 4
+    },
+    {
+      "products": [
+        {
+          "id": 11,
+          "product_name": "Loa không dây",
+          "price": 900000,
+          "description": "Loa không dây với âm thanh chất lượng cao",
+          "from": "Siêu thị điện tử XYZ",
+          "category_id": "2",
+          "image": "https://aothudong.com/upload/product/atd-344/bo-quan-ao-the-thao-gio-den-nam.jpg",
+          "discount": 5,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "product_name": "Túi xách nữ",
+          "price": 500000,
+          "description": "Túi xách nữ thời trang",
+          "from": "Cửa hàng thời trang ABC",
+          "category_id": "1",
+          "image": "https://lavenderstudio.com.vn/wp-content/uploads/2021/06/cach-chup-hinh-san-pham-quan-ao-dep-1.jpg",
+          "discount": 0,
+          "quantity": 1
+        }
+      ],
+      "userId": 12,
+      "date": "16:18:15 26/9/2023",
+      "total": 1400000,
+      "status": 1,
+      "username": "tuan anh",
+      "address": "tay bac",
+      "id": 5
+    }
+  ],
   "products": [
-    {
-      "id": 1,
-      "product_name": "Đồng hồ treo tường",
-      "price": 1200000,
-      "description": "Đồng hồ đẹp với thiết kế nhỏ gọn",
-      "from": "Chợ Đồng Xuân",
-      "category_id": 4,
-      "image": "https://lh6.googleusercontent.com/xr1tWQ0zigU8mFvMGfMmW2oiX9yinGbn8LaRLMHnPXvsh7Bg1ABs2Tk8ZfAoQMv6mPw9Id-iaSB1zuU5UTJmCcnTybFvdiaC-EHxrdTbRmNJT22y1tmSb5rE1--xKXg3TrmwO2z3",
-      "discount": 0,
-      "quantity": 100
-    },
-    {
-      "id": 2,
-      "product_name": "Máy tính xách tay",
-      "price": 15000000,
-      "description": "Máy tính mỏng nhẹ với hiệu suất cao",
-      "from": "Trung tâm điện máy Pico",
-      "category_id": 2,
-      "image": "https://naidecor.vn/wp-content/uploads/2020/01/ct00192-549k.jpg",
-      "discount": 5,
-      "quantity": 50
-    },
-    {
-      "id": 4,
-      "product_name": "Giày thể thao",
-      "price": 750000,
-      "description": "Giày thể thao phong cách",
-      "from": "Siêu thị giày ABC",
-      "category_id": 3,
-      "image": "https://nhatminhdecor.com/wp-content/uploads/2019/01/chup-anh-voi-phong-nen-vai-trang-1.jpg",
-      "discount": 0,
-      "quantity": 120
-    },
-    {
-      "id": 5,
-      "product_name": "Bàn làm việc",
-      "price": 2200000,
-      "description": "Bàn làm việc tiện lợi cho văn phòng",
-      "from": "Cửa hàng nội thất EFG",
-      "category_id": 1,
-      "image": "https://lavenderstudio.com.vn/wp-content/uploads/2019/09/chup-hinh-quang-cao-quan-ao.jpg",
-      "discount": 15,
-      "quantity": 30
-    },
-    {
-      "id": 6,
-      "product_name": "Quần jeans nam",
-      "price": 650000,
-      "description": "Quần jeans nam phong cách",
-      "from": "Cửa hàng thời trang XYZ",
-      "category_id": 5,
-      "image": "https://watermark.lovepik.com/photo/20211208/large/lovepik-fashionable-womens-clothing-picture_501667331.jpg",
-      "discount": 0,
-      "quantity": 90
-    },
-    {
-      "id": 7,
-      "product_name": "Điều hòa không khí",
-      "price": 3500000,
-      "description": "Điều hòa mạnh mẽ cho mùa hè",
-      "from": "Trung tâm điện máy Pico",
-      "category_id": 1,
-      "image": "https://vapa.vn/wp-content/uploads/2022/12/hinh-anh-quan-ao-dep-002.jpeg",
-      "discount": 8,
-      "quantity": 60
-    },
-    {
-      "id": 8,
-      "product_name": "Bếp điện từ",
-      "price": 2800000,
-      "description": "Bếp điện từ tiện lợi cho bếp nhà bạn",
-      "from": "Cửa hàng thiết bị nhà bếp MNO",
-      "category_id": 1,
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHXqggq2kCXhY04zJYpuqgZOh37DDFBrIOZw&usqp=CAU",
-      "discount": 0,
-      "quantity": 40
-    },
-    {
-      "id": 9,
-      "product_name": "Ổ cắm điện thông minh",
-      "price": 200000,
-      "description": "Ổ cắm điện có thể điều khiển từ xa",
-      "from": "Siêu thị điện tử XYZ",
-      "category_id": 4,
-      "image": "https://cf.shopee.vn/file/439f855611a03421e2c7cbd10d29554b",
-      "discount": 12,
-      "quantity": 80
-    },
     {
       "id": 10,
       "product_name": "Túi xách nữ",
       "price": 500000,
       "description": "Túi xách nữ thời trang",
       "from": "Cửa hàng thời trang ABC",
-      "category_id": 5,
+      "category_id": "1",
       "image": "https://lavenderstudio.com.vn/wp-content/uploads/2021/06/cach-chup-hinh-san-pham-quan-ao-dep-1.jpg",
       "discount": 0,
-      "quantity": 110
+      "quantity": 3
     },
     {
       "id": 11,
@@ -193,10 +401,10 @@
       "price": 900000,
       "description": "Loa không dây với âm thanh chất lượng cao",
       "from": "Siêu thị điện tử XYZ",
-      "category_id": 4,
+      "category_id": "2",
       "image": "https://aothudong.com/upload/product/atd-344/bo-quan-ao-the-thao-gio-den-nam.jpg",
       "discount": 5,
-      "quantity": 65
+      "quantity": 2
     },
     {
       "id": 12,
@@ -204,10 +412,10 @@
       "price": 1800000,
       "description": "Máy ảnh kỹ thuật số cho nhiếp ảnh gia",
       "from": "Cửa hàng điện tử EFG",
-      "category_id": 1,
+      "category_id": "3",
       "image": "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/07/set-nu-hi-lam-in-cantho-696x1001.jpg?fit=700%2C20000&quality=95&ssl=1",
-      "discount": 0,
-      "quantity": 25
+      "discount": 5,
+      "quantity": 2
     },
     {
       "id": 13,
@@ -215,10 +423,10 @@
       "price": 300000,
       "description": "Thảm trải sàn cho phòng khách",
       "from": "Cửa hàng nội thất XYZ",
-      "category_id": 1,
+      "category_id": "4",
       "image": "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/07/dam-vay-nang-tho-696x696.jpg?fit=700%2C20000&quality=95&ssl=1",
       "discount": 20,
-      "quantity": 70
+      "quantity": 5
     },
     {
       "id": 14,
@@ -226,10 +434,10 @@
       "price": 150000,
       "description": "Bình đun nước nhanh chóng",
       "from": "Trung tâm điện máy PQR",
-      "category_id": 2,
+      "category_id": "3",
       "image": "https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg",
       "discount": 0,
-      "quantity": 95
+      "quantity": 6
     },
     {
       "id": 15,
@@ -237,10 +445,10 @@
       "price": 7500000,
       "description": "Vòng cổ vàng sang trọng",
       "from": "Cửa hàng trang sức XYZ",
-      "category_id": 2,
+      "category_id": "2",
       "image": "https://salt.tikicdn.com/cache/w1200/ts/product/3e/ef/ed/7ab241d3b24e5e726575a375feeb504c.jpg",
       "discount": 15,
-      "quantity": 45
+      "quantity": 5
     },
     {
       "id": 16,
@@ -248,10 +456,10 @@
       "price": 450000,
       "description": "Áo sơ mi nam công sở",
       "from": "Cửa hàng thời trang ABC",
-      "category_id": 5,
+      "category_id": "4",
       "image": "https://media.istockphoto.com/id/1473646712/vi/anh/ng%C6%B0%E1%BB%9Di-ph%E1%BB%A5-n%E1%BB%AF-tr%E1%BA%BB-ch%C3%A2u-%C3%A1-m%E1%BA%B7c-v%C3%A1y-tr%C3%AAn-n%E1%BB%81n.jpg?s=612x612&w=0&k=20&c=5kBh-kHmGxcpz7LdYU2SlJtvw6zibtw_P7hd7aeo4Pc=",
       "discount": 0,
-      "quantity": 70
+      "quantity": 3
     },
     {
       "id": 17,
@@ -259,10 +467,10 @@
       "price": 250000,
       "description": "Máy sấy tóc tiện lợi",
       "from": "Cửa hàng điện tử XYZ",
-      "category_id": 2,
+      "category_id": "4",
       "image": "https://giadinh.mediacdn.vn/296230595582509056/2023/5/17/-thu-hut-moi-anh-nhin-soi-style-3-chi-dep-thirty-nine-son-ye-jin-co-doi-1671335262-797-width600height600-16842262761111030084562-1684314963113-16843149634352062099717.jpg",
       "discount": 10,
-      "quantity": 55
+      "quantity": 6
     },
     {
       "id": 18,
@@ -270,21 +478,105 @@
       "price": 22000000,
       "description": "Laptop chơi game mạnh mẽ",
       "from": "Trung tâm điện máy Pico",
-      "category_id": 2,
+      "category_id": "4",
       "image": "https://afamilycdn.com/Eek4qH2UqhK318ahKRzbBOnleXilkn/Image/2012/02/201202011afamilydep4kieuvaynenco01_cb315.jpg",
       "discount": 5,
-      "quantity": 40
+      "quantity": 5
     },
     {
-      "id": 19,
-      "product_name": "Đèn trang trí",
-      "price": 180000,
-      "description": "Đèn trang trí cho phòng khách",
-      "from": "Cửa hàng nội thất XYZ",
-      "category_id": 1,
-      "image": "https://platerra.edu.vn/wp-content/uploads/2022/03/tu-vung-tieng-anh-ve-quan-ao-nam.jpg",
+      "product_name": "grhdghg",
+      "price": "29990",
+      "description": "gfhgdsdsj",
+      "from": "gdf",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fhinh-anh-qua-dau-tay-583_4.jpg?alt=media&token=96d7f971-36fd-472d-b89f-f1040164975c",
+      "discount": "13",
+      "quantity": 3,
+      "category_id": 4,
+      "id": 20
+    },
+    {
+      "product_name": "đào",
+      "price": "2000000",
+      "description": "đào thơm",
+      "from": "hà nội",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F8f2aaac3286d6016ea5105685c2997a2.jpg?alt=media&token=66dfec31-b8c7-42d3-9e3d-688671f6d5b8",
       "discount": 0,
-      "quantity": 85
+      "quantity": 2,
+      "category_id": 3,
+      "id": 21
+    },
+    {
+      "product_name": "ma",
+      "price": "1111111",
+      "description": "sssss",
+      "from": "hà nội",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F55148948-lamsachthungrac.jpg?alt=media&token=468a1266-b41b-4cbf-9ff5-80c63745a709",
+      "discount": 0,
+      "quantity": 4,
+      "category_id": 4,
+      "id": 22
+    },
+    {
+      "product_name": "grhdghg",
+      "price": "11111",
+      "description": "1111",
+      "from": "hà nội",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fao-so-mi-khoac-ngoai-nam-7.jpg?alt=media&token=14587598-56c3-43f9-86a5-d87de1331570",
+      "discount": "1",
+      "quantity": 2,
+      "category_id": "1",
+      "id": 23
+    },
+    {
+      "product_name": "445324wer",
+      "price": "111111",
+      "description": "vdcsdvf",
+      "from": "ha noi",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2FAo-khoac-du-ao-khoac-gio-bomber-ao-thun-nam-dai-tay-co-tim-co-tron-1-mau-ve-rat-nhieu-mau-gia-ca-re-nhat-ao-khoac-gio-bomber.jpg?alt=media&token=c5d3496f-a69f-4132-b93e-92b71b6801a4",
+      "discount": 0,
+      "quantity": 3,
+      "category_id": "5",
+      "id": 24
+    },
+    {
+      "product_name": "quần đẹp",
+      "price": "20000",
+      "description": "quần cao cấp",
+      "from": "hà nội",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fcav-empt-tee-bk116.jpg?alt=media&token=dc6a3a1a-22f0-4d08-8cb7-5053c5c47578",
+      "quantity": 4,
+      "category_id": 5,
+      "id": 25
+    },
+    {
+      "product_name": "grhdghg",
+      "price": "65432",
+      "description": "kghjfhdghnhjghf",
+      "from": "hà nội",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2FAo-khoac-du-ao-khoac-gio-bomber-ao-thun-nam-dai-tay-co-tim-co-tron-1-mau-ve-rat-nhieu-mau-gia-ca-re-nhat-ao-khoac-gio-bomber.jpg?alt=media&token=7198f994-8c4e-4ed2-a0a1-39521015741b",
+      "quantity": 11,
+      "category_id": "1",
+      "id": 26
+    }
+  ],
+  "slider": [
+    {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+      "title": "Chào mừng đến với ASHION.COM",
+      "description": "Mua sắm trực tuyến các phụ kiện mới nhất "
+    },
+    {
+      "id": 2,
+      "image": "https://fashionterest.com/wp-content/uploads/2022/09/high-low-fashion-wardrobe-5.jpg",
+      "title": "Chào mừng đến với ASHION.COM",
+      "description": "Mua sắm trực tuyến các phụ kiện mới nhất và trải nghiệm ngay"
+    },
+    {
+      "id": 3,
+      "image": "https://lavenderstudio.com.vn/wp-content/uploads/2019/09/chup-quang-cao-quan-ao-1.jpg",
+      "title": "Chào mừng đến với ASHION.COM",
+      "description": "Mua sắm trực tuyến săn bán phụ kiện với mức giảm giá lên tới 50%"
     }
   ]
 }

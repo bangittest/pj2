@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Carousel, Button } from "antd";
 import { Link } from "react-router-dom";
+import { instance } from "../../../api/axios";
 
 export default function Slider() {
 
 
   const [sliderHeight, setSliderHeight] = useState("32rem");
+  const [slider,setSlider]=useState([])
 
   useEffect(() => {
     function handleResize() {
@@ -48,11 +50,11 @@ export default function Slider() {
 
   const textStyles = {
     position: "absolute",
-    top: "50%",
+    top: "40%",
     left: "50%",
     transform: "translate(-50%, -50%)",
     color: "#FFFFFF",
-    fontSize: "32px",
+    fontSize: "40px",
     fontWeight: "bold",
     textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
   };
@@ -62,51 +64,35 @@ export default function Slider() {
     bottom: "10rem", // Điều chỉnh vị trí của nút bấm
     // left: "50%",
     transform: "translateX(-50%)",
-    textAlign:"center"
+    textAlign:"center",
+    padding: "1rem 3rem 1rem 3rem",
+
   };
+
+
+  useEffect(()=>{
+  instance
+  .get("/slider")
+  .then((response)=>setSlider(response.data))
+  .catch((error)=>console.log(error))
+},[])
 
   return (
     <Carousel autoplay>
-      <div>
+      {slider.map(sli => <div  key={sli.id}>
         <div style={contentStyle}>
-          <img src="./src/assets/img/banner/slider-1.jpg" alt="" />
+          <img src={sli.image} alt="" className="block w-full"/>
           <div style={{...textStyles,...whiteTextStyles}}>
-            <h3 style={{color:"white"}}>Welcome to ASHION.COM</h3>
-            <p style={{color:"white"}}>Shop online for the latest accessories</p>
+            <h3 style={{color:"white"}}>{sli.title}</h3>
+            <p style={{color:"white",fontSize:"25px" ,marginTop:"10px"}}>{sli.description}</p>
           </div>
-          <Button style={buttonStyle} type="primary">
-            <Link to="/list-product">Shopping</Link>
-          </Button>
+            <Link to="/list-product">
+          <button className="bg-blue-500 rounded-md hover:bg-blue-50" style={buttonStyle} type="primary">
+          SHOPNOW
+          </button>
+          </Link>
         </div>
-      </div>
-      <div>
-        <div style={contentStyle}>
-          <img src="./src/assets/img/banner/slider-2.jpg" alt="" />
-          <div style={textStyles}>
-            <h1  style={{color:"white"}}>50% Discount on all products</h1>
-            <p style={{color:"white"}}>
-            It is very important to have a customer to explain to
-               everyone's efforts, in fact, that is the style motto
-               our rich.
-            </p>
-          </div>
-          <Button style={buttonStyle} type="primary">
-          <Link href="/block">Find out more</Link>
-          </Button>
-        </div>
-      </div>
-      <div>
-        <div style={contentStyle}>
-          <img src="./src/assets/img/banner/slider-3.jpg" alt="" />
-          <div style={textStyles}>
-            <h1 style={{color:"white"}}>24-hour customer support</h1>
-            <p style={{color:"white"}}>It is very important to have a customer to account for everyone's efforts, in fact, it is our rich motto.</p>
-          </div>
-          <Button style={buttonStyle} type="primary">
-          <Link href="/block">Find out more</Link>
-          </Button>
-        </div>
-      </div>
+      </div>)}
     </Carousel>
-  );
+  )
 }

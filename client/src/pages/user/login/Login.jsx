@@ -4,9 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../../firebase/firebaseConfig";
 import { instance } from "../../../api/axios";
-import{LoginSocialFacebook} from "reactjs-social-login";
-import {FacebookLoginButton} from "react-social-login-buttons";
-
+import { validateEmail } from "../../../utils/fomatData";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -15,24 +13,33 @@ export default function Login() {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
+  const getCarts = async () => {
+    const response = await instance.get(`/carts`);
+    return response.data;
+  };
+
+  const isEmailValid = validateEmail;
+
   //  Hàm validate dữ liệu nhập vào
   const validateData = (nameInput, valueInput) => {
     switch (nameInput) {
       case "email":
         if (!valueInput) {
-          setEmailError(true);
+          setEmailError("Email không được để trống");
+          return;
+        }
+        if (!isEmailValid(valueInput)) {
+          setEmailError("Email không hợp lệ");
         } else {
-          setEmailError(false);
+          setEmailError("");
         }
         break;
       case "password":
         if (!valueInput) {
-          setPasswordError(true);
+          setPasswordError("Mật khẩu không được để trống");
         } else {
-          setPasswordError(false);
+          setPasswordError("");
         }
-        break;
-
       default:
         break;
     }
@@ -59,8 +66,9 @@ export default function Login() {
   //dang nhap voi API
   const handleOnSumit = (e) => {
     e.preventDefault();
-        validateData("email", email);
+    validateData("email", email);
     validateData("password", password);
+    // Kiểm tra các trường bắt buộc trong đối tượng user
 
     if (email && password) {
       const newUser = {
@@ -71,22 +79,49 @@ export default function Login() {
       instance
         .post("/login", newUser)
         .then((response) => {
-          if (response.status === 200) {
-            // Lưu dữ liệu lên local
-            localStorage.setItem(
-              "userLocal",
-              JSON.stringify(response.data.user)
-            );
-            // Chuyển trang
-            if (response.data.user.role === 0) {
-              console.log("Chuyển vào trang admin");
-            } else {
-              notification.success({
-                massage:"Thành công",
-                description:"Đăng nhập thành công"
-              })
-              navigate("/")
-            }
+          if (response.data.user.banned == true) {
+            setAlertBan(true);
+            return;
+          }
+          notification.success({
+            message: "Thành công",
+            description: "Đăng nhập thành công",
+          });
+          localStorage.setItem("userLocal", JSON.stringify(response.data.user));
+          return response.data.user;
+        })
+        .then(async (user) => {
+          // Kiểm tra nếu người dùng đã có giỏ hàng
+          const carts = await getCarts();
+          const cartUser = carts.find((cart) => cart.userId == user.id);
+
+          // Xóa dữ liệu giỏ hàng từ localStorage trước khi thêm mới
+          localStorage.removeItem("carts");
+          localStorage.removeItem("cartId");
+
+          if (!cartUser) {
+            // Nếu chưa có, tạo một giỏ hàng mới và thêm sản phẩm vào đó
+            const res = await instance.post(`/carts`, {
+              userId: user.id,
+              cart: [],
+            });
+
+            // Lưu cartId mới vào localStorage
+            localStorage.setItem("cartId", JSON.stringify(res.data.id));
+          } else {
+            // Nếu đã có, thêm sản phẩm vào giỏ hàng hiện có
+
+            // Lưu cartId hiện tại vào localStorage
+            localStorage.setItem("cartId", JSON.stringify(cartUser.id));
+          }
+
+          return user;
+        })
+        .then((user) => {
+          if (user.role == 0) {
+            navigate("/admin");
+          } else {
+            navigate("/");
           }
         })
         .catch((error) => {
@@ -97,209 +132,228 @@ export default function Login() {
           ) {
             notification.error({
               message: "Cảnh báo",
-              description: "Mật khẩu hoặc Email không đúng.",
+              description: "Mật khẩu hoặc Email không chính xác",
             });
           }
           console.log(error);
         });
     }
   };
-
   //dang nhap voi google
-  const signInWithGoogle = () => {
-    signInWithPopup(auth, provider)
-      .then((response) => {
-        const useLocal = {
-          email: response.email,
-          user_name: response.user.displayName,
-          image: response.user.photoURL,
-          userId: response.user.uid,
-        };
-        //luu thong tin len local
-        localStorage.setItem("userLocal", JSON.stringify(useLocal));
-        notification.success({
-          massage:"Thành công",
-          description:"đăng nhập thành công"
-        })
-        //chuyen huong ve trang home
-        navigate("/");
-      })
-      .catch((error) => {
-        //hiển thị thông báo lỗi
-        notification.error({
-          message: "Thất bại",
-          description: "Đăng nhập thất bại",
-        });
-      });
-  };
-  // const [profile,setProfile]=useState(null)
-  const [profile, setProfile] = useState(null);
+  // const signInWithGoogle = () => {
+  //   signInWithPopup(auth, provider)
+  //     .then(async (response) => {
+  //       const userLocal = {
+  //         email: response.user.email,
+  //         user_name: response.user.displayName,
+  //         image: response.user.photoURL,
+  //         userId: response.user.uid,
+  //       };
 
-  const handleLoginResolve = (response) => {
-    console.log(response);
-    setProfile(response.data);
-  };
+  //       // const existingUser = await instance.get(`/users/${userLocal.userId}`);
 
-  const handleLoginReject = (error) => {
-    console.log(error);
-  };
+  //       // if (!existingUser) {
+  //       //   await instance.post("/users", userLocal);
+  //       // }
 
+  //       try {
+  //         const existingUser = await instance.get(`/users/${userLocal.userId}`);
+  //         if (!existingUser) {
+  //           await instance.post("/users", userLocal);
+  //         }
+  //       } catch (error) {
+  //         console.error("Lỗi xử lý API:", error);
+  //       }
 
-  
+  //       // Lưu thông tin người dùng vào localStorage
+  //       localStorage.setItem("userLocal", JSON.stringify(userLocal));
+  //       notification.success({
+  //         message: "Thành công",
+  //         description: "đăng nhập thành công",
+  //       });
+  //       // Tạo giỏ hàng cho tài khoản
+  //       const cartUser = {
+  //         userId: userLocal.userId,
+  //         cart: [],
+  //       };
+  //       await instance.post(`/carts`, cartUser);
+  //       //chuyen huong ve trang home
+  //       navigate("/");
+  //     })
+  //     .catch((error) => {
+  //       console.error(error); // In ra lỗi để xác định nguyên nhân
+  //       //hiển thị thông báo lỗi
+  //       notification.error({
+  //         message: "Thất bại",
+  //         description: "Đăng nhập thất bại",
+  //       });
+  //     });
+  // };
+
   return (
     <>
-    {/* <>
-      {!profile ? (
-        <LoginSocialFacebook
-          appId="677238851131951"
-          onResolve={(response) => {
-            console.log(response);
-            setProfile(response.data);
-          }}
-          onReject={(error) => {
-            console.log(error);
-          }}
-        >
-          <FacebookLoginButton />
-        </LoginSocialFacebook>
-      ) : (
-        <></>
-      )}
-      {profile ? (
-        <div>
-          <h1>{profile.name}</h1>
-          <img src={profile.picture} alt="" />
-        </div>
-      ) : (
-        ""
-      )}
-    </> */}
-
-<>
-      {!profile ? (
-        <LoginSocialFacebook
-          appId="677238851131951"
-          onResolve={handleLoginResolve}
-          onReject={handleLoginReject}
-        >
-          <FacebookLoginButton />
-        </LoginSocialFacebook>
-      ) : (
-        <>
-          <div>
-            <h1>{profile.name}</h1>
-            <img src={profile.picture} alt="" />
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-300">
+        <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
+          <div className="font-medium self-center text-xl sm:text-2xl uppercase text-gray-800">
+            Đăng Nhập
           </div>
-        </>
-      )}
-    </>
-      <div className="bg-gray-400 font-sans">
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="bg-white p-8 shadow-lg flex flex-col items-center rounded w-2/6">
-            <h2 className="text-2xl font-sans text-center mb-4">
-            SIGN IN
-            </h2>
-            <form className="w-full" onSubmit={handleOnSumit}>
-              <div className="mb-4">
-                <label htmlFor="username" className="block text-gray-600">
-                  Email address:
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter email address . . ."
-                  id="email"
-                  name="email"
-                  required=""
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-                  onChange={handleInputChange}
-                />
-                {/* <div className="text-red-500 mt-1">
-                  Tài khoản không được để trống
-                </div> */}
-                {emailError && (
-              <div className="text-red-500 mt-1">email không được để trống.</div>
-            )}
-              </div>
-              <div className="mb-6">
-                <label htmlFor="password" className="block text-gray-600">
-                Password:
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Enter password . . ."
-                  required=""
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-                  onChange={handleInputChange}
-                />
-                {passwordError && (
-              <div className="text-red-500 mt-1">Mật khẩu không được để trống.</div>
-            )}
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 mb-2"
-              >
-                SIGN IN
-              </button>
-              <div className="flex justify-between w-full">
-                <div>
-                  <Link
-                    to="/"
-                    className="text-gray-500 hover:text-gray-700 transition duration-200"
-                  >
-                    Back
-                  </Link>
-                </div>
-                <div>
-                  <Link
-                    href="/change_password"
-                    className="text-blue-500 hover:text-blue-700 transition duration-200"
-                  >
-                    Reset Password?
-                  </Link>
-                </div>
-              </div>
-              <div className="text-center mt-4">Sign In With</div>
-              <div className="flex text-center justify-center gap-5">
-              <a
-                onClick={signInWithGoogle}
-                href="#"
-                onclick="loginWithGoogle()"
-                className=" w-32 bg-primary text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 flex items-center justify-center mt-2"
-              >
-                <img
-                  src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-                  alt="Google Logo"
-                  className="w-6 h-6 mr-2"
-                />
-                Google
-              </a>
-              <a 
-              onClick={signInWithGoogle}
-                href="#"
-                onclick="loginWithGoogle()"
-                className="w-32 bg-primary text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 flex items-center justify-center mt-2"
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png"
-                  alt="Google Logo"
-                  className="w-6 h-6 mr-2"
-                />
-                Facebook
-              </a>
-              </div>
-              <div className="text-center mt-4">
-              Do you already have an account?{" "}
-                <Link
-                  className="text-blue-500 hover:text-blue-700 transition duration-200"
-                  to="/register"
+          {/* <button
+            onClick={signInWithGoogle}
+            className="relative mt-6 border rounded-md py-2 text-sm text-gray-800 bg-gray-100 hover:bg-gray-200"
+          >
+            <span className="absolute left-0 top-0 flex items-center justify-center h-full w-10 text-blue-500">
+              <img
+                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                alt="Google Logo"
+                className="w-6 h-6 mr-2"
+              />
+            </span>
+            <span>Đăng nhập với Google</span>
+          </button> */}
+          {/* <div className="relative mt-10 h-px bg-gray-300"> */}
+          {/* <div className="absolute left-0 top-0 flex justify-center w-full -mt-2">
+              <span className="bg-white px-4 text-xs text-gray-500 uppercase">
+                Hoặc Đăng nhập bằng Email
+              </span>
+            </div> */}
+          {/* </div> */}
+          <div className="mt-10">
+            <form onSubmit={handleOnSumit}>
+              <div className="flex flex-col mb-6">
+                <label
+                  htmlFor="email"
+                  className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
                 >
-                  Sign Up here
-                </Link>
+                  E-Mail:
+                </label>
+                <div className="relative">
+                  <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+                    <svg
+                      className="h-6 w-6"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                    </svg>
+                  </div>
+                  <input
+                    id="email"
+                    type="text"
+                    name="email"
+                    onChange={handleInputChange}
+                    onBlur={handleInputChange}
+                    className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
+                    placeholder="E-Mail"
+                  />
+                  {emailError && (
+                    <div className="text-red-500 mt-1 text-xs">
+                      {emailError}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-col mb-6">
+                <label
+                  htmlFor="password"
+                  className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                >
+                  Mật khẩu:
+                </label>
+                <div className="relative">
+                  <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
+                    <span>
+                      <svg
+                        className="h-6 w-6"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
+                    </span>
+                  </div>
+                  <input
+                    id="password"
+                    type="password"
+                    name="password"
+                    className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
+                    placeholder="nhập mật khẩu"
+                    onChange={handleInputChange}
+                    onBlur={handleInputChange}
+                  />
+                  {passwordError && (
+                    <div className="text-red-500 mt-1 text-xs">
+                      {passwordError}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <Link
+                to="/"
+                className="inline-flex text-xs sm:text-sm text-blue-500 hover:text-blue-700"
+              >
+                Quay lại
+              </Link>
+              <div className="flex items-center mb-6 -mt-4">
+                <div className="flex ml-auto">
+                  <Link
+                    to="/change_password"
+                    className="inline-flex text-xs sm:text-sm text-blue-500 hover:text-blue-700"
+                  >
+                    Quên mật khẩu?
+                  </Link>
+                </div>
+              </div>
+              <div className="flex w-full">
+                <button
+                  type="submit"
+                  className="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in"
+                >
+                  <span className="mr-2 uppercase">Đăng Nhập</span>
+                  <span>
+                    <svg
+                      className="h-6 w-6"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </span>
+                </button>
               </div>
             </form>
+          </div>
+          <div className="flex justify-center items-center mt-6">
+            <Link
+              to="/register"
+              className="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center"
+            >
+              <span>
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                </svg>
+              </span>
+              <span className="ml-2">Bạn chưa có tài khoản?</span>
+            </Link>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@
 7.  Countdown Section
 8.  Instagram
 9.  Contact
-10.  Footer Style
+10.  Footer10 Style
 -------------------------------------------------------------------*/
 
 /*----------------------------------------*/
@@ -476,30 +476,30 @@ ol {
 	padding: 30px 0 27px;
 }
 
-.header__right__auth {
+.header__right__auth1 {
 	display: inline-block;
 	margin-right: 25px;
 }
 
-.header__right__auth a {
+.header__right__auth1 a {
 	font-size: 12px;
 	color: #666666;
 	position: relative;
 	margin-right: 8px;
 }
 
-.header__right__auth a:last-child {
+.header__right__auth1 a:last-child {
 	margin-right: 0;
 }
 
-.header__right__auth a:last-child:after {
+.header__right__auth1 a:last-child:after {
 	display: none;
 }
 
-.header__right__auth a:after {
+.header__right__auth1 a:after {
 	position: absolute;
 	right: -8px;
-	top: -2px;
+	top: -3px;
 	content: "/";
 	font-size: 13px;
 }
@@ -903,73 +903,73 @@ ol {
 }
 
 /*---------------------
-  Footer
+  Footer10
 -----------------------*/
 
-.footer {
+.footer10 {
 	padding-top: 55px;
 }
 
-.footer__about {
+.footer10__about {
 	margin-bottom: 30px;
 }
 
-.footer__about p {
+.footer10__about p {
 	margin-bottom: 20px;
 }
 
-.footer__logo {
+.footer10__logo {
 	margin-bottom: 20px;
 }
 
-.footer__payment a {
+.footer10__payment a {
 	margin-right: 6px;
 	margin-bottom: 10px;
 	display: inline-block;
 }
 
-.footer__payment a:last-child {
+.footer10__payment a:last-child {
 	margin-right: 0;
 }
 
-.footer__widget {
+.footer10__widget {
 	margin-bottom: 30px;
 }
 
-.footer__widget h6 {
+.footer10__widget h6 {
 	color: #111111;
 	font-weight: 600;
 	text-transform: uppercase;
 	margin-bottom: 12px;
 }
 
-.footer__widget ul li {
+.footer10__widget ul li {
 	list-style: none;
 }
 
-.footer__widget ul li a {
+.footer10__widget ul li a {
 	font-size: 14px;
 	color: #666666;
 	line-height: 30px;
 }
 
-.footer__newslatter {
+.footer10__newslatter {
 	margin-bottom: 30px;
 }
 
-.footer__newslatter h6 {
+.footer10__newslatter h6 {
 	color: #111111;
 	font-weight: 600;
 	text-transform: uppercase;
 	margin-bottom: 25px;
 }
 
-.footer__newslatter form {
+.footer10__newslatter form {
 	position: relative;
 	margin-bottom: 30px;
 }
 
-.footer__newslatter form input {
+.footer10__newslatter form input {
 	height: 52px;
 	width: 100%;
 	border: 1px solid #e1e1e1;
@@ -979,33 +979,33 @@ ol {
 	color: #666666;
 }
 
-.footer__newslatter form input::-webkit-input-placeholder {
+.footer10__newslatter form input::-webkit-input-placeholder {
 	color: #666666;
 }
 
-.footer__newslatter form input::-moz-placeholder {
+.footer10__newslatter form input::-moz-placeholder {
 	color: #666666;
 }
 
-.footer__newslatter form input:-ms-input-placeholder {
+.footer10__newslatter form input:-ms-input-placeholder {
 	color: #666666;
 }
 
-.footer__newslatter form input::-ms-input-placeholder {
+.footer10__newslatter form input::-ms-input-placeholder {
 	color: #666666;
 }
 
-.footer__newslatter form input::placeholder {
+.footer10__newslatter form input::placeholder {
 	color: #666666;
 }
 
-.footer__newslatter form button {
+.footer10__newslatter form button {
 	position: absolute;
 	right: 4px;
 	top: 4px;
 }
 
-.footer__social a {
+.footer10__social a {
 	display: inline-block;
 	height: 40px;
 	width: 40px;
@@ -1019,30 +1019,30 @@ ol {
 	margin-bottom: 5px;
 }
 
-.footer__social a:last-child {
+.footer10__social a:last-child {
 	margin-right: 0;
 }
 
-.footer__copyright__text {
+.footer10__copyright__text {
 	border-top: 1px solid #e1e1e1;
 	padding: 18px 0 25px;
 	text-align: center;
 	margin-top: 35px;
 }
 
-.footer__copyright__text p {
+.footer10__copyright__text p {
 	margin-bottom: 0;
 }
 
-.footer__copyright__text a {
+.footer10__copyright__text a {
 	color: #5C5C5C;
 }
 
-.footer__copyright__text i {
+.footer10__copyright__text i {
 	color: #ca1515;
 }
 
-.footer__copyright__text a:hover {
+.footer10__copyright__text a:hover {
 	color: #ca1515;
 }
 
@@ -3236,7 +3236,7 @@ ol {
 		margin-right: 20px;
 	}
 
-	.header__right__auth {
+	.header__right__auth1 {
 		margin-right: 5px;
 	}
 
@@ -3784,15 +3784,15 @@ ol {
 		padding: 75px 0px 50px;
 	}
 
-	.footer__newslatter form {
+	.footer10__newslatter form {
 		text-align: center;
 	}
 
-	.footer__newslatter form input {
+	.footer10__newslatter form input {
 		margin-bottom: 10px;
 	}
 
-	.footer__newslatter form button {
+	.footer10__newslatter form button {
 		position: relative;
 		right: 0;
 		top: 0;

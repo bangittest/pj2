@@ -4,17 +4,15 @@ import {
   KeyOutlined,
   LogoutOutlined,
   UserAddOutlined,
+  BellOutlined,
 } from "@ant-design/icons";
 import { Button, Dropdown, Modal } from "antd";
 import confirm from "antd/es/modal/confirm";
 import "../navbar/navbar.css";
 import Seach from "../seach/Seach";
 
-
-export default function Navbar() {
-
-
-
+export default function Navbar({ setIsLoad, cartLength }) {
+  // console.log("===> cartUser: ", cartUser);
   const [activeItem, setActiveItem] = useState(null);
   const [isNavbarFixed, setIsNavbarFixed] = useState(false);
   //seach
@@ -30,7 +28,6 @@ export default function Navbar() {
   const navigate = useNavigate();
   // sau khi danh nhap bang gg thanh cong, lay thong tin user da dang nhap
   const userLogin = JSON.parse(localStorage.getItem("userLocal"));
-  console.log(userLogin);
   //
   const handleLogout = () => {
     // xoa du kieu tren local
@@ -65,7 +62,7 @@ export default function Navbar() {
     {
       key: "2",
       label: (
-        <Link to={"/change-password"}>
+        <Link to={"/changepasswords"}>
           <KeyOutlined className=" mr-2" />
           Đổi mật khẩu
         </Link>
@@ -94,6 +91,8 @@ export default function Navbar() {
       }
     };
 
+    // setIsLoadCartLength((pre) => !pre);
+
     // Lắng nghe sự kiện cuộn trang khi component được mount
     window.addEventListener("scroll", handleScroll);
 
@@ -103,12 +102,10 @@ export default function Navbar() {
     };
   }, []);
 
-
-//active thanh navbar
+  //active thanh navbar
   const handleItemClick = (itemName) => {
     setActiveItem(itemName);
   };
-
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -117,22 +114,21 @@ export default function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-
   return (
-    <div>
+    <div className="shadow">
       <>
         {/* //seach */}
-        {isOpen ? (
+        {/* {isOpen ? (
           <>
             <Seach closeSeach={closeSeach} />
           </>
         ) : (
           <></>
-        )}
+        )} */}
         {/* Page Preloder */}
 
         {/* Offcanvas Menu Begin */}
-        <div className={`offcanvas-menu-overlay ${isMenuOpen ? 'open' : ''}`} />
+        <div className={`offcanvas-menu-overlay ${isMenuOpen ? "open" : ""}`} />
         <div className="offcanvas-menu-wrapper active">
           <div className="offcanvas__close">+</div>
           <ul className="offcanvas__widget">
@@ -154,7 +150,7 @@ export default function Navbar() {
           </ul>
           <div className="offcanvas__logo">
             <Link to="/">
-              <img src="img/logo.png" alt="" />
+              <img className="z-50" src="img/logo.png" alt="" />
             </Link>
           </div>
           <div id="mobile-menu-wrap " />
@@ -167,7 +163,9 @@ export default function Navbar() {
         {/* Header Section Begin */}
         <header
           className={`"header" ${
-            isNavbarFixed ? "fixed top-0 left-0 w-full bg-white z-50" : ""
+            isNavbarFixed
+              ? "fixed shadow top-0 left-0 w-full bg-white z-50"
+              : ""
           }`}
         >
           <div className="container-fluid fxes">
@@ -175,7 +173,11 @@ export default function Navbar() {
               <div className="col-xl-3 col-lg-2">
                 <div className="header__logo">
                   <Link to="/">
-                    <img src="./src/assets/img/logo.png" alt="" />
+                    <img
+                      className="z-50"
+                      src="./src/assets/img/logo.png"
+                      alt=""
+                    />
                   </Link>
                 </div>
               </div>
@@ -188,23 +190,23 @@ export default function Navbar() {
                     >
                       <Link to="/">Home</Link>
                     </li>
-                    <li
+                    {/* <li
                      className={activeItem === "women" ? "active" : ""}
                      onClick={() => handleItemClick("women")}
                     >
                       <Link to="#">Women’s</Link>
-                    </li>
+                    </li> */}
                     <li
-                     className={activeItem === "shop" ? "active" : ""}
-                     onClick={() => handleItemClick("shop")}
+                      className={activeItem === "shop" ? "active" : ""}
+                      onClick={() => handleItemClick("shop")}
                     >
                       <Link to="/list-product">Shop</Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link to="#">Pages</Link>
                       <ul className="dropdown">
                         <li>
-                          <Link to="./product-details.html">
+                          <Link to="#">
                             Product Details
                           </Link>
                         </li>
@@ -212,22 +214,22 @@ export default function Navbar() {
                           <Link to="/blog">Blog</Link>
                         </li>
                       </ul>
-                    </li>
+                    </li> */}
                     <li
-                     className={activeItem === "blog" ? "active" : ""}
-                     onClick={() => handleItemClick("blog")}
+                      className={activeItem === "blog" ? "active" : ""}
+                      onClick={() => handleItemClick("blog")}
                     >
                       <Link to="/blog">Blog</Link>
                     </li>
                     <li
-                     className={activeItem === "about" ? "active" : ""}
-                     onClick={() => handleItemClick("about")}
+                      className={activeItem === "about" ? "active" : ""}
+                      onClick={() => handleItemClick("about")}
                     >
                       <Link to="/about">About</Link>
                     </li>
                     <li
-                     className={activeItem === "contact" ? "active" : ""}
-                     onClick={() => handleItemClick("contact")}
+                      className={activeItem === "contact" ? "active" : ""}
+                      onClick={() => handleItemClick("contact")}
                     >
                       <Link to="/contact">Contact</Link>
                     </li>
@@ -236,7 +238,7 @@ export default function Navbar() {
               </div>
               <div className="col-lg-3">
                 <div className="header__right">
-                  <div className="header__right__auth">
+                  <div className="header__right__auth1">
                     {userLogin !== null ? (
                       <>
                         <Dropdown
@@ -247,7 +249,11 @@ export default function Navbar() {
                           arrow
                         >
                           <Button
-                            style={{ color: "#111111", fontWeight: 400,fontSize:"15px" }}
+                            style={{
+                              color: "#111111",
+                              fontWeight: 400,
+                              fontSize: "15px",
+                            }}
                             className="border-none shadow-none  hover:text-white"
                           >
                             <div className="flex items-center gap-2">
@@ -256,7 +262,7 @@ export default function Navbar() {
                                 src={userLogin.image}
                                 height={26}
                                 width={26}
-                                style={{objectFit:"cover"}}
+                                style={{ objectFit: "cover" }}
                                 // alt="avatar"
                               />
                               {userLogin.user_name}
@@ -271,20 +277,27 @@ export default function Navbar() {
                       </>
                     )}
                   </div>
-                  <ul className="header__right__widget">
-                    <li onClick={toggleSearch}>
+                  <ul className="header__right__widget pr-4">
+                    {/* <li onClick={toggleSearch}>
                       <span className="icon_search search-switch" />
-                    </li>
+                    </li> */}
                     <li>
-                      <Link to="#">
-                        <span className="icon_heart_alt" />
-                        <div className="tip">2</div>
+                      <Link to="/history">
+                        {/* <span className="icon_heart_alt" /> */}
+                        <span style={{ fontSize: "26px" }}>
+                          <BellOutlined />
+                        </span>
+                        {/* <div className="tip"></div> */}
                       </Link>
                     </li>
                     <li>
                       <Link to="/cart">
-                        <span className="icon_bag_alt" />
-                        <div className="tip">2</div>
+                        <span
+                          style={{ fontSize: "25px" }}
+                          className="icon_bag_alt"
+                        />
+
+                        <div className="tip">{cartLength}</div>
                       </Link>
                     </li>
                   </ul>
@@ -296,7 +309,7 @@ export default function Navbar() {
             </div>
           </div>
         </header>
-       
+
         {/* Header Section End */}
       </>
     </div>

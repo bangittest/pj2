@@ -18,8 +18,8 @@ export const auth = getAuth(app)
 export const provider = new GoogleAuthProvider()
 
 
-const storge = getStorage(app)
-export { storge }
+const storage = getStorage(app)
+export { storage }
 
 
 //tạo tham chiếu trong toàn bộ ứng dụng

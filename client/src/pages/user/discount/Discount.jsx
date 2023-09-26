@@ -51,7 +51,7 @@ export default function Discount() {
             <div className="discount__text">
               <div className="discount__text__title">
                 <span>Discount</span>
-                <h2>Summer 2023</h2>
+                <h2>Mùa hè 2023</h2>
                 <h5>
                   <span>Sale</span> 50%
                 </h5>
@@ -60,23 +60,23 @@ export default function Discount() {
               <div className="discount__countdown">
                 <div className="countdown__item">
                   <span>{countdown.days}</span>
-                  <p>Days</p>
+                  <p>Ngày</p>
                 </div>
                 <div className="countdown__item">
                   <span>{countdown.hours}</span>
-                  <p>Hours</p>
+                  <p>Giờ</p>
                 </div>
                 <div className="countdown__item">
                   <span>{countdown.minutes}</span>
-                  <p>Minutes</p>
+                  <p>Phút</p>
                 </div>
                 <div className="countdown__item">
                   <span>{countdown.seconds}</span>
-                  <p>Seconds</p>
+                  <p>Giây</p>
                 </div>
               </div>
 
-              <Link to="/list-product">Shop now</Link>
+              <Link to="/list-product">Mua sắm ngay</Link>
             </div>
           </div>
         </div>

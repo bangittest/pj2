@@ -4,11 +4,11 @@ import Footer from "../../../layout/user/footer/Footer";
 import Navbar from "../../../layout/user/navbar/Navbar";
 import { Link } from "react-router-dom";
 
-export default function About() {
+export default function About({ cartLength, setIsLoad }) {
   return (
     <div>
       <>
-        <Navbar />
+        <Navbar cartLength={cartLength} />
 
         {/* Breadcrumb Begin */}
         <div className="breadcrumb-option">
@@ -36,7 +36,7 @@ export default function About() {
           <br /> <br />
           <div className="about-content">
             <p>
-              <b>STORE.COM</b> làm cho bạn tỏa sáng trong những ngày đặc biệt
+              <b>ASHION.COM</b> làm cho bạn tỏa sáng trong những ngày đặc biệt
               của bạn, đặc biệt dành cho những người phụ nữ xinh đẹp. Mục tiêu
               của chúng tôi là luôn tôn vinh BẠN! Để có được điều tốt nhất ở
               bạn, chúng tôi đã mang đến một bộ sưu tập khổng lồ cho dù bạn đang
@@ -47,7 +47,7 @@ export default function About() {
               <b>-Về chúng tôi</b>
             </p>
             <p>
-              <b>STORE.COM</b> là một trang web mua sắm thời trang mới mang đến
+              <b>ASHION.COM</b> là một trang web mua sắm thời trang mới mang đến
               những sản phẩm thời trang hợp thời trang với mức giá hấp dẫn.
               Chúng tôi cảm thấy thời trang không phải là thứ bạn mặc mà là cảm
               nhận của bạn, vì vậy, hãy ghi nhớ điều này, chúng tôi đã mang đến
@@ -71,10 +71,10 @@ export default function About() {
               đang diễn ra.
             </p>
             <p>
-              <b>-Lý do chọn STORE.COM</b>
+              <b>-Lý do chọn ASHION.COM</b>
             </p>
             <p>
-              <b>STORE.COM</b> có một bộ sưu tập lớn gồm sarees, kurta kurtis,
+              <b>ASHION.COM</b> có một bộ sưu tập lớn gồm sarees, kurta kurtis,
               chất liệu trang phục, váy, áo, xà cạp và hơn thế nữa. Tất cả các
               bộ sưu tập trên trang web của chúng tôi hoàn toàn là trang phục
               của nhà thiết kế nâng cấp theo xu hướng mới và tìm kiếm trên thị
@@ -114,7 +114,7 @@ export default function About() {
               <b>Những chiếc váy trong mơ cho mọi dịp</b>
             </p>
             <p>
-              <b>STORE.COM</b> mang tất cả những gì được các nhà tạo mẫu của
+              <b>ASHION.COM</b> mang tất cả những gì được các nhà tạo mẫu của
               chúng tôi lựa chọn cẩn thận. Nếu bạn quan tâm đến một mẫu cụ thể,
               vui lòng gửi thư cho chúng tôi, chúng tôi sẽ cố gắng hết sức để
               cung cấp cho bạn chiếc váy yêu thích.
