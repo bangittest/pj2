@@ -32,6 +32,7 @@ export default function Navbar({ setIsLoad, cartLength }) {
   const handleLogout = () => {
     // xoa du kieu tren local
     localStorage.removeItem("userLocal");
+    localStorage.removeItem("carts");
     // chuyen huong ve trang chu
     navigate("/");
   };

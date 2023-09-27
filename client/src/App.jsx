@@ -37,6 +37,7 @@ function App() {
     const res = await instance.get(`/carts/${cartId}`);
     // console.log(res.data.cart.length);
     setCartLength(res.data.cart.length);
+    // setCartLength(res.data.cart.quantity);
   };
 
   // const userLocal = JSON.parse(localStorage.getItem("userLocal"));

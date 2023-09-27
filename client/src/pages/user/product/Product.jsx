@@ -157,7 +157,7 @@ export default function Product({ setIsLoad }) {
               </div>
             </div>
             <div className="row property__gallery">
-              {products.splice(0, 8).map((product, index) => (
+              {products.map((product, index) => (
                 <div
                   key={index}
                   className="col-lg-3 col-md-4 col-sm-6 mix women"

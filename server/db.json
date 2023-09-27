@@ -77,6 +77,32 @@
       "cart": [],
       "active": false,
       "id": 12
+    },
+    {
+      "email": "bang1122@gmail.com",
+      "password": "$2a$10$Sq4xpcFSI9t9RPhGQUT37uP32agBiGOkoCsvyHmexbKGfhDtQsina",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F5e3635c33717500021cf4442a3af7754.jpg?alt=media&token=a5dd5958-e031-49b5-8cd6-2b7bb0cf1d66",
+      "user_name": "bằng",
+      "dateOfBirthday": "2023-09-27",
+      "gender": 0,
+      "address": "",
+      "role": 1,
+      "cart": [],
+      "active": false,
+      "id": 13
+    },
+    {
+      "email": "bang1001@gmail.com",
+      "password": "$2a$10$F41Ee8tMS6vKDq82a4yc9.8FKKVLekz89VxDvxklLuRjCoFEA/0Gq",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Ff1a1e07591b274e8cac3444932c8555e%20(1).jpg?alt=media&token=8a86efb9-e4dd-4d30-9f29-9d448dbc1591",
+      "user_name": "bằng",
+      "dateOfBirthday": "2023-09-27",
+      "gender": 0,
+      "address": "",
+      "role": 1,
+      "cart": [],
+      "active": false,
+      "id": 14
     }
   ],
   "categories": [
@@ -91,6 +117,10 @@
     {
       "category_name": "Trẻ em",
       "id": 3
+    },
+    {
+      "category_name": "quần áo",
+      "id": 4
     }
   ],
   "carts": [
@@ -99,10 +129,9 @@
       "id": 1
     },
     {
-      "userId": 9,
       "cart": [
         {
-          "idProduct": 5,
+          "idProduct": 3,
           "quantity": 1
         }
       ],
@@ -112,6 +141,25 @@
       "userId": 1,
       "cart": [],
       "id": 3
+    },
+    {
+      "userId": 9,
+      "cart": [],
+      "id": 4
+    },
+    {
+      "userId": 13,
+      "cart": [],
+      "id": 5
+    },
+    {
+      "cart": [],
+      "id": 6
+    },
+    {
+      "userId": 14,
+      "cart": [],
+      "id": 7
     }
   ],
   "orders": [
@@ -161,10 +209,153 @@
       "userId": 9,
       "date": "22:31:38 26/9/2023",
       "total": 4760000,
-      "status": 0,
+      "status": 1,
       "username": "m gngfbfv",
       "address": "bangaaa@gmail.com",
       "id": 6
+    },
+    {
+      "products": [
+        {
+          "product_name": "ÁO SƠ MI LỤA THẮT NƠ",
+          "price": "1150000",
+          "description": "Thiết kế áo dáng xuông, tạo điểm nhấn cổ thắt nơ, tay dài. Hai bên ống tay được tạo kiểu xếp li nhẹ nhàng với khuy ngọc thời thượng. Áo sơ mi là một thiết kế sang trọng dành cho các quý cô công sở.\n\nDáng áo suông đứng đem lại cảm giác thoải mái, dễ dàng mix cùng nhiều kiểu chân váy và quần khác nhau. Dù nàng có chọn thả dáng hay sơ vin thì trông vẫn sẽ rất gọn gàng.\n\nThông tin mẫu:\n\nChiều cao: 163 cm\n\nCân nặng: 47 kg\n\nSố đo 3 vòng: 83-61-90 cm\n\nMẫu mặc size S Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F5cd6a8a13f7fdc43414faaaafd4485e5.jpg?alt=media&token=e1c54953-3ec4-4206-a0c6-4580cb3ae59f",
+          "quantity": 2,
+          "category_id": 1,
+          "id": 1
+        },
+        {
+          "product_name": "Dalio Trouser - Quần Tây cúc lệch fit",
+          "price": "1290000",
+          "description": "- Quần âu dáng Regular dài ngang mắt cá chân lịch lãm, sang trọng giúp cơ thể trở lên cân đối hơn.\n\n- Form quần đơn giản dễ diện, dễ phối đồ và phù hợp cho nhiều sự kiện từ đi làm, đi họp, đi học đến đi chơi.\n\n- Chất liệu Tuysi co dãn tốt giúp người mặc thoải mái vận động.\n\nThông tin mẫu:\n\nChiều cao: 175 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 98-75-97 cm\n\nMẫu mặc size M\n\n",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fc604c1cbe041fde06f61d21aa3192d42.jpg?alt=media&token=1f571622-4247-4ce3-aa80-9252884dafce",
+          "quantity": 1,
+          "category_id": "2",
+          "id": 18
+        },
+        {
+          "product_name": "ĐẦM LỤA NHẤN BÈO",
+          "price": "495000",
+          "description": "Đầm gồm 2 lớp bằng lụa, tay cánh dơi ngắn 1 lớp. Cổ áo dáng tròn có dây buộc. Dọc thân đầm được nhấn bèo và xếp layer chồng nhau. Thiết kế đầm từ lụa đem đến độ bay tự nhiên, chất vải tôn lên trọn vẹn màu sắc rực rỡ của họa tiết hoa.\n\nMàu sắc: Họa tiết Hồng - Họa tiết Xanh lơ\n\nMẫu mặc size 8-9:\n\nChiều cao 1m29\nCân nặng 29,5kg",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F9e80d28c86f6b843084fde4ab922a767.jpg?alt=media&token=f7e77a52-bc8c-48ec-a88b-4d48dbfe203a",
+          "quantity": 1,
+          "category_id": 3,
+          "id": 2
+        }
+      ],
+      "userId": 9,
+      "date": "08:33:16 27/9/2023",
+      "total": 4085000,
+      "status": 1,
+      "username": "bangaaa@gmail.com",
+      "address": "tuan anh",
+      "id": 7
+    },
+    {
+      "products": [
+        {
+          "product_name": "ĐẦM LỤA ĐUÔI CÁ",
+          "price": "1890000",
+          "description": "Mang đến vẻ đẹp hiện đại nhưng vẫn thật thời thượng và quý phái trong thiết kế đầm lụa kiểu dáng đuôi cá được nhiều quý cô yêu thích. Thân trên tạo kiểu sơ mi thanh lịch với điểm nhấn hàng cúc kiêu sa, thân dưới dáng váy đuôi cá mềm mại, tôn dáng, che khuyết điểm tốt. Đây chính là hai mảnh ghép hoàn hảo kết hợp với nhau để tạo nên một phiên bản hoàn chỉnh của chiếc đầm sang trọng. \n\nĐể thêm nổi bật cho bộ trang phục, nàng chỉ cần mix thêm các phụ kiện đi kèm phù hợp như trang sức, túi, dép cao gót. \n\nThông tin mẫu:\n\nChiều cao: 167 cm\n\nCân nặng: 50 kg\n\nSố đo 3 vòng: 83-65-93 cm\n\nMẫu mặc size M Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fcf884572920a363ae8f9a0658f1606cc.jpg?alt=media&token=847df535-387e-4aba-942a-bceeffbad25a",
+          "quantity": 1,
+          "category_id": 1,
+          "id": 9
+        },
+        {
+          "product_name": "ĐẦM LỤA NHẤN BÈO",
+          "price": "495000",
+          "description": "Đầm gồm 2 lớp bằng lụa, tay cánh dơi ngắn 1 lớp. Cổ áo dáng tròn có dây buộc. Dọc thân đầm được nhấn bèo và xếp layer chồng nhau. Thiết kế đầm từ lụa đem đến độ bay tự nhiên, chất vải tôn lên trọn vẹn màu sắc rực rỡ của họa tiết hoa.\n\nMàu sắc: Họa tiết Hồng - Họa tiết Xanh lơ\n\nMẫu mặc size 8-9:\n\nChiều cao 1m29\nCân nặng 29,5kg",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F9e80d28c86f6b843084fde4ab922a767.jpg?alt=media&token=f7e77a52-bc8c-48ec-a88b-4d48dbfe203a",
+          "quantity": 1,
+          "category_id": 3,
+          "id": 2
+        },
+        {
+          "product_name": "Áo khoác gió có mũ",
+          "price": "1690000",
+          "description": "Thiết kế áo khoác gió năng động, trẻ trung, phù hợp với team đam mê thể thao, dã ngoại, du lịch thám hiểm, những bạn nam hay đi chơi thể thao ngoài trời,...\n\nÁo có mũ, tay dài, dáng suông, kéo khóa phía trước. \n\nĐược làm từ chất liệu Vinilon cao cấp giúp cho những sản phẩm này có được sự chống nước rất tốt. Không bai, xù, nhão,...khi mặc theo thời gian. Khả năng chống bám bụi và giữ ấm hiệu quả.\n\nThông tin mẫu:\n\nChiều cao: 185 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 92-78-98 cm\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fd520b3bcd528c7c0efa8f63d95766e9b.jpg?alt=media&token=172e213c-f67d-41f8-9fc6-d24f250182e5",
+          "quantity": 1,
+          "category_id": 2,
+          "id": 19
+        },
+        {
+          "product_name": "ÁO SƠ MI LỤA THẮT NƠ",
+          "price": "1150000",
+          "description": "Thiết kế áo dáng xuông, tạo điểm nhấn cổ thắt nơ, tay dài. Hai bên ống tay được tạo kiểu xếp li nhẹ nhàng với khuy ngọc thời thượng. Áo sơ mi là một thiết kế sang trọng dành cho các quý cô công sở.\n\nDáng áo suông đứng đem lại cảm giác thoải mái, dễ dàng mix cùng nhiều kiểu chân váy và quần khác nhau. Dù nàng có chọn thả dáng hay sơ vin thì trông vẫn sẽ rất gọn gàng.\n\nThông tin mẫu:\n\nChiều cao: 163 cm\n\nCân nặng: 47 kg\n\nSố đo 3 vòng: 83-61-90 cm\n\nMẫu mặc size S Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F5cd6a8a13f7fdc43414faaaafd4485e5.jpg?alt=media&token=e1c54953-3ec4-4206-a0c6-4580cb3ae59f",
+          "quantity": 3,
+          "category_id": 1,
+          "id": 1
+        },
+        {
+          "product_name": "Set bộ nỉ kéo khóa (kèm quần)",
+          "price": "2540000",
+          "description": "- Bộ nỉ kèm quần cho nam: áo dáng ôm nhẹ, bo gấu, có khóa kéo mix màu hiện đại. Thân trước áo được thêu Logo Metagent nhỏ.  \n\n- Đi kèm với áo là quần dài thể thao thiết kế cạp chun co giãn, dáng jogger kèm dây rút điều chỉnh. Quần có 2 túi 2 bên và 1 túi sau. Gấu quần bó.\n\n- Áo lựa chọn chất nỉ thun cao cấp, giữ ấm tốt, mang đến cảm giác mặc thoải mái. \n\nThông tin mẫu:\n\nChiều cao: 185 cm\n\nCân nặng: 70 kg\n\nSố đo 3 vòng: 92-78-98 cm\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F400c6bb3fc611c72442b7df76dc0be73.jpg?alt=media&token=6da73a3d-0e68-4383-8a3b-c45729644150",
+          "quantity": 1,
+          "category_id": "2",
+          "id": 17
+        }
+      ],
+      "userId": 14,
+      "date": "13:39:27 27/9/2023",
+      "total": 10065000,
+      "status": 2,
+      "username": "bằng",
+      "address": "hà nội",
+      "id": 8
+    },
+    {
+      "products": [
+        {
+          "product_name": "ÁO SƠ MI LỤA THẮT NƠ",
+          "price": "1150000",
+          "description": "Thiết kế áo dáng xuông, tạo điểm nhấn cổ thắt nơ, tay dài. Hai bên ống tay được tạo kiểu xếp li nhẹ nhàng với khuy ngọc thời thượng. Áo sơ mi là một thiết kế sang trọng dành cho các quý cô công sở.\n\nDáng áo suông đứng đem lại cảm giác thoải mái, dễ dàng mix cùng nhiều kiểu chân váy và quần khác nhau. Dù nàng có chọn thả dáng hay sơ vin thì trông vẫn sẽ rất gọn gàng.\n\nThông tin mẫu:\n\nChiều cao: 163 cm\n\nCân nặng: 47 kg\n\nSố đo 3 vòng: 83-61-90 cm\n\nMẫu mặc size S Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F5cd6a8a13f7fdc43414faaaafd4485e5.jpg?alt=media&token=e1c54953-3ec4-4206-a0c6-4580cb3ae59f",
+          "quantity": 20,
+          "category_id": 1,
+          "id": 1
+        },
+        {
+          "product_name": "ĐẦM LỤA NHẤN BÈO",
+          "price": "495000",
+          "description": "Đầm gồm 2 lớp bằng lụa, tay cánh dơi ngắn 1 lớp. Cổ áo dáng tròn có dây buộc. Dọc thân đầm được nhấn bèo và xếp layer chồng nhau. Thiết kế đầm từ lụa đem đến độ bay tự nhiên, chất vải tôn lên trọn vẹn màu sắc rực rỡ của họa tiết hoa.\n\nMàu sắc: Họa tiết Hồng - Họa tiết Xanh lơ\n\nMẫu mặc size 8-9:\n\nChiều cao 1m29\nCân nặng 29,5kg",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F9e80d28c86f6b843084fde4ab922a767.jpg?alt=media&token=f7e77a52-bc8c-48ec-a88b-4d48dbfe203a",
+          "quantity": 1,
+          "category_id": 3,
+          "id": 2
+        },
+        {
+          "product_name": "QUẦN SUÔNG ĐÍNH KHUY SƯỜN",
+          "price": "1190000",
+          "description": "- Quần suông, tạo ly giữa, độ dài qua mắt cá chân. Thiết kế cạp cao, hách dáng  và che khuyết điểm tốt. \n\n- Phần cạp hai bên được tạo điểm nhấn khuy nổi giúp quần biến mất sự cứng nhắc, tăng vẻ nữ tính, điệu đà. \n\n- Thiết kệ lựa chọn chất liệu tuysi mềm mại, giữ form tốt.\n\nThông tin mẫu:\n\nChiều cao: 167 cm\n\nCân nặng: 50 kg\n\nSố đo 3 vòng: 83-65-93 cm\n\nMẫu mặc size M Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua màn hình máy tính/ điện thoại.",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F83b604fb7fb37d0acd3f214adf8024d9.jpg?alt=media&token=c67caac6-95dc-40b3-9c14-ed77eb5a5d05",
+          "quantity": 1,
+          "category_id": 1,
+          "id": 3
+        }
+      ],
+      "userId": 14,
+      "date": "13:40:43 27/9/2023",
+      "total": 24685000,
+      "status": 1,
+      "username": "bằng ",
+      "address": "hà nam",
+      "id": 9
     }
   ],
   "products": [
@@ -467,6 +658,16 @@
       "quantity": 20,
       "category_id": 3,
       "id": 30
+    },
+    {
+      "product_name": "áo nữ",
+      "price": "2000000",
+      "description": "áo đẹp",
+      "from": "Việt Nam",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F83b604fb7fb37d0acd3f214adf8024d9.jpg?alt=media&token=e569a5e2-223e-4364-bec2-703d85e36632",
+      "quantity": 2,
+      "category_id": 4,
+      "id": 31
     }
   ],
   "slider": [

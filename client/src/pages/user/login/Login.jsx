@@ -63,6 +63,11 @@ export default function Login() {
     }
   };
 
+  const userLogin = JSON.parse(localStorage.getItem("userLocal"));
+  // if (userLogin) {
+  //   navigate("/");
+  // }
+
   //dang nhap voi API
   const handleOnSumit = (e) => {
     e.preventDefault();

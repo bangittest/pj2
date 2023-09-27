@@ -83,7 +83,7 @@ export default function Header() {
             {/* </div> */}
           </div>
           <ul className="flex items-center flex-shrink-0 space-x-6">
-            <li className="relative">
+            {/* <li className="relative">
               <button
                 className="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
                 aria-label="Notifications"
@@ -104,7 +104,7 @@ export default function Header() {
                 />
               </button>
               <template x-if="isNotificationsMenuOpen" />
-            </li>
+            </li> */}
             {/* Profile menu */}
             <li className="relative">
               <Dropdown
