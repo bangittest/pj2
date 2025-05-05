@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./listproduct.css";
+import axios from "axios";
 import Instagram from "../Instagram/Instagram";
 import Back_To_Top from "../../../components/base/backtop/Back_to_top";
 import Navbar from "../../../layout/user/navbar/Navbar";
@@ -22,51 +23,90 @@ export default function ListProduct({ cartLength, setIsLoad }) {
   const [carts, setCarts] = useState({ cart: [] }); // Sử dụng object cart để thêm một layer
   const [search, setSearch] = useState("");
 
-  const onSearch = async (e) => {
-    setSearch(e.target.value);
-    await instance
-      .get(`products?product_name_like=${search}`)
-      .then((response) => setProducts(response.data))
-      .catch((error) => console.log(error));
-  };
+    // Khi người dùng nhập tìm kiếm
+    const onSearch = (e) => {
+      const value = e.target.value;
+      setSearch(value);
+      loadDataProduct(value, categoryId);
+    };
 
   useEffect(() => {
-    instance
-      .get("/categories")
-      .then((response) => {
+    const fetchCategories = async (search = "") => {
+      try {
+        const response = await axios.get("http://localhost:4000/api/categories", {
+          params: { category_name_like: search },
+        });
         setCatagories(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      } catch (error) {
+        console.error("Lỗi khi lấy danh mục:", error);
+        message.error("Không thể lấy danh mục.");
+      }
+    };
+  
+    fetchCategories(); // gọi hàm ở đây
   }, []);
 
+  
+  
   // Lấy ra id của category
   const getCategoryId = (id) => {
     setCategoryId(id);
+    loadDataProduct(search, id);
   };
 
   // Gọi API lấy tất cả thông tin sản phẩm
 
+  // const loadDataProduct = async () => {
+  //   setLoading(true);
+
+  //   await instance
+  //     .get(`/products`)
+  //     .then((response) => {
+  //       if (categoryId === 0) {
+  //         setProducts(response.data);
+  //       } else {
+  //         const listProduct = response.data.filter(
+  //           (product) => Number(product.category_id) === categoryId
+  //         );
+
+  //         setProducts(listProduct);
+  //       }
+  //     })
+  //     .catch((error) => console.log(error))
+  //     .finally(() => setLoading(false));
+  // };
+
   const loadDataProduct = async () => {
-    setLoading(true);
+  
+    try {
+      const res = await axios.get("http://localhost:4000/api/products", {
+        params: { product_name_like: search },
+      });
 
-    await instance
-      .get(`/products`)
-      .then((response) => {
-        if (categoryId === 0) {
-          setProducts(response.data);
-        } else {
-          const listProduct = response.data.filter(
-            (product) => Number(product.category_id) === categoryId
-          );
+      let data = res.data;
 
-          setProducts(listProduct);
-        }
-      })
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
+      // Nếu có chọn danh mục cụ thể
+      if (categoryId !== 0) {
+        data = data.filter(product => Number(product.category_id) === categoryId);
+      }
+
+      setProducts(data);
+    } catch (err) {
+      console.error("Lỗi khi lấy sản phẩm:", err);
+      notification.error({
+        message: "Lỗi",
+        description: "Không thể lấy sản phẩm!",
+      });
+    } finally {
+     
+    }
   };
+
+
+  // useEffect(() => {
+  //   fetchCategories();
+  //   loadDataProduct();
+  // }, []);
 
   const CartId = JSON.parse(localStorage.getItem("cartId"));
   const userLocal = JSON.parse(localStorage.getItem("userLocal"));
@@ -266,17 +306,17 @@ export default function ListProduct({ cartLength, setIsLoad }) {
                 </div>
                 <div className="row">
                   {displayedProduct.map((product, index) => (
-                    <div key={index} className="col-lg-4 col-md-6">
+                    <div key={index} className="col-lg-4 col-md-4">
                       <div className="product__item">
                         <div className="product__item__pic set-bg" data-setbg>
                           <Image
-                            className="product__item__pic set-bg image-container"
+                            className="w-[280px] h-[360px] object-cover mx-auto product__item__pic set-bg image-container"
                             src={product.image}
                             alt=""
                           />
                           <div className="label new">Sale</div>
                           <ul className="product__hover">
-                            <li>
+                            {/* <li>
                               <Link to="#" className="image-popup">
                                 <span className="arrow_expand" />
                               </Link>
@@ -293,11 +333,11 @@ export default function ListProduct({ cartLength, setIsLoad }) {
                               >
                                 <span className="icon_bag_alt" />
                               </Link>
-                            </li>
+                            </li> */}
                           </ul>
                         </div>
-                        <div className="product__item__text">
-                          <h6>
+                        <div className="product__item__text text-left">
+                          <h6 className="text-base font-medium my-2">
                             <Link to={`/product/${product.id}`}>
                               {product.product_name}
                             </Link>
@@ -309,7 +349,7 @@ export default function ListProduct({ cartLength, setIsLoad }) {
                             <i className="fa fa-star">:</i>
                             <i className="fa fa-star" />
                           </div>
-                          <div className="product__price">
+                          <div className="product__price text-red-500 font-semibold text-sm">
                             {formatMoney(product.price)}
                           </div>
                         </div>

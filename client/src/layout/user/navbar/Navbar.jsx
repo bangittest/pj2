@@ -7,11 +7,17 @@ import {
   BellOutlined,
 } from "@ant-design/icons";
 import { Button, Dropdown, Modal } from "antd";
+import { instance } from "../../../api/axios";
 import confirm from "antd/es/modal/confirm";
 import "../navbar/navbar.css";
 import Seach from "../seach/Seach";
 
 export default function Navbar({ setIsLoad, cartLength }) {
+
+  const [count, setCount] = useState(0);
+  const [isLoad, setIsLoad1] = useState(false);
+
+
   // console.log("===> cartUser: ", cartUser);
   const [activeItem, setActiveItem] = useState(null);
   const [isNavbarFixed, setIsNavbarFixed] = useState(false);
@@ -29,6 +35,30 @@ export default function Navbar({ setIsLoad, cartLength }) {
   // sau khi danh nhap bang gg thanh cong, lay thong tin user da dang nhap
   const userLogin = JSON.parse(localStorage.getItem("userLocal"));
   //
+
+
+
+  useEffect(() => {
+    const userLocal = JSON.parse(localStorage.getItem("userLocal"));
+    // console.log("🧾 [LOG] userLocal:", userLocal); // Kiểm tra userLocal
+
+    if (userLocal && userLocal.id) {
+      instance
+        .get(`api/cart/count/${userLocal.id}`)
+        .then((res) => {
+          // console.log("✅ [LOG] API response:", res.data); // Kiểm tra dữ liệu trả về từ API
+
+          setCount(res.data.totalItems || 0); // Cập nhật count giỏ hàng
+          setIsLoad1((prev) => !prev); // Cập nhật trạng thái load lại component nếu cần thiết
+        })
+        .catch((err) => {
+          console.error("❌ [LOG] Lỗi gọi API đếm giỏ hàng:", err); // In lỗi nếu gọi API lỗi
+        });
+    } else {
+      console.warn("⚠️ [LOG] userLocal không tồn tại hoặc thiếu id.");
+    }
+  }, [isLoad]);
+  
   const handleLogout = () => {
     // xoa du kieu tren local
     localStorage.removeItem("userLocal");
@@ -151,7 +181,7 @@ export default function Navbar({ setIsLoad, cartLength }) {
           </ul>
           <div className="offcanvas__logo">
             <Link to="/">
-              <img className="z-50" src="img/logo.png" alt="" />
+              <img className="z-50" src="./src/assets/img/logo.png" alt="" />
             </Link>
           </div>
           <div id="mobile-menu-wrap " />
@@ -171,14 +201,15 @@ export default function Navbar({ setIsLoad, cartLength }) {
         >
           <div className="container-fluid fxes">
             <div className="row">
-              <div className="col-xl-3 col-lg-2">
+              <div className="col-xl-3 col-lg-7">
                 <div className="header__logo">
                   <Link to="/">
-                    <img
-                      className="z-50"
-                      src="./src/assets/img/logo.png"
-                      alt=""
-                    />
+                  <img
+                className="w-[90px] h-[23px] z-50"
+                src="./src/assets/img/logo.png"
+                alt=""
+                  />
+
                   </Link>
                 </div>
               </div>
@@ -312,7 +343,7 @@ export default function Navbar({ setIsLoad, cartLength }) {
                           className="icon_bag_alt"
                         />
 
-                        <div className="tip">{cartLength}</div>
+                        <div className="tip">{count}</div>
                       </Link>
                     </li>
                   </ul>

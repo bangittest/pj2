@@ -16,6 +16,7 @@ import ListProductManager from "./pages/admin/product-manager/ListProductManage"
 import ListOrderManager from "./pages/admin/oder-manager/ListOrderManager";
 import ListUserManager from "./pages/admin/user_manager/ListUserManager";
 import ChangePassword from "./pages/user/information/ChangePassword";
+import Checkout from "./pages/user/checkout/Checkout";
 import Profile from "./pages/user/profile/Profile";
 import Index from "./pages/user/Index";
 import Private from "./layout/admin/private/Private";
@@ -107,6 +108,11 @@ function App() {
         <Route
           path="/history"
           element={<History cartLength={cartLength} setIsLoad={setIsLoad} />}
+        />
+
+        <Route
+          path="/checkout"
+          element={<Checkout cartLength={cartLength} setIsLoad={setIsLoad} />}
         />
         <Route path="*" element={<NotFound />} />
 

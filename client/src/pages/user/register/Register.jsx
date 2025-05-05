@@ -26,7 +26,7 @@ export default function Register() {
     dateOfBirthday: "",
     role: 1,
     cart: [],
-    active: false,
+    active: true,
   });
 
   // Tạo một tham chiếu đến thư mục chứa hình ảnh trên Firebase
@@ -147,14 +147,27 @@ export default function Register() {
   // Hàm kiểm tra email
   const checkEmailExists = async (email) => {
     try {
-      const response = await instance.get(`/users?email=${email}`);
-      return response.data.length > 0; // Trả về true nếu email đã tồn tại
+      const response = await instance.get(`/api/users?email=${email}`);
+      const exists = response.data.exists === true;
+  
+      if (exists) {
+        notification.error({
+          message: "Thất bại",
+          description: "Email đã tồn tại",
+        });
+      }
+  
+      return exists;
     } catch (error) {
       console.error("Lỗi khi kiểm tra email:", error);
-      return false; // Trả về false nếu có lỗi
+      notification.error({
+        message: "Lỗi kiểm tra email",
+        description: "Không thể kiểm tra email. Vui lòng thử lại.",
+      });
+      return false;
     }
   };
-
+  
   // Xử lí hàm submit
   const handleOnSubmit = async (e) => {
     e.preventDefault();
@@ -202,17 +215,17 @@ export default function Register() {
       image: imageURL,
       password: user.password,
       user_name: user.user_name,
-      dateOfBirthday: user.dateOfBirthday,
+      dateOfBirthday: user.dateOfBirthday?.trim() ? user.dateOfBirthday : null,
       gender: gender,
       address: "",
       role: 1,
       cart: [],
-      active: false,
+      active: true,
     };
 
     // Tiến hành tạo người dùng mới
     instance
-      .post("/users", newUser)
+      .post("/api/users", newUser)
       .then((response) => {
         if (response.status === 201) {
           // Hiển thị thông báo thành công và chuyển hướng đến trang đăng nhập

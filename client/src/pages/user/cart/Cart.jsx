@@ -60,125 +60,168 @@ export default function Cart({ cartLength, setIsLoad }) {
   }, []);
 
   // Xóa sản phẩm khỏi giỏ hàng
-  const handleDelete = async (id) => {
-    // Lọc ra danh sách sản phẩm sau khi xóa sản phẩm cụ thể
-    const newCart = cartUser.cart.filter((pro) => pro.idProduct !== id);
-
-    // Gửi yêu cầu cập nhật giỏ hàng lên API và lưu trữ trên localStorage
+  const handleDelete = async (cartItemId) => {
     setLoad(true);
+  
     try {
-      const response = await instance.put(`/carts/${CartId}`, {
-        ...cartUser,
-        cart: newCart,
-      });
-      setCartUser(response.data);
-
-      // Xóa sản phẩm khỏi danh sách sản phẩm trong giỏ hàng của bạn trên localStorage
-      const updatedCarts = carts.filter((item) => item.idProduct !== id);
-      localStorage.setItem("carts", JSON.stringify(updatedCarts));
-
-      // Gọi hàm cập nhật cartsLength để đồng bộ hóa với dữ liệu mới
-      updateCartsLength();
-
+      // Gửi yêu cầu DELETE để xóa sản phẩm khỏi giỏ hàng
+      const response = await instance.delete(`api/cart-item/${cartItemId}`);
+      
+      // Cập nhật lại giỏ hàng từ backend
+      await fetchCartAgain(); // Đảm bảo giỏ hàng được cập nhật lại sau khi xóa
+      
       // Hiển thị thông báo thành công
       notification.success({
         message: "Xóa thành công",
         description: "Sản phẩm đã được xóa khỏi giỏ hàng",
       });
-      setIsLoad((pre) => !pre);
+  
+  
     } catch (error) {
-      console.error("Lỗi xóa sản phẩm khỏi giỏ hàng:", error);
+      console.error("❌ Lỗi xóa sản phẩm khỏi giỏ hàng:", error);
       notification.error({
         message: "Lỗi xóa sản phẩm khỏi giỏ hàng",
-        description: "Lỗi khi xóa sản phẩm khỏi giỏ hàng.",
+        description: "Có lỗi khi xóa sản phẩm khỏi giỏ hàng. Vui lòng thử lại.",
       });
     } finally {
       setLoad(false);
     }
   };
+  
 
-  // Hàm xử lý giảm
-  const handleDecrease = (proId) => {
-    const index = cartUser.cart.findIndex((pro) => pro.idProduct == proId);
-    const proPre = products.find((p) => p.id == proId);
-    if (cartUser.cart[index].quantity > 1) {
-      cartUser.cart[index].quantity -= 1;
-      setLoad(true);
-      instance
-        .put(`/carts/${CartId}`, cartUser)
-        .then(
-          (response) => console.log(response)
-          // notification.success({
-          //   message: "Thành công",
-          //   description: "Số lượng đã được thay đổi",
-          // })
-        )
-        .finally(() => setLoad(false));
-    } else {
-      handleDelete(proId);
+  const handleDecrease = async (cartItemId, currentQuantity) => {
+    if (currentQuantity <= 1) {
+      const confirmDelete = window.confirm("Bạn có muốn xóa sản phẩm này khỏi giỏ hàng?");
+      if (!confirmDelete) return;
+      return handleDelete(cartItemId);
     }
-    setIsLoad((pre) => !pre);
-  };
-  // Hàm xử lý tăng
-  const handleIncrease = (proId) => {
-    const index = cartUser.cart.findIndex((pr) => pr.idProduct == proId);
-    const proPre = products.find((p) => p.id == proId);
-    if (cartUser.cart[index].quantity >= proPre.quantity) {
-      notification.warning({
-        message: "Cảnh báo",
-        description: "Số lượng trong giỏ hàng đã đạt mức tối đa",
+  
+    try {
+      const response = await instance.put(`api/cart-item/${cartItemId}/decrease`);
+      console.log("✅ Giảm số lượng:", response.data);
+  
+      notification.success({
+        message: "Thành công",
+        description: "Đã giảm số lượng sản phẩm",
       });
-      return;
+  
+      await fetchCartAgain(); // ← Load lại cart sau khi update
+    } catch (error) {
+      console.error("❌ Lỗi giảm số lượng:", error);
+      notification.error({
+        message: "Lỗi",
+        description: "Không thể giảm số lượng sản phẩm",
+      });
     }
-    cartUser.cart[index].quantity += 1;
+  };
+  
 
+const fetchCartAgain = async () => {
+  const user = JSON.parse(localStorage.getItem("userLocal"));
+  if (user?.id) {
+    try {
+      const res = await instance.get(`api/cart/${user.id}`);
+      setCartUser(res.data);
+    } catch (err) {
+      console.error("❌ Lỗi load lại giỏ hàng:", err);
+    }
+  }
+};
+
+
+  // Hàm xử lý tăng
+  const handleIncrease = (cartItemId) => {
     setLoad(true);
     instance
-      .put(`/carts/${CartId}`, cartUser)
-      .then(
-        (response) => console.log(response)
-        // notification.success({
-        //   message: "Thành công",
-        //   description: "Số lượng đã được thay đổi",
-        // })
-      )
-      .finally(() => setLoad(false));
-    setIsLoad((pre) => !pre);
-  };
-
-  useEffect(() => {
-    instance
-      .get("/products")
-      .then((response) => setProducts(response.data))
-      .catch((error) => console.log(error));
-    instance
-      .get(`/carts/${CartId}`)
-      .then((response) => setCartUser(response.data))
-      .catch((error) => console.log(error));
-  }, []);
-
-  if (products.length > 0 && cartUser) {
-    cartUser.cart.map((pr) => {
-      products.map((pro) => {
-        if (pro.id === pr.idProduct) {
-          productCart.push({ ...pro, quantity: pr.quantity });
+      .put(`api/cart-item/${cartItemId}/increase`)  // Đảm bảo đường dẫn chính xác
+      .then((response) => {
+        fetchCartAgain(); // ← Load lại cart sau khi update
+        notification.success({
+          message: "Thành công",
+          description: "Số lượng đã được thay đổi",
+        });
+      })
+      .catch((error) => {
+        console.error("❌ Lỗi tăng số lượng:", error);
+  
+        if (error.response) {
+          // Kiểm tra mã lỗi từ server
+          if (error.response.status === 400) {
+            notification.error({
+              message: "Lỗi",
+              description: "Số lượng không thể tăng. Kiểm tra lại số lượng hoặc tồn kho!",
+            });
+          } else if (error.response.status === 404) {
+            notification.error({
+              message: "Không tìm thấy giỏ hàng",
+              description: "Không tìm thấy sản phẩm trong giỏ hàng của bạn.",
+            });
+          } else {
+            notification.error({
+              message: "Lỗi hệ thống",
+              description: "Đã xảy ra lỗi khi cập nhật giỏ hàng. Vui lòng thử lại sau.",
+            });
+          }
+        } else {
+          // Nếu không có response từ server
+          notification.error({
+            message: "Lỗi kết nối",
+            description: "Không thể kết nối với server, vui lòng thử lại.",
+          });
         }
-      });
+      })
+      .finally(() => setLoad(false));
+    
+    setIsLoad((prev) => !prev); // Để trigger lại render nếu cần
+  };
+  
+  
+  useEffect(() => {
+    // 1. Gọi sản phẩm luôn
+    instance
+      .get("api/products")
+      .then((response) => {
+        setProducts(response.data);
+        console.log("✅ Products:", response.data);
+      })
+      .catch((error) => console.log("❌ Error fetching products:", error));
+  
+    // 2. Lấy user từ localStorage
+    const user = JSON.parse(localStorage.getItem("userLocal"));
+  
+    if (user?.id) {
+      // 3. Gọi giỏ hàng
+      instance
+        .get(`api/cart/${user.id}`)
+        .then((response) => {
+          setCartUser(response.data);
+          console.log("✅ Cart:", response.data);
+        })
+        .catch((error) => {
+          if (error.response?.status === 404) {
+            console.warn("⚠️ Giỏ hàng không tồn tại.");
+            setCartUser({ items: [] }); // fallback nếu không có cart
+          } else {
+            console.log("❌ Error fetching cart:", error);
+          }
+        });
+    } else {
+      console.warn("⚠️ Không tìm thấy user trong localStorage");
+    }
+  }, []);
+  
+  if (products.length > 0 && cartUser && Array.isArray(cartUser.items)) {
+    cartUser.items.forEach((pr) => {
+      const matchedProduct = products.find((pro) => pro.id === pr.product_id);
+      if (matchedProduct) {
+        productCart.push({ ...matchedProduct, quantity: pr.quantity, cartItemId: pr.id});
+        console.log("test", productCart);
+        
+      }
     });
   }
 
-  // Cách bạn đã định nghĩa hook useUpdateProductQuantity
-  const useUpdateProductQuantity = (productId, quantity) => {
-    useEffect(() => {
-      // Cập nhật số lượng sản phẩm khi thành phần được tạo ra
-      instance
-        .patch(`/products/${productId}`, {
-          quantity: quantity,
-        })
-        .then((response) => console.log("Cập nhật số lượng sản phẩm"))
-        .catch((error) => console.log(error));
-    }, [productId, quantity]); // Chạy hiệu ứng này mỗi khi productId hoặc quantity thay đổi
-  };
+  
 
   // Hàm xử lý thanh toán
   const handleCheckout = async () => {
@@ -270,7 +313,7 @@ export default function Cart({ cartLength, setIsLoad }) {
           onCancel={handleCancel}
           maskClosable={false}
         >
-          <p>Are you sure you want to delete the product?</p>
+          <p>Bạn có chắc là bạn muốn xóa sản phẩm?</p>
         </Modal>
         <Navbar cartLength={cartLength} />
         {/* Breadcrumb Begin */}
@@ -303,6 +346,7 @@ export default function Cart({ cartLength, setIsLoad }) {
                             <th className=" p-2 text-center">Tên Sản Phẩm</th>
                             <th className=" p-2 text-center">Giá tiền</th>
                             <th className=" p-2 text-center">Số lượng</th>
+                            <th className=" p-2 text-center">Tổng tiền</th>
                             <th className=" p-2 text-center">Hành động</th>
                           </tr>
                         </thead>
@@ -340,13 +384,13 @@ export default function Cart({ cartLength, setIsLoad }) {
                                     </td>
 
                                     <td className="cart__price  p-2 text-center">
-                                      {formatMoney(e.price * e.quantity)}
+                                      {formatMoney(e.price)}
                                     </td>
                                     <td className="cart__quantity  p-2 text-center">
                                       <div>
                                         <Button
                                           className="-none bg-slate-300 hover:bg-blue-500 text-white"
-                                          onClick={() => handleDecrease(e.id)}
+                                          onClick={() => handleDecrease(e.cartItemId)}
                                         >
                                           -
                                         </Button>
@@ -356,15 +400,19 @@ export default function Cart({ cartLength, setIsLoad }) {
 
                                         <Button
                                           className="-none bg-slate-300 hover:bg-blue-500 text-white"
-                                          onClick={() => handleIncrease(e.id)}
+                                          onClick={() => handleIncrease(e.cartItemId)}
                                         >
                                           +
                                         </Button>
                                       </div>
                                     </td>
 
+                                    <td className="cart__price  p-2 text-center">
+                                    {formatMoney(e.price * e.quantity)}
+                                    </td>
+
                                     <td
-                                      onClick={() => showModal(e.id)}
+                                      onClick={() => showModal(e.cartItemId)}
                                       className="p-2 text-center"
                                     >
                                       <button
@@ -391,24 +439,36 @@ export default function Cart({ cartLength, setIsLoad }) {
                             </>
                           )}
                         </tbody>
-                        <div className="cart__btn mt-2 ml-2">
-                          <Link to="/list-product">Tiếp tục mua sắm</Link>
-                        </div>
-                      </table>
+                        </table>
+                      <div className="flex justify-between w-full mt-2">
+                      <div className="cart__btn ml-2">
+                      <Link to="/list-product">Tiếp tục mua sắm</Link>
+                      </div>
+
+                      <div className="cart__btn mr-2">
+                      <Link 
+                      to="/checkout" 
+                        className={` ${productCart.length === 0 ? 'cursor-not-allowed opacity-50' : ''}`} 
+                      style={productCart.length === 0 ? { pointerEvents: 'none' } : {}}
+                      >
+                    Thanh toán
+    </Link>
+  </div>
+</div>
+
+                    
                     </div>
                   </div>
                 </div>
               </div>
               <div className="rounded-lg">
                 <div>
-                  <div className="cart__total__procced bg-white rounded-lg p-10">
-                    <h6>TỔNG GIỎ HÀNG</h6>
-                    <ul>
-                      <li>
-                        Tổng cộng <span>{formatMoney(sum)}</span>
-                      </li>
-                    </ul>
-                    <button
+                  <div className="cart__total__procced bg-white rounded-lg p-4">
+                    {/* <h6>TỔNG GIỎ HÀNG</h6>
+                    
+                       <span>{formatMoney(sum)}</span> */}
+                    
+                    {/* <button
                       onClick={handleCheckout}
                       className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
                     >
@@ -450,7 +510,7 @@ export default function Cart({ cartLength, setIsLoad }) {
                           placeholder=" nhập địa chỉ"
                         />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

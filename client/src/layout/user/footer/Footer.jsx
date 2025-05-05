@@ -14,7 +14,7 @@ export default function Footer() {
                   <div className="footer10__about">
                     <div className="footer10__logo">
                       <Link to="./index.html">
-                        <img src="./src/assets/img/logo.png" alt="" />
+                        <img src="./src/assets/img/LOGOWORD_LYRA_BLACK.png" alt="" />
                       </Link>
                     </div>
                     <p>

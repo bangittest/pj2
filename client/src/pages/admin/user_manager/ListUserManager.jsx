@@ -1,39 +1,111 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { changeActiveUser, getUser } from "../../../redux/slice/userSlice";
+import { useDispatch } from "react-redux";
+import { changeActiveUser } from "../../../redux/slice/userSlice";
 import Loading from "../../../components/base/loading/Loading";
-import { Button, Pagination } from "antd";
+import { Button, Pagination, notification } from "antd";
 import Search from "antd/es/input/Search";
+import axios from "axios";
 
 export default function ListUserManager() {
+  const [user, setUser] = useState([]);  // Khởi tạo với mảng rỗng
+  const [isLoading, setIsLoading] = useState(false);
+  const [isChangingStatus, setIsChangingStatus] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
-  const [seachtext, setSeachText] = useState("");
-  useEffect(() => {
-    dispatch(getUser(seachtext));
-  }, [seachtext]);
-
+  const [searchText, setSearchText] = useState("");
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.users.data);
-  const isLoadingChange = useSelector((state) => state.users.isLoadingChange);
 
-  // console.log(user);
+  // Fetch users with validation
+  const fetchUsers = async (search = "") => {
+    setIsLoading(true);
+    try {
+      const res = await axios.get("http://localhost:4000/api/users/all", {
+        params: { user_name_like: search },
+      });
+
+      setUser(res.data); // Set user only if it's a valid array
+    } catch (err) {
+      console.error("Lỗi khi lấy user:", err);
+      notification.error({
+        message: "Lỗi",
+        description: "Không thể lấy user!",
+      });
+      setUser([]); // Fallback to an empty array to avoid issues
+    }
+    setIsLoading(false);
+  };
 
   useEffect(() => {
-    dispatch(getUser());
-  }, [isLoadingChange]);
+    fetchUsers(searchText);
+  }, [searchText]);
 
+  const handleToggleActive = async (user) => {
+    setIsChangingStatus(true);
+    
+    if (!user.id) {
+      console.error("ID người dùng không hợp lệ:", user);
+      notification.error({
+        message: "Lỗi",
+        description: "Không tìm thấy ID người dùng!",
+      });
+      setIsChangingStatus(false);
+      return;
+    }
+  
+    try {
+      await axios.put(`http://localhost:4000/api/users/${user.id}`);
+      await fetchUsers(searchText); // reload the list of users
+      notification.success({ message: "Thành công", description: "Đã cập nhật trạng thái" });
+    } catch (err) {
+      console.error("Lỗi khi thay đổi trạng thái user:", err);
+      notification.error({
+        message: "Lỗi",
+        description: "Không thể thay đổi trạng thái người dùng!",
+      });
+    }
+    setIsChangingStatus(false);
+  };
+
+
+  const handleRole = async (user) => {
+    setIsChangingStatus(true);
+    
+    if (!user.id) {
+      console.error("ID người dùng không hợp lệ:", user);
+      notification.error({
+        message: "Lỗi",
+        description: "Không tìm thấy ID người dùng!",
+      });
+      setIsChangingStatus(false);
+      return;
+    }
+  
+    try {
+      await axios.put(`http://localhost:4000/api/users/role/${user.id}`);
+      await fetchUsers(searchText); // reload the list of users
+      notification.success({ message: "Thành công", description: "Đã phân quyền thành công" });
+    } catch (err) {
+      console.error("Lỗi khi phân quyền:", err);
+      notification.error({
+        message: "Lỗi",
+        description: "Không thể thay đổi trạng thái người dùng!",
+      });
+    }
+    setIsChangingStatus(false);
+  };
+  
+  
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = currentPage * pageSize;
-  const displayedUser = user.slice(startIndex, endIndex);
-  // console.log(displayedProduct);
+  const displayedUser = user.slice(startIndex, endIndex); // Should now be safe to use slice
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+
   return (
     <>
-      {isLoadingChange && <Loading />}
+      {(isLoading || isChangingStatus) && <Loading />}
       <div className="container px-6 mx-auto grid">
         <h4 className="font-sans text-center mb-2 mt-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
           QUẢN LÝ KHÁCH HÀNG
@@ -44,11 +116,10 @@ export default function ListUserManager() {
           </div>
           <div>
             <Search
-              value={seachtext}
-              onChange={(e) => setSeachText(e.target.value)}
-              className=""
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
               style={{ width: 200 }}
-              placeholder="tìm kiếm"
+              placeholder="Tìm kiếm"
             />
           </div>
         </div>
@@ -60,7 +131,7 @@ export default function ListUserManager() {
                   <th className="border p-2 text-center" title="Số thứ tự">
                     STT
                   </th>
-                  <th className="border p-2 text-center">email</th>
+                  <th className="border p-2 text-center">Email</th>
                   <th className="border p-2 text-center">Giới tính</th>
                   <th className="border p-2 text-center">Ngày sinh</th>
                   <th className="border p-2 text-center">Họ và tên</th>
@@ -71,35 +142,49 @@ export default function ListUserManager() {
               <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                 {displayedUser.map((e, index) => (
                   <tr key={index} className="text-gray-700 dark:text-gray-400">
-                    <td className="border p-2 text-center text-sm">{e.id}</td>
                     <td className="border p-2 text-center text-sm">
-                      {e.email}
+                      {(currentPage - 1) * pageSize + index + 1}
+                    </td>
+                    <td className="border p-2 text-center text-sm">{e.email}</td>
+                    <td className="border p-2 text-center text-sm">
+                      {e.gender === 0 ? "Nam" : e.gender === 1 ? "Nữ" : "Khác"}
                     </td>
                     <td className="border p-2 text-center text-sm">
-                      {e.gender == 0 ? "Nam" : e.gender == 1 ? "Nữ" : "Khác"}
-                    </td>
+  {e.dateOfBirthday ? new Date(e.dateOfBirthday).toLocaleDateString("vi-VN", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }) : "N/A"}
+</td>
+
+                    <td className="border p-2 text-center text-sm">{e.user_name}</td>
                     <td className="border p-2 text-center text-sm">
-                      {e.dateOfBirthday}
+                      {e.role === 0 ? "admin" : "user"}
                     </td>
-                    <td className="border p-2 text-center text-sm">
-                      {e.user_name}
-                    </td>
-                    <td className="border p-2 text-center text-sm">
-                      {e.role == 0 ? "admin" : "user"}
-                    </td>
-                    {/* <td className="border p-2 text-center text-sm">{e.role}</td> */}
                     <td className="border p-2 text-center">
                       <div className="flex justify-center items-center space-x-4 text-sm">
-                        {e.role == 1 ? (
+                        {e.role === 1 && (
                           <button
-                            onClick={() => dispatch(changeActiveUser(e))}
-                            className="bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 text-white flex items-center justify-between px-2 py-2 text-sm font-medium leading-5  rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                            onClick={() => handleToggleActive(e)}
+                            className="bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 text-white flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Edit"
                           >
-                            {!e.active ? "Lock" : "Unlock"}
+                            {e.active ? "Lock" : "Unlock"}
                           </button>
-                        ) : (
-                          ""
+
+                          
+                        )}
+
+{e.role === 1 && (
+                          <button
+                            onClick={() => handleRole(e)}
+                            className="bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 text-white flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                            aria-label="Edit"
+                          >
+                            {e.role ? "ADMIN" : "USER"}
+                          </button>
+
+                          
                         )}
                       </div>
                     </td>

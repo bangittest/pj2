@@ -15,65 +15,61 @@ export default function Description({ cartLength, setIsLoad }) {
 
   useEffect(() => {
     instance
-      .get(`/products/${id}`)
-      .then((response) => setProduct(response.data))
-      .catch((error) => console.log(error));
-  }, []);
-  // console.log(product);
+      .get(`/api/products/${id}`)
+      .then((response) => {
+        if (Array.isArray(response.data) && response.data.length > 0) {
+          setProduct(response.data[0]);
+        } else {
+          console.error("Không tìm thấy sản phẩm.");
+        }
+      })
+      .catch((error) => console.log("Lỗi khi lấy sản phẩm:", error));  // In lỗi nếu có
+  }, [id]);  // Thêm id vào dependency array để gọi lại khi id thay đổi
 
   const CartId = JSON.parse(localStorage.getItem("cartId"));
   const userLocal = JSON.parse(localStorage.getItem("userLocal"));
 
   const handleAddtoCart = async () => {
-    if (userLocal == null) {
+    if (!userLocal) {
       notification.warning({
         message: "Thất bại",
         description: "Vui lòng hãy đăng nhập",
       });
       navigate("/login");
-    } else if (userLocal) {
-      const cartUser = carts.cart;
-      const Index = cartUser.findIndex((pro) => pro.idProduct === product.id);
-      if (Index == -1) {
-        cartUser.push({ idProduct: product.id, quantity: 1 });
-        // console.log("them moi");
-        notification.success({
-          message: "Thành công",
-          description: `Bạn đã thêm sản phẩm vào giỏ hàng thành công`,
+    } else {
+      try {
+        const cartId = JSON.parse(localStorage.getItem("cartId"));
+        const res = await instance.post('/api/cart/add', {
+          cart_id: cartId,
+          product_id: product.id,
+          quantity: 1
         });
-      } else {
-        if (+cartUser[Index].quantity >= +product.quantity) {
-          // console.log("Qua so luong");
-          notification.error({
-            message: "Thất bại",
-            description: `Số lượng trong kho đã hết`,
-          });
-          return;
-        }
-        cartUser[Index].quantity += 1;
-        // console.log("+1");
+  
         notification.success({
           message: "Thành công",
-          description: `Bạn đã thêm sản phẩm vào giỏ hàng thành công`,
+          description: `Sản phẩm đã được thêm vào giỏ hàng`,
+        });
+        setIsLoad(prev => !prev); // Cập nhật lại giỏ hàng nếu cần
+      } catch (error) {
+        notification.error({
+          message: "Thất bại",
+          description: error.response?.data?.error || "Có lỗi xảy ra.",
         });
       }
-      await instance.put(`/carts/${CartId}`, { ...carts, cart: cartUser });
-      localStorage.setItem("carts", JSON.stringify(cartUser));
     }
-    setIsLoad((pre) => !pre);
   };
+  
 
   useEffect(() => {
     instance
-      .get(`/carts/${CartId}`)
+      .get(`/api/carts/${CartId}`)
       .then((response) => setCarts(response.data))
       .catch((error) => console.log(error));
-  }, []);
+  }, [CartId]);
 
   return (
     <>
       <Navbar cartLength={cartLength} />
-      {/* Breadcrumb Begin */}
       <div className="breadcrumb-option">
         <div className="container">
           <div className="row">
@@ -82,15 +78,12 @@ export default function Description({ cartLength, setIsLoad }) {
                 <Link to="/">
                   <i className="fa fa-home" /> Home
                 </Link>
-                {/* <a href="#">Women’s </a> */}
                 <span>Description</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {/* Breadcrumb End */}
-      {/* Product Details Section Begin */}
       <section className="product-details spad">
         <div className="container">
           <div className="justify-center row p-8 bg-gray-100 rounded-lg gap-20">
@@ -116,31 +109,24 @@ export default function Description({ cartLength, setIsLoad }) {
                   <i className="fa fa-star" /> <i className="fa fa-star" />{" "}
                   <i className="fa fa-star" /> <i className="fa fa-star" />{" "}
                   <i className="fa fa-star" />
-                  <span className="text-gray-500"></span>
                 </div>
                 <div className="product__details__price text-3xl font-semibold">
                   {formatMoney(product.price)}
                 </div>
 
-                <div className="product__details__text ">
+                <div className="product__details__text">
                   <h3 className="text-lg font-semibold">Xuất xứ</h3>
                 </div>
                 <p className="text-gray-600">{product.from}</p>
-                {/* <ul>
-                  <li>
-                    <span className="font-semibold">Khuyến mãi:</span>
-                    <p>Miễn phí ship</p>
-                  </li>
-                </ul> */}
-                {/* <div className="product__details__widget"></div> */}
-                <div className="product__details__text ">
+
+                <div className="product__details__text">
                   <h3 className="text-lg font-semibold">Mô tả</h3>
                 </div>
 
                 <p className="text-gray-600"> {product.description}...</p>
                 <div className="product__details__button mt-6">
                   <Link
-                    onClick={() => handleAddtoCart(product.id)}
+                    onClick={handleAddtoCart}
                     to="#"
                     className="cart-btn"
                   >
@@ -149,36 +135,10 @@ export default function Description({ cartLength, setIsLoad }) {
                 </div>
               </div>
             </div>
-
-            {/* <div className="col-lg-12">
-              <div className="product__details__tab ">
-                <ul className="nav nav-tabs" role="tablist">
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link"
-                      data-toggle="tab"
-                      to="#tabs-1"
-                      role="tab"
-                    >
-                      Mô tả
-                    </Link>
-                  </li>
-                </ul>
-                <div className="tab-content">
-                  <div className="tab-pane active" id="tabs-1" role="tabpanel">
-                    <h6 className="text-lg font-semibold mt-4">
-                      Mô tả chi tiết
-                    </h6>
-                    <p className="text-gray-600">{product.description}</p>
-                  </div>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
-
-      {/* Product Details Section End */}
+      
       <Footer />
     </>
   );

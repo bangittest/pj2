@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "admin@gmail.com",
-      "password": "$2a$10$B7cEU6AcFeKlO8DOGBVfqewT5.2HfsvrHtuVwxLnxOm2quuPOiRzm",
+      "password": "$2a$10$7FGoAWILUqgoqF3SrQD/me/Bl6ziPdLc0QC.ZZk7W5Tj/19TaQ2j2",
       "image": "https://static.thenounproject.com/png/5034901-200.png",
       "user_name": "admin",
       "dateOfBirthday": "2001-05-10",
@@ -103,6 +103,19 @@
       "cart": [],
       "active": false,
       "id": 14
+    },
+    {
+      "email": "banghanam022@gmail.com",
+      "password": "$2a$10$7FGoAWILUqgoqF3SrQD/me/Bl6ziPdLc0QC.ZZk7W5Tj/19TaQ2j2",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2FImage.png%20(1).jfif?alt=media&token=4971a7e8-a1dd-490c-a490-f54ef4580652",
+      "user_name": "Nguyen bang",
+      "dateOfBirthday": "2025-04-24",
+      "gender": 0,
+      "address": "",
+      "role": 1,
+      "cart": [],
+      "active": false,
+      "id": 15
     }
   ],
   "categories": [
@@ -160,6 +173,10 @@
       "userId": 14,
       "cart": [],
       "id": 7
+    },
+    {
+      "cart": [],
+      "id": 8
     }
   ],
   "orders": [
@@ -356,6 +373,37 @@
       "username": "bằng ",
       "address": "hà nam",
       "id": 9
+    },
+    {
+      "products": [
+        {
+          "product_name": "ĐẦM PHỐI ĐAI PHỤ KIỆN",
+          "price": "1690000",
+          "description": "ĐẦM KÈM DÂY ĐAI XÍCH NGẪU NHIÊN\n\n- Đầm 2 lớp chữ A dáng ngắn, eo chiết cao ôm nhẹ\n\n- Cổ tròn xếp ly to, vai chờm\n\n- Phù hợp diện đi làm, dự sự kiện\n\nLưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị qua mản hình máy tính/ điện thoại.\n\nThông tin mẫu:\n\nChiều cao: 168 cm\n\nCân nặng: 50 kg\n\nSố đo 3 vòng:80-62-95 cm",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2Fe45ff0dc761f7198a377e35273852a46.jpg?alt=media&token=4bc828bd-27f8-43f1-90c7-549a51a02191",
+          "quantity": 11,
+          "category_id": 1,
+          "id": 5
+        },
+        {
+          "product_name": "ĐẦM XẾP CỔ CHỮ V",
+          "price": "1890000",
+          "description": "Đầm lụa dáng ôm, cổ V kiểu chéo, dáng tay phồng vải xếp. Eo chiết. Tùng dài ngang gối với thiết kế nhún vải dọc chân và xẻ tà 1 bên tạo điểm nhấn. Cài khóa kéo ẩn sau lưng.\n\nThiết kế thực sự ấn tượng và đem lại cảm giác sang trọng và khoe trọn 3 vòng hiệu quả. Diện mẫu đầm này nàng sẽ trở thành quý cô sành điệu trong mọi buổi tiệc, cũng như nổi bật hơn trong mọi cuộc gặp gỡ đấy.\n\nThông tin mẫu:\n\nChiều cao: 169 cm\n\nCân nặng: 48 kg\n\nSố đo 3 vòng:80-60-90 cm\n\nMẫu mặc size S",
+          "from": "Việt Nam",
+          "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F34ec9d857b361cd4ecb23391e970754c.jpg?alt=media&token=17965fdb-545b-4b2b-8113-5b10a9e1795e",
+          "quantity": 8,
+          "category_id": 1,
+          "id": 6
+        }
+      ],
+      "userId": 15,
+      "date": "24/04/2025, 20:53:13",
+      "total": 33710000,
+      "status": 1,
+      "username": "Nguyen bang",
+      "address": "Nguyen bang",
+      "id": 10
     }
   ],
   "products": [
@@ -666,17 +714,35 @@
       "from": "Việt Nam",
       "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2F83b604fb7fb37d0acd3f214adf8024d9.jpg?alt=media&token=e569a5e2-223e-4364-bec2-703d85e36632",
       "quantity": 2,
-      "category_id": 4,
+      "category_id": "2",
       "id": 31
+    },
+    {
+      "product_name": "máy tính",
+      "price": "1111",
+      "description": "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+      "from": "Trung quốc",
+      "image": "https://firebasestorage.googleapis.com/v0/b/fir-login-with-cdc7d.appspot.com/o/images%2FScreenshot%202024-11-18%20111444.png?alt=media&token=8fdc6945-b6b4-49e7-bb78-7cef0e23ff11",
+      "quantity": 11,
+      "category_id": 2,
+      "id": 32
     }
   ],
   "slider": [
-    {
+    // {
+    //   "id": 1,
+    //   "image": "https://pubcdn.ivymoda.com/files/news/2023/09/08/4fc7664285a1fa2ba47f9671afe955d9.jpg",
+    //   "title": "",
+    //   "description": ""
+    // },
+    
+      {
       "id": 1,
-      "image": "https://pubcdn.ivymoda.com/files/news/2023/09/08/4fc7664285a1fa2ba47f9671afe955d9.jpg",
+      "image": "https://lyramodest.com/cdn/shop/files/SS25_DESKTOP_BANNER_3.jpg?v=1745578953&width=2000",
       "title": "",
       "description": ""
-    },
+    }
+    ,
     {
       "id": 2,
       "image": "https://pubcdn.ivymoda.com/files/news/2023/09/18/763adf6054c6f80388f529ab509315d4.jpg",

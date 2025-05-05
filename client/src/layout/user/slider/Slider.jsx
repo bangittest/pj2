@@ -68,7 +68,7 @@ export default function Slider() {
 
   useEffect(() => {
     instance
-      .get("/slider")
+      .get("api/slider")
       .then((response) => setSlider(response.data))
       .catch((error) => console.log(error));
   }, []);

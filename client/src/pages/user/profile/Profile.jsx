@@ -240,7 +240,6 @@ export default function Profile() {
 
                     <div className="flex justify-between text-right">
                       <div className="px-5 py-2 underline">
-                        <Link to="/">q</Link>
                         <Link to="/admin">Quay lại</Link>
                       </div>
                       <div>

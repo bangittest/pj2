@@ -13,10 +13,13 @@ export default function Login() {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const getCarts = async () => {
-    const response = await instance.get(`/carts`);
+  const getCarts = async (idUser) => {
+    const response = await instance.get(`api/cart/cart`, {
+      params: { idUser }
+    });    
     return response.data;
   };
+  
 
   const isEmailValid = validateEmail;
 
@@ -82,47 +85,53 @@ export default function Login() {
       };
       // Gọi API đăng nhập
       instance
-        .post("/login", newUser)
+        .post("api/login", newUser)
         .then((response) => {
+
+          if (response.data.user.active === 0) {
+            notification.error({
+              message: "Tài khoản bị khóa",
+              description: "Tài khoản của bạn đã bị khóa. Vui lòng liên hệ quản trị viên.",
+            });
+            return; // Dừng tiếp tục các bước tiếp theo nếu tài khoản bị khóa
+          }
           if (response.data.user.banned == true) {
             setAlertBan(true);
             return;
           }
           notification.success({
-            message: "Thành công",
-            description: "Đăng nhập thành công",
+            message: "Đăng nhập thành công",
+              description: `Chào mừng bạn quay trở lại!`
           });
           localStorage.setItem("userLocal", JSON.stringify(response.data.user));
           return response.data.user;
         })
         .then(async (user) => {
-          // Kiểm tra nếu người dùng đã có giỏ hàng
-          const carts = await getCarts();
-          const cartUser = carts.find((cart) => cart.userId == user.id);
-
-          // Xóa dữ liệu giỏ hàng từ localStorage trước khi thêm mới
-          localStorage.removeItem("carts");
-          localStorage.removeItem("cartId");
-
-          if (!cartUser) {
-            // Nếu chưa có, tạo một giỏ hàng mới và thêm sản phẩm vào đó
-            const res = await instance.post(`/carts`, {
-              userId: user.id,
-              cart: [],
-            });
-
-            // Lưu cartId mới vào localStorage
-            localStorage.setItem("cartId", JSON.stringify(res.data.id));
+          if (!user) return;
+        
+          const cart = await getCarts(user.id);
+          console.log("CARTS:", cart); // kiểm tra thật sự nó là mảng hay object
+        
+          if (cart && cart.id) {
+            localStorage.setItem("cartId", JSON.stringify(cart.id));
           } else {
-            // Nếu đã có, thêm sản phẩm vào giỏ hàng hiện có
-
-            // Lưu cartId hiện tại vào localStorage
-            localStorage.setItem("cartId", JSON.stringify(cartUser.id));
+            // Chưa có → tạo
+            try {
+              const res = await instance.post("api/cart/create", {
+                user_id: user.id,
+              });
+          
+              if (res?.data?.id) {
+                localStorage.setItem("cartId", JSON.stringify(res.data.id));
+              }
+            } catch (err) {
+              console.warn("Không thể tạo giỏ hàng. Có thể đã tồn tại.");
+            }
           }
-
           return user;
-        })
+        })        
         .then((user) => {
+          
           if (user.role == 0) {
             navigate("/admin");
           } else {
@@ -130,20 +139,25 @@ export default function Login() {
           }
         })
         .catch((error) => {
-          if (
-            error.response.data === "Incorrect password" ||
-            error.response.data === "Cannot find user" ||
-            error.response.data === "Password is too short"
-          ) {
+          const message = error?.response?.data?.error;
+    
+          if (message) {
             notification.error({
-              message: "Cảnh báo",
-              description: "Mật khẩu hoặc Email không chính xác",
+              message: "Đăng nhập thất bại",
+              description: message,
+            });
+          } else {
+            notification.error({
+              message: "Lỗi không xác định",
+              description: "Có lỗi xảy ra trong quá trình đăng nhập. Vui lòng thử lại.",
             });
           }
-          console.log(error);
+    
+          console.error("❌ Lỗi đăng nhập:", error);
         });
-    }
-  };
+    };
+  }
+    
   //dang nhap voi google
   // const signInWithGoogle = () => {
   //   signInWithPopup(auth, provider)

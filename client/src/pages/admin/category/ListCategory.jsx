@@ -1,86 +1,111 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Button, Form, Input, Modal, Pagination } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addCategory,
-  deleteCategory,
-  getCategory,
-  updateCatagory,
-} from "../../../redux/slice/categorySlice";
+import React, { useEffect, useState } from "react";
+import { Button, Form, Input, Modal, Pagination, message } from "antd";
+import axios from "axios";
 import Loading from "../../../components/base/loading/Loading";
 import Search from "antd/es/input/Search";
 
 export default function ListCategory() {
-  const dispatch = useDispatch();
   const [seachtext, setSeachText] = useState("");
-  useEffect(() => {
-    dispatch(getCategory(seachtext));
-  }, [seachtext]);
-  const categories = useSelector((state) => state.categories.data);
-
-  const isLoadingChange = useSelector(
-    (state) => state.categories.isLoadingChange
-  );
-
-  // add + update
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingChange, setIsLoadingChange] = useState(false);
+  
+  // Modal state
   const [formRef] = Form.useForm();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const [categoryUpdate, setCatagoryUpdate] = useState({});
+  
+  // Modal Delete state
+  const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
+  const [idDelete, setIdDelete] = useState();
+
+
+  
+  // Fetch categories from backend
+  const fetchCategories = async (search = "") => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get("http://localhost:4000/api/categories", {
+        params: { category_name_like: search },
+      });
+      setCategories(response.data);
+    } catch (error) {
+      console.error("Lỗi khi lấy danh mục:", error);
+      message.error("Không thể lấy danh mục.");
+    }
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    fetchCategories(seachtext);
+  }, [seachtext]);
 
   const handleShowModal = (cate) => {
     setCatagoryUpdate(cate);
     formRef.setFieldsValue(cate);
     setIsModalOpen(true);
   };
-  const handleOk = () => {
-    setCatagoryUpdate();
-    setIsModalOpen(false);
-  };
+
   const handleCancel = () => {
-    setCatagoryUpdate();
+    setCatagoryUpdate({});
     setIsModalOpen(false);
     formRef.resetFields();
   };
-  const onFinish = (values) => {
-    if (categoryUpdate && categoryUpdate.id) {
-      dispatch(
-        updateCatagory({
-          ...values,
-          id: categoryUpdate.id,
-        })
-      );
-      formRef.resetFields();
-      handleCancel();
-      return;
+
+  const onFinish = async (values) => {
+    setIsLoadingChange(true);
+    try {
+        if (categoryUpdate && categoryUpdate.id) {
+            // Cập nhật danh mục
+            const response = await axios.put(`http://localhost:4000/api/categories/${categoryUpdate.id}`, { name: values.category_name });
+            console.log("Cập nhật thành công:", response.data);
+            fetchCategories(seachtext);  // Fetch lại danh mục sau khi cập nhật
+        } else {
+            // Thêm mới danh mục
+            const response = await axios.post("http://localhost:4000/api/categories", { name: values.category_name });
+            console.log("Thêm danh mục mới thành công:", response.data);
+            fetchCategories(seachtext);  // Fetch lại danh mục sau khi thêm mới
+        }
+        formRef.resetFields();
+        handleCancel();
+    } catch (error) {
+        console.error("Lỗi khi thêm hoặc cập nhật danh mục:", error);
+        // Nếu error.response có dữ liệu, nghĩa là backend trả lỗi
+        if (error.response && error.response.data) {
+            message.error(`Lỗi: ${error.response.data.message || 'Có lỗi xảy ra!'}`);
+        } else {
+            message.error("Không thể kết nối tới server.");
+        }
     }
+    setIsLoadingChange(false);
+};
 
-    dispatch(addCategory(values));
-    formRef.resetFields();
-    handleCancel();
-  };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
-  // =================
-  //===========================================================
+  
 
-  const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
-  const [idDelete, setIdDelete] = useState();
   const handleShowModalDelete = (id) => {
     setIdDelete(id);
     setIsModalOpenDelete(true);
   };
-  const handleOkDelete = () => {
-    dispatch(deleteCategory(idDelete));
-    setIdDelete();
-    setIsModalOpenDelete(false);
-  };
+
   const handleCancelDelete = () => {
     setIdDelete();
     setIsModalOpenDelete(false);
   };
 
+  const handleOkDelete = async () => {
+    setIsLoadingChange(true);
+    try {
+      await axios.delete(`http://localhost:4000/api/categories/${idDelete}`);
+      fetchCategories(seachtext);
+    } catch (error) {
+      console.error("Lỗi khi xóa danh mục:", error);
+      message.error("Không thể xóa danh mục.");
+    }
+    setIsLoadingChange(false);
+    setIsModalOpenDelete(false);
+  };
+
+  // Pagination logic
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 5;
   const totalCategories = categories.length;
@@ -96,9 +121,6 @@ export default function ListCategory() {
     setCurrentPage(page);
   };
 
-  useEffect(() => {
-    dispatch(getCategory());
-  }, [isLoadingChange]);
 
   return (
     <>
@@ -106,48 +128,26 @@ export default function ListCategory() {
         title="Danh mục"
         maskClosable={false}
         open={isModalOpen}
-        onOk={handleOk}
+        onOk={handleOkDelete}
         onCancel={handleCancel}
         footer={<></>}
       >
         <Form
           name="basic"
           form={formRef}
-          labelCol={{
-            span: 8,
-          }}
-          wrapperCol={{
-            span: 16,
-          }}
-          style={{
-            maxWidth: 600,
-          }}
-          initialValues={{
-            remember: true,
-          }}
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          style={{ maxWidth: 600 }}
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
         >
           <Form.Item
             label="Tên danh mục"
             name="category_name"
-            rules={[
-              {
-                required: true,
-                message: "Vui lòng nhập sản phẩm!",
-              },
-            ]}
+            rules={[{ required: true, message: "Vui lòng nhập tên danh mục!" }]}
           >
             <Input />
           </Form.Item>
-
-          <Form.Item
-            wrapperCol={{
-              offset: 8,
-              span: 16,
-            }}
-          >
+          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit">
               Lưu
             </Button>
@@ -156,7 +156,7 @@ export default function ListCategory() {
       </Modal>
 
       <Modal
-        title=""
+        title="Xóa danh mục"
         open={isModalOpenDelete}
         onOk={handleOkDelete}
         onCancel={handleCancelDelete}
@@ -164,11 +164,13 @@ export default function ListCategory() {
         <p>Bạn có chắc chắn muốn xóa?</p>
       </Modal>
 
-      {isLoadingChange && <Loading />}
+      {isLoading || isLoadingChange ? <Loading /> : null}
+
       <div className="container px-6 mx-auto grid">
         <h4 className="font-sans text-center mb-2 mt-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
           QUẢN LÝ DANH MỤC
         </h4>
+
         <div className="flex justify-between z-0">
           <div className="mb-2">
             <Button
@@ -182,35 +184,35 @@ export default function ListCategory() {
             <Search
               value={seachtext}
               onChange={(e) => setSeachText(e.target.value)}
-              className=""
               style={{ width: 200 }}
-              placeholder="tìm kiếm"
+              placeholder="Tìm kiếm"
             />
           </div>
         </div>
+
         <div className="w-full overflow-hidden rounded-lg shadow-xs">
           <div className="w-full overflow-x-auto">
             <table className="border w-full whitespace-no-wrap">
               <thead>
                 <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                  <th className="border p-2 text-center" title="Số thứ tự">
-                    STT
-                  </th>
+                  <th className="border p-2 text-center">STT</th>
                   <th className="border p-2 text-center">Tên danh mục</th>
-                  <th className="border p-2 text-center">Hàng động</th>
+                  <th className="border p-2 text-center">Status</th>
+                  <th className="border p-2 text-center">Hành động</th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+              <tbody>
                 {currentCategories.map((e, index) => (
-                  <tr key={index} className="text-gray-700 dark:text-gray-400">
-                    <td className="border p-2 text-center text-sm">{e.id}</td>
-
-                    <td className="border p-2 text-center text-sm">
-                      {e.category_name}
+                  <tr key={index}>
+                    <td className="border p-2 text-center">{e.id}</td>
+                    <td className="border p-2 text-center">{e.category_name}</td>
+                    <td className="border p-2 text-center">
+                        {e.status === 1 ? "Đang hoạt động" : "Không hoạt động"}
                     </td>
                     <td className="border p-2 text-center">
-                      <div className="flex justify-center items-center space-x-4 text-sm">
-                        <button
+                
+                    <div className="flex justify-center items-center space-x-4 text-sm">
+                    <button
                           onClick={() => handleShowModal(e)}
                           className="bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 text-white flex items-center justify-between px-2 py-2 text-sm font-medium leading-5  rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                           aria-label="Edit"
@@ -224,7 +226,7 @@ export default function ListCategory() {
                             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                           </svg>
                         </button>
-                        <button
+                      <button
                           onClick={() => handleShowModalDelete(e.id)}
                           className="bg-red-500 hover:bg-red-600 active:bg-red-700 text-white  flex items-center justify-between px-2 py-2 text-sm font-medium leading-5  rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                           aria-label="Delete"
@@ -242,7 +244,7 @@ export default function ListCategory() {
                             />
                           </svg>
                         </button>
-                      </div>
+                        </div>
                     </td>
                   </tr>
                 ))}
@@ -251,6 +253,7 @@ export default function ListCategory() {
           </div>
         </div>
       </div>
+
       <Pagination
         className="absolute right-0 bottom-0"
         current={currentPage}
@@ -261,3 +264,6 @@ export default function ListCategory() {
     </>
   );
 }
+
+
+

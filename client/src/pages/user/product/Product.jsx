@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { instance } from "../../../api/axios";
 import { formattedAmount } from "../../../utils/fomatMoney";
 import Loading from "../../../components/base/loading/Loading";
@@ -19,7 +20,7 @@ export default function Product({ setIsLoad }) {
 
   useEffect(() => {
     instance
-      .get("/categories")
+      .get("/api/categories")
       .then((response) => {
         // console.log(response.data);
         setCatagories(response.data);
@@ -36,24 +37,48 @@ export default function Product({ setIsLoad }) {
 
   //gọi API lấy tất cả thông tin sản phẩm
 
-  const loadDataProduct = async () => {
-    setLoading(true);
-    await instance
-      .get("/products")
-      .then((response) => {
-        if (categoryId === 0) {
-          setProducts(response.data);
-        } else {
-          const listProduct = response.data.filter(
-            (product) => Number(product.category_id) === categoryId
-          );
+  // const loadDataProduct = async () => {
+  //   setLoading(true);
+  //   await instance
+  //     .get("/products")
+  //     .then((response) => {
+  //       if (categoryId === 0) {
+  //         setProducts(response.data);
+  //       } else {
+  //         const listProduct = response.data.filter(
+  //           (product) => Number(product.category_id) === categoryId
+  //         );
 
-          setProducts(listProduct);
-        }
-      })
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
-  };
+  //         setProducts(listProduct);
+  //       }
+  //     })
+  //     .catch((error) => console.log(error))
+  //     .finally(() => setLoading(false));
+  // };
+
+  const loadDataProduct = async () => {
+      setLoading(true);
+    
+      try {
+        const res = await axios.get("http://localhost:4000/api/products", {
+        
+        });
+    
+        let data = res.data;
+        // console.log("aaaaaaaaaaaaaaaaa" +data);
+    
+        // Nếu có categoryId và khác 0, lọc sản phẩm theo category
+        setProducts(data);
+      } catch (err) {
+        console.error("Lỗi khi lấy sản phẩm:", err);
+        notification.error({
+          message: "Lỗi",
+          description: "Không thể lấy sản phẩm!",
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
 
   const CartId = JSON.parse(localStorage.getItem("cartId"));
   const userLocal = JSON.parse(localStorage.getItem("userLocal"));
@@ -136,25 +161,7 @@ export default function Product({ setIsLoad }) {
                   <h4>Sản phẩm mới nhất</h4>
                 </div>
               </div>
-              <div className="col-lg-8 col-md-8">
-                <ul className="filter__controls">
-                  <li
-                    onClick={() => setCategoryId(0)}
-                    className={categoryId === 0 ? "active" : {}}
-                  >
-                    Tất cả sản phẩm
-                  </li>
-                  {catagories.map((cat, index) => (
-                    <li
-                      onClick={() => getCategoryId(cat.id)}
-                      key={index}
-                      className={categoryId === cat.id ? "active" : {}}
-                    >
-                      {cat.category_name}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              
             </div>
             <div className="row property__gallery">
               {products.map((product, index) => (
@@ -171,7 +178,7 @@ export default function Product({ setIsLoad }) {
                       />
                       <div className="label new">New</div>
                       <ul className="product__hover">
-                        <li>
+                        {/* <li>
                           <Link to="#" className="image-popup">
                             <span className="arrow_expand" />
                           </Link>
@@ -188,12 +195,12 @@ export default function Product({ setIsLoad }) {
                           <a>
                             <span className="icon_bag_alt" />
                           </a>
-                        </li>
+                        </li> */}
                       </ul>
                     </div>
-                    <div className="product__item__text">
+                    <div className="product__item__text text-left">
                       <h6>
-                        <Link to={`/product/${product.id}`}>
+                        <Link to={`product/${product.id}`}>
                           {product.product_name}
                         </Link>
                       </h6>
