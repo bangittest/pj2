@@ -352,6 +352,7 @@ export default function ListProductManager() {
                 <th className="p-2 border text-center">Giá</th>
                 <th className="p-2 border text-center">Phân loại</th>
                 <th className="p-2 border text-center">Mô tả</th>
+                <th className="p-2 border text-center">Đặc điểm kĩ thuật</th>
                 <th className="p-2 border text-center">Xuất xứ</th>
                 <th className="p-2 border text-center">Số lượng</th>
                 <th className="p-2 border text-center">Hành động</th>
@@ -367,7 +368,8 @@ export default function ListProductManager() {
                   <td className="p-2 border text-center">{pro.product_name}</td>
                   <td className="p-2 border text-center">{formatMoney(pro.price)}</td>
                   <td className="p-2 border text-center">{pro.category_id}</td>
-                  <td className="p-2 border text-center">{pro.description.slice(0, 20)}...</td>
+                  <td className="p-2 border text-center">{pro.description?.length > 20 ? pro.description.slice(0, 20) + "..." : pro.description}</td>
+                  <td className="p-2 border text-center">{pro.specification?.length > 20 ? pro.specification.slice(0, 20) + "..." : pro.specification}</td>
                   <td className="p-2 border text-center">{pro.from}</td>
                   <td className="p-2 border text-center">{pro.quantity}</td>
                   <td className="p-2 border text-center flex justify-center gap-2">

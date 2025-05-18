@@ -29,7 +29,7 @@ exports.createCart = async (req, res) => {
   exports.getCartByUser = async (req, res) => {
     try {
       const { idUser } = req.query;
-      const cart = await Cart.getCartByUser(idUser);
+      const cart = await Cart.getCartByUsers(idUser);
   
     //   if (!cart) {
     //     return res.status(404).json({ message: 'Không tìm thấy giỏ hàng cho người dùng này' });

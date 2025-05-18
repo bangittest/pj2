@@ -109,6 +109,58 @@ const Users = {
     } catch (err) {
       throw new Error('Error inserting user: ' + err.message);
     }
+  },
+  getUserById: async (id) => {
+    const [rows] = await db.query('SELECT * FROM user WHERE id = ?', [id]);
+    return rows[0];
+  },
+  
+  // ✅ Update user (không update email và password)
+  updateUser: async (email, data) => {
+    const {
+      image,
+      user_name,
+      dateOfBirthday,
+      address,
+    } = data;
+  
+    const query = `
+      UPDATE user SET 
+        image = ?, 
+        user_name = ?, 
+        dateOfBirthday = ?, 
+        address = ?
+      WHERE email = ?
+    `;
+  
+    const [result] = await db.query(query, [
+      image,
+      user_name,
+      dateOfBirthday,
+      address,
+      email,
+    ]);
+  
+    return result;
+  },
+  changePassword: async (email, oldPassword, newPassword) => {
+    // Lấy mật khẩu hiện tại từ DB
+    const [rows] = await db.query('SELECT password FROM user WHERE email = ?', [email]);
+
+    if (rows.length === 0) {
+      throw new Error('Người dùng không tồn tại');
+    }
+
+    const currentPassword = rows[0].password;
+
+    // So sánh trực tiếp mật khẩu (plain text)
+    if (currentPassword !== oldPassword) {
+      return false; // Mật khẩu cũ không đúng
+    }
+
+    // Cập nhật mật khẩu mới
+    await db.query('UPDATE user SET password = ? WHERE email = ?', [newPassword, email]);
+    return true;
   }
 };
 

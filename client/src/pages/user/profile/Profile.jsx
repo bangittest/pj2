@@ -20,6 +20,12 @@ export default function Profile() {
 
     // Các trường thông tin khác
   });
+  // const userLocal = JSON.parse(localStorage.getItem("userLocal"));
+  // console.log(userLocal);
+  
+  // const role = userLocal?.role; 
+
+  // const redirectPath = role == 0 ? "/admin" : "/";
 
   // Tạo một tham chiếu đến thư mục chứa hình ảnh trên Firebase
   const imageListRef = ref(storage, "images/");
@@ -84,12 +90,19 @@ export default function Profile() {
       user_name: userData.user_name,
       dateOfBirthday: userData.dateOfBirthday,
       address: userData.address,
+      role:userData.role
+
     };
+
+
     localStorage.setItem("userLocal", JSON.stringify(newUser));
     setLoading(true);
+ 
+  
+    
     await instance
 
-      .put(`/users/${userData.id}`, newUser) // Thêm userData vào yêu cầu PUT
+      .put(`/api/users/update/${userData.email}`, newUser) // Thêm userData vào yêu cầu PUT
       .then((response) => console.log(response.data))
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
@@ -239,9 +252,12 @@ export default function Profile() {
                     </div>
 
                     <div className="flex justify-between text-right">
-                      <div className="px-5 py-2 underline">
-                        <Link to="/admin">Quay lại</Link>
-                      </div>
+                    <div className="px-5 py-2 underline">
+  <Link to="/">Quay lại</Link>
+</div>
+
+
+
                       <div>
                         <button
                           type="submit"

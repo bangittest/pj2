@@ -112,20 +112,22 @@ export default function Login() {
           const cart = await getCarts(user.id);
           console.log("CARTS:", cart); // kiểm tra thật sự nó là mảng hay object
         
-          if (cart && cart.id) {
-            localStorage.setItem("cartId", JSON.stringify(cart.id));
-          } else {
-            // Chưa có → tạo
-            try {
-              const res = await instance.post("api/cart/create", {
-                user_id: user.id,
-              });
-          
-              if (res?.data?.id) {
-                localStorage.setItem("cartId", JSON.stringify(res.data.id));
+          if(user==1){
+            if (cart && cart.id) {
+              localStorage.setItem("cartId", JSON.stringify(cart.id));
+            } else {
+              // Chưa có → tạo
+              try {
+                const res = await instance.post("api/cart/create", {
+                  user_id: user.id,
+                });
+            
+                if (res?.data?.id) {
+                  localStorage.setItem("cartId", JSON.stringify(res.data.id));
+                }
+              } catch (err) {
+                console.warn("Không thể tạo giỏ hàng. Có thể đã tồn tại.");
               }
-            } catch (err) {
-              console.warn("Không thể tạo giỏ hàng. Có thể đã tồn tại.");
             }
           }
           return user;
@@ -133,6 +135,7 @@ export default function Login() {
         .then((user) => {
           
           if (user.role == 0) {
+            localStorage.setItem("userLocal", JSON.stringify(user));
             navigate("/admin");
           } else {
             navigate("/");

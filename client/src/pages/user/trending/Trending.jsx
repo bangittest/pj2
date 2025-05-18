@@ -13,7 +13,7 @@ export default function Trending() {
 
   const loadDataProduct = () => {
     instance
-      .get("/products")
+      .get("api/products")
       .then((response) => {
         setProducts(response.data);
       })

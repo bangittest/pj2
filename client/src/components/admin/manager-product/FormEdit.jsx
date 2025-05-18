@@ -282,6 +282,7 @@ export default function FormEdit({ handleCloseEdit, idEdit, fetchProducts }) {
     product_name: "",
     price: 0,
     description: "",
+    specification: "",
     from: "",
     image: "",
     quantity: 0,
@@ -395,7 +396,7 @@ const handleSubmit = async (e) => {
         <form className="form-container" onSubmit={handleSubmit}>
           <h3 className="text-center font-bold mb-4">CẬP NHẬT SẢN PHẨM</h3>
 
-          <div className="mb-3 text-start">
+          <div className="mb-2 text-start">
             <label className="form-label">Tên sản phẩm</label>
             <Input
               value={product.product_name}
@@ -406,7 +407,7 @@ const handleSubmit = async (e) => {
           </div>
 
           <div className="flex gap-5">
-            <div className="mb-3 text-start">
+            <div className="mb-2 text-start">
               <label className="form-label">Giá tiền</label>
               <Input
                 value={product.price}
@@ -416,7 +417,7 @@ const handleSubmit = async (e) => {
                 min={0}
               />
             </div>
-            <div className="mb-3 text-start">
+            <div className="mb-2 text-start">
               <label className="form-label">Số lượng</label>
               <Input
                 value={product.quantity}
@@ -429,7 +430,7 @@ const handleSubmit = async (e) => {
           </div>
 
           <div className="flex gap-5">
-            <div className="mb-3 text-start">
+            <div className="mb-2 text-start">
               <label className="form-label">Phân loại</label>
               <select
                 className="w-full bg-white border rounded px-3 py-1.5 focus:outline-none"
@@ -445,7 +446,7 @@ const handleSubmit = async (e) => {
               </select>
             </div>
 
-            <div className="mb-3 text-start">
+            <div className="mb-2 text-start">
               <label className="form-label">Xuất xứ</label>
               <Input
                 value={product.from}
@@ -456,14 +457,14 @@ const handleSubmit = async (e) => {
             </div>
           </div>
 
-          <div className="mb-3 text-start">
+          <div className="mb-2 text-start">
             <label className="form-label">Hình ảnh</label>
             <div className="image-preview">
               <img
                 src={linkImage || "https://via.placeholder.com/100"}
                 alt="preview"
-                width={100}
-                height={100}
+                width={60}
+                height={60}
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -478,12 +479,22 @@ const handleSubmit = async (e) => {
             </label>
           </div>
 
-          <div className="mb-3 text-start">
+          <div className="mb-2 text-start">
             <label className="form-label">Mô tả</label>
             <TextArea
               value={product.description}
               onChange={handleChange}
               name="description"
+              rows={4}
+            />
+          </div>
+
+          <div className="mb-2 text-start">
+            <label className="form-label">Đặc điểm kỹ thuật</label>
+            <TextArea
+              value={product.specification}
+              onChange={handleChange}
+              name="specification"
               rows={4}
             />
           </div>

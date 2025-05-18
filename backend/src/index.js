@@ -11,6 +11,7 @@ const sliderRoute = require('./routes/sliderRoute');
 const cartRoutes = require('./routes/cartRoute');
 const cartItemRoutes = require('./routes/cartItemRoute');
 const OrderRoutes = require('./routes/orderRoute');
+const ReviewRoutes = require('./routes/reviewRoutes');
 
 app.use(cors());
 app.use(express.json());
@@ -24,6 +25,7 @@ app.use('/api/slider', sliderRoute);
 app.use('/api/cart', cartRoutes);
 app.use('/api/cart-item', cartItemRoutes);
 app.use('/api/order', OrderRoutes);
+app.use('/api/review', ReviewRoutes);
 
 // Chạy server
 const PORT = process.env.PORT || 4000;

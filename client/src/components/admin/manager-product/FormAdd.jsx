@@ -301,6 +301,7 @@ export default function FormAdd({ handleCloseForm , fetchProducts}) {
     product_name: "",
     price: 0,
     description: "",
+    specification:"",
     from: "",
     image: "",
     quantity: 0,
@@ -331,6 +332,7 @@ export default function FormAdd({ handleCloseForm , fetchProducts}) {
       product_name: product.product_name,
       price: product.price,
       description: product.description,
+      specification: product.specification,
       from: product.from,
       image: imageURL,
       quantity: product.quantity,
@@ -454,6 +456,18 @@ export default function FormAdd({ handleCloseForm , fetchProducts}) {
               onChange={handleChange}
               name="description"
               id="description"
+              rows="2"
+            />
+          </div>
+
+          <div className="mb-3 text-start">
+            <label htmlFor="specification" className="form-label">
+            Đặc điểm kỹ thuật
+            </label>
+            <TextArea
+              onChange={handleChange}
+              name="specification"
+              id="specification"
               rows="2"
             />
           </div>

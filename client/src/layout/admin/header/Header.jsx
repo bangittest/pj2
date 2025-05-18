@@ -39,24 +39,24 @@ export default function Header() {
   };
 
   const items = [
-    {
-      key: "1",
-      label: (
-        <Link to={"/profile"}>
-          <UserAddOutlined className=" mr-2" />
-          Thông tin cá nhân
-        </Link>
-      ),
-    },
-    {
-      key: "2",
-      label: (
-        <Link to={"/change-password"}>
-          <KeyOutlined className=" mr-2" />
-          Đổi mật khẩu
-        </Link>
-      ),
-    },
+    // {
+    //   key: "1",
+    //   label: (
+    //     <Link to={"/profile"}>
+    //       <UserAddOutlined className=" mr-2" />
+    //       Thông tin cá nhân
+    //     </Link>
+    //   ),
+    // },
+    // {
+    //   key: "2",
+    //   label: (
+    //     <Link to={"/change-password"}>
+    //       <KeyOutlined className=" mr-2" />
+    //       Đổi mật khẩu
+    //     </Link>
+    //   ),
+    // },
     {
       key: "3",
       label: (

@@ -300,6 +300,7 @@ export default function ListProduct({ cartLength, setIsLoad }) {
                   </div>
                 </div>
               </div>
+             
               <div className="col-lg-9 col-md-9">
                 <div className="section-title">
                   <h4>CÁC LOẠI SẢN PHẨM</h4>

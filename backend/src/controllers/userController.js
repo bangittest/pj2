@@ -102,4 +102,71 @@ exports.createUser = async (req, res) => {
   };
 
 
+  exports.getUserById = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const user = await User.getUserById(id);
+  
+      if (!user) {
+        return res.status(404).json({ message: 'Không tìm thấy người dùng' });
+      }
+  
+      res.json(user);
+    } catch (err) {
+      console.error('Lỗi lấy người dùng:', err.message);
+      res.status(500).json({ message: 'Lỗi server' });
+    }
+  };
+
+  exports.updateUser = async (req, res) => {
+    try {
+      const { email } = req.params;
+      const {
+        image,
+        user_name,
+        dateOfBirthday,
+        address
+      } = req.body;
+  
+      const updatedUser = {
+        image,
+        user_name,
+        dateOfBirthday,
+        address
+      };
+  
+      const result = await User.updateUser(email, updatedUser);
+      res.json({ message: 'Cập nhật người dùng thành công', result });
+    } catch (err) {
+      console.error('Lỗi cập nhật người dùng:', err.message);
+      res.status(500).json({ message: 'Lỗi server' });
+    }
+  };
+  exports.changePassword = async (req, res) => {
+    try {
+      const { email } = req.params;
+      const { oldPassword, newPassword, confirmPassword } = req.body;
+  
+      if (!oldPassword || !newPassword || !confirmPassword) {
+        return res.status(400).json({ message: "Vui lòng nhập đầy đủ thông tin" });
+      }
+  
+      if (newPassword !== confirmPassword) {
+        return res.status(400).json({ message: "Mật khẩu xác nhận không khớp" });
+      }
+  
+      const success = await User.changePassword(email, oldPassword, newPassword);
+  
+      if (!success) {
+        return res.status(400).json({ message: "Mật khẩu cũ không đúng" });
+      }
+  
+      res.json({ message: "Đổi mật khẩu thành công" });
+    } catch (err) {
+      console.error("Lỗi đổi mật khẩu:", err.message);
+      res.status(500).json({ message: "Lỗi server" });
+    }
+  };
+
+
   

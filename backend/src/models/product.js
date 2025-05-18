@@ -32,12 +32,13 @@ const Product = {
       from,
       image,
       quantity,
-      category_id
+      category_id,
+      specification
     } = data;
 
     const [result] = await db.query(
-      'INSERT INTO products (product_name, price, description, `from`, image, quantity, category_id) VALUES (?, ?, ?, ?, ?, ?, ?)',
-      [product_name, price, description, from, image, quantity, category_id]
+      'INSERT INTO products (product_name, price, description, `from`, image, quantity, category_id,specification) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+      [product_name, price, description, from, image, quantity, category_id, specification]
     );
 
     return { id: result.insertId, ...data };
@@ -51,12 +52,13 @@ const Product = {
       from,
       image,
       quantity,
-      category_id
+      category_id,
+      specification
     } = data;
 
     await db.query(
-      'UPDATE products SET product_name = ?, price = ?, description = ?, `from` = ?, image = ?, quantity = ?, category_id = ? WHERE id = ?',
-      [product_name, price, description, from, image, quantity, category_id, id]
+      'UPDATE products SET product_name = ?, price = ?, description = ?, `from` = ?, image = ?, quantity = ?, category_id = ?, specification = ? WHERE id = ?',
+      [product_name, price, description, from, image, quantity, category_id, specification, id]
     );
 
     return { id, ...data };
